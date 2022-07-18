@@ -1,0 +1,76 @@
+header {
+    outline: 1px solid black; //Neil green --> black
+
+    h1 {
+        color: blue;
+        font-size: 12px;
+    }
+
+    nav {
+        margin-left: 12px;
+    }
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 1px solid black;
+
+    section.calendar {
+        #calendar {
+            width: 700px;
+            outline: 1px solid red;
+            border-collapse: collapse;
+            background-color: pink;
+            thead {
+                tr{
+                    .arrow {
+                        cursor: pointer;
+                        // cursor: hand;
+                    }
+    
+                    #title {
+                        font-size: 1.4em;
+                        padding: 4px 0.55em;
+                    }
+                }               
+
+                #days {
+                    outline: 1px solid blue;
+
+                    th {
+                        width: 100px;
+                        height: 25px;
+                        outline: 1px solid green;
+                    }
+                }
+            }
+
+            tbody {
+                .day {
+                    outline: 1px solid red;
+
+                    td {
+                        height: 100px;
+                        outline: 1px solid blue;
+
+                        /*日期數字位置靠左上-儲存格對齊方式*/
+                        vertical-align: top;
+                        text-align: left;
+
+                        a {
+                            text-decoration: none;
+                            color: #000000;
+                            outline: 1px solid red;
+
+                            /*擴大點擊範圍*/
+                            display: block;
+                            height: 100px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
