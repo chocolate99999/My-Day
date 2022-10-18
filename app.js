@@ -1,53 +1,120 @@
-let a1 = document.getElementById("a1");
-let item = document.getElementById("item");
-let foods = document.getElementById("foods");
+require('dotenv').config();
+const express      = require("express");
+const app          = express();
+const ejs          = require("ejs");
+const mongoose     = require("mongoose");
+const bodyParser   = require("body-parser");
+const User         = require("./models/user");
+const cookieParser = require('cookie-parser'); 
+const session      = require('express-session');
+const flash        = require('connect-flash');
+const bcrypt       = require('bcrypt');
+const saltRounds   = 10;
 
-// console.log(a1);
-
-a1.addEventListener(
-  "click",
-  function (e) {
-    window.alert("<a>元素的事件監聽程式 1");
-    console.log(e.bubbles);
-  },
-  false
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.set("view engine", "ejs");
+app.use(cookieParser(process.env.SECRET));
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
 );
-// a1.addEventListener('click', function(){
-//     window.alert('<a>元素的事件監聽程式 2');
-// }, false);
-item.addEventListener(
-  "click",
-  function () {
-    window.alert("<li>元素的事件監聽程式");
-  },
-  true
-);
-// foods.addEventListener('click', function(){
-//     window.alert('<ul>元素的事件監聽程式');
-// }, true);
+app.use(flash());
 
-const product = {
-  name: "iPhone",
-  image: "https://i.imgur.com/b3qRKiI.jpg",
-  description:
-    "全面創新的三相機系統，身懷萬千本領，卻簡練易用。電池續航力突飛猛進，前所未見。令你大為驚豔的晶片更加碼機器學習技術，並突破智慧型手機所能成就的極限。第一部威力強大，Pro 如其名的 iPhone，全新登場。",
-  brand: {
-    name: "Apple",
-  },
-  aggregateRating: {
-    ratingValue: "4.6",
-    reviewCount: "120",
-  },
-  offers: {
-    priceCurrency: "TWD",
-    price: "26,900",
-  },
-};
+mongoose.connect("mongodb://localhost:27017/examples", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(()=> {
+  console.log("Successfully connected to mongoDB.");
+}).catch((error) => {
+  console.log("Connection failed.");
+  console.log(error);
+});
 
-const {
-  offers, // 屬性名稱 => 變數名稱
-  offers: { price },
-} = product;
+app.get("/", (req, res) => {
+  console.log(req.session);
+  res.send("Welcome to the homepage.");
+});
 
-// console.log(offers); //{priceCurrency: 'TWD', price: '26,900'}
-// console.log(price); //26,900
+app.get("/verifyUser", (req, res) => {
+  req.session.isVerified = true;
+  res.send("You are verified.");
+});
+
+app.get("/secret", (req, res) => {
+  if(req.session.isVerified === true){
+    res.send("Here is my secret - so far so good.");
+  }else{
+    res.status(403).send("You are not authorized to see my secret.");
+  }
+});
+
+app.get("/user", (req, res) => {
+  res.render("index.ejs");
+});
+
+/* 註冊帳號 */
+app.post("/user", (req, res) => {
+  console.log('===== [DBG][sign_up] =====');
+  let {name, email, password} = req.body;
+  User.findOne({ email }).then((user) => {
+    if(user){
+      res.status(400).json({
+        "error": true,
+        "message": "此 Email 已有人使用，請試試其他 Email。"
+      });
+      // console.log("== user ==", user);
+    }else{
+      let newUser = new User({
+        name,
+        email,
+        password,
+      });
+      newUser
+      .save()
+      .then(() => {
+        res.status(200).json({ "ok": true  });
+        // console.log("== newUser ==", newUser);
+        // 考慮導向登入表單?!
+      })
+      .catch((e) => {
+        res.status(500).json({
+          "error": true,
+          "message": "伺服器內部錯誤。"
+        });
+        console.log(e);
+      });
+    }
+  });
+});
+
+app.get("/*", (req, res) => {
+  res.status(404).send("404 Page not found.");
+});
+
+app.use((err, req, res, next) => {
+  console.log(err);
+  res.status(500).send("Something is broken. We will fix it soon.");
+});
+
+app.listen(3000, () => {
+  console.log("Server is running on port 3000.");
+});
+
+
+
+// let { name } = req.cookies;
+// console.log('Cookies: ', req.cookies);
+
+// res.cookie("address", "Hawaii st.", { signed: true });
+// console.log('signedCookies: ', req.signedCookies);
+// res.send("Cookie has been send.");
+// let { address } = req.signedCookies;
+// res.send("Welcome to the homepage. Your address is " + address);
+
+// req.flash("success_msg", "Successfully get to the homepage.");
+// res.send("Hi, " + req.flash("success_msg"));

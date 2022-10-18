@@ -323,59 +323,121 @@ ol, ul {
   list-style: none;
 }
 
-header {
-  outline: 1px solid black;
-}
-header h1 {
-  color: blue;
-  font-size: 12px;
-}
-header nav {
-  margin-left: 12px;
+a {
+  text-decoration: none;
 }
 
-main {
+input, button {
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  background-color: #00E3E3;
+}
+
+header section.weather h1 a, header section.weather h1 .divider {
+  color: #fff;
+  opacity: 0.6;
+}
+header section.weather h1 a:hover, header section.weather h1 .active {
+  opacity: 1;
+}
+
+main .title {
+  text-align: center;
+  color: #004B97;
+}
+main form {
   display: flex;
   justify-content: center;
   align-items: center;
-  outline: 1px solid black;
 }
-main section.calendar #calendar {
-  width: 700px;
+main input, main button {
+  padding: 0.25rem 0.5rem;
+  margin: 0.1rem;
+  font-size: 1.75rem;
+}
+main input[type=time] {
+  width: 190px;
+  height: 40.19px;
+  text-align: center;
+}
+main button {
+  background-color: rgb(1, 146, 114);
+  color: #fff;
+}
+main section.todoBox {
+  width: 55vw;
+  margin: 0 auto;
   outline: 1px solid red;
-  border-collapse: collapse;
-  background-color: pink;
 }
-main section.calendar #calendar thead tr .arrow {
-  cursor: pointer;
-}
-main section.calendar #calendar thead tr #title {
-  font-size: 1.4em;
-  padding: 4px 0.55em;
-}
-main section.calendar #calendar thead #days {
-  outline: 1px solid blue;
-}
-main section.calendar #calendar thead #days th {
-  width: 100px;
-  height: 25px;
+main section.todoBox div.todo {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  margin-bottom: 1rem;
+  -webkit-animation: scaleUp 0.3s forwards;
+          animation: scaleUp 0.3s forwards;
+  transition: all 0.1s ease;
   outline: 1px solid green;
 }
-main section.calendar #calendar tbody .day {
+main section.todoBox div.todo .todo-time {
+  width: 15%;
   outline: 1px solid red;
 }
-main section.calendar #calendar tbody .day td {
-  height: 100px;
+main section.todoBox div.todo .todo-text {
+  width: 80%;
   outline: 1px solid blue;
-  /*日期數字位置靠左上-儲存格對齊方式*/
-  vertical-align: top;
-  text-align: left;
 }
-main section.calendar #calendar tbody .day td a {
-  text-decoration: none;
-  color: #000000;
-  outline: 1px solid red;
-  /*擴大點擊範圍*/
+main section.todoBox div.todo button {
+  align-self: center;
   display: block;
-  height: 100px;
+  width: 3vw;
+  height: 3vw;
+  padding: 7px;
+  outline: 1px solid black;
+}
+main section.todoBox div.todo button img {
+  display: block;
+  width: 2vw;
+  height: 2vw;
+  pointer-events: none;
+  outline: 1px solid orangered;
+}
+main section.todoBox div.todo button.complete {
+  background-color: rgb(50, 255, 50);
+}
+main section.todoBox div.todo button.remove {
+  background-color: red;
+}
+main section.todoBox .done {
+  opacity: 0.5;
+  text-decoration: line-through;
+  text-decoration-thickness: 0.2rem;
+}
+
+@-webkit-keyframes scaleUp {
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleUp {
+  to {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes scaleDown {
+  to {
+    transform: scale(0);
+  }
+}
+@keyframes scaleDown {
+  to {
+    transform: scale(0);
+  }
 }/*# sourceMappingURL=all.css.map */

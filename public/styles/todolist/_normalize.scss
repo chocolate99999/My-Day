@@ -362,3 +362,15 @@ template {
 ol, ul{
   list-style: none;
 }
+
+a{
+  text-decoration: none;
+}
+
+input, button{
+  border: none;
+}
+
+button{
+  cursor: pointer;
+}
