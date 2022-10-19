@@ -57,39 +57,72 @@ app.get("/user", (req, res) => {
   res.render("index.ejs");
 });
 
+// function encrypted(pwd){
+//   bcrypt.genSalt(saltRounds, (err, salt) => {
+//     if(err){
+//       next(err);
+//     }
+//     console.log("Salt: ", salt);
+
+//     bcrypt.hash(password, salt, (err, hash) => {
+//       if(err){
+//         next(err);
+//       }
+//       console.log("Hash: ", hash);
+//     });
+//   });    
+// };
+
 /* 註冊帳號 */
-app.post("/user", (req, res) => {
+app.post("/user", async (req, res, next) => {
   console.log('===== [DBG][sign_up] =====');
   let {name, email, password} = req.body;
-  User.findOne({ email }).then((user) => {
-    if(user){
+
+  try{
+    let foundUser = await User.findOne({ email });
+
+    if(foundUser){
       res.status(400).json({
         "error": true,
         "message": "此 Email 已有人使用，請試試其他 Email。"
       });
       // console.log("== user ==", user);
     }else{
-      let newUser = new User({
-        name,
-        email,
-        password,
-      });
-      newUser
-      .save()
-      .then(() => {
-        res.status(200).json({ "ok": true  });
-        // console.log("== newUser ==", newUser);
-        // 考慮導向登入表單?!
-      })
-      .catch((e) => {
-        res.status(500).json({
-          "error": true,
-          "message": "伺服器內部錯誤。"
+      bcrypt.genSalt(saltRounds, (err, salt) => {
+        if(err){
+          next(err);
+        }
+        console.log("Salt: ", salt);
+
+        bcrypt.hash(password, salt, (err, hash) => {
+          if(err){
+            next(err);
+          }
+          console.log("Hash: ", hash);
+          
+          let newUser = new User({
+            name,
+            email,
+            password: hash,
+          });
+
+          try{
+            newUser
+            .save()
+            .then(() => {
+              res.status(200).json({ "ok": true  });
+              console.log("== newUser ==", newUser);
+            })
+          }catch(err){
+            next(err);
+          }
+          
         });
-        console.log(e);
-      });
+      });  
     }
-  });
+  }catch(err){
+    next(err);
+  }      
 });
 
 app.get("/*", (req, res) => {
@@ -98,7 +131,10 @@ app.get("/*", (req, res) => {
 
 app.use((err, req, res, next) => {
   console.log(err);
-  res.status(500).send("Something is broken. We will fix it soon.");
+  res.status(500).json({
+    "error": true,
+    "message": "伺服器內部錯誤。"
+  });
 });
 
 app.listen(3000, () => {
@@ -107,14 +143,3 @@ app.listen(3000, () => {
 
 
 
-// let { name } = req.cookies;
-// console.log('Cookies: ', req.cookies);
-
-// res.cookie("address", "Hawaii st.", { signed: true });
-// console.log('signedCookies: ', req.signedCookies);
-// res.send("Cookie has been send.");
-// let { address } = req.signedCookies;
-// res.send("Welcome to the homepage. Your address is " + address);
-
-// req.flash("success_msg", "Successfully get to the homepage.");
-// res.send("Hi, " + req.flash("success_msg"));
