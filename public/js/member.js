@@ -44,8 +44,8 @@ function login(){
     let loginPassword = document.getElementById('loginPwd').value;
     let loginError    = document.getElementById('loginError');
     
-    console.log('[DBG] [login] loginEmail    = ',loginEmail);
-    console.log('[DBG] [login] loginPassword = ',loginPassword);
+    console.log('[DBG] [login] loginEmail    = ', loginEmail);
+    console.log('[DBG] [login] loginPassword = ', loginPassword);
     
     // 確認 Email 是否符合 規格
     if(verifyEmailPattern.test(loginEmail) === false || loginPassword === '' || loginPassword === ' '){
@@ -65,7 +65,7 @@ function login(){
                     'password' : loginPassword,
 
                 }),
-                headers :{ 'Content-Type': 'application/json;'}
+                headers :{ 'Content-Type': 'application/json'}
             }
         )
         .then(res => 
@@ -79,12 +79,14 @@ function login(){
                 
                 if (result.ok) 
                 {
-                    window.location.reload(); 
+                    // window.location.reload(); 
+                    console.log(result.ok);
                 } 
                 else if (result.error) 
                 {
                     loginError.textContent   = result.message;
                     loginError.style.display = 'block';
+                    console.log('error');
                 }
             }
         );
@@ -210,7 +212,7 @@ function getLoginStatus(){
     fetch(apiUrl,
         {
             method  : 'GET',            
-            headers : {'Content-Type': 'application/json;'}
+            headers : {'Content-Type': 'application/json'}
         }
     )
     .then(res => 

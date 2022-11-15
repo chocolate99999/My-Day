@@ -49,7 +49,7 @@ let calendar = {
 
         // 設置 href 屬性
         let href   = document.createAttribute("href");     
-        href.value = '/dayPlan';
+        href.value = 'todolist.html';
         a.setAttributeNode(href); 
 
         // 父節點 加入 子節點
@@ -63,7 +63,8 @@ let calendar = {
     // date 表示日期，迴圈將每一天的天數寫入到日曆中
     for (let date = 1; date <= MonthDayCount; date++){  
 
-      let aTags = document.querySelectorAll("td > a");
+      let aTags = document.getElementsByTagName("a");
+
       aTags[firstDay + date - 1].textContent = date;
 
       let nowDate = new Date();
