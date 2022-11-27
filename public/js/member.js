@@ -65,7 +65,7 @@ function login(){
                     'password' : loginPassword,
 
                 }),
-                headers :{ 'Content-Type': 'application/json'}
+                headers :{'Content-Type': 'application/json'}
             }
         )
         .then(res => 
@@ -107,9 +107,9 @@ function register(){
     let registerError       = document.getElementById('registerError');
     let registerSuccess     = document.getElementById('registerSuccess');
 
-    // console.log(registerName);
-    // console.log(registerEmail);
-    // console.log(registerPassword);
+    console.log(registerName);
+    console.log(registerEmail);
+    console.log(registerPassword);
     
     // 確認 Email 是否符合 規格
     if(verifyEmailPattern.test(registerEmail) == false){
@@ -175,14 +175,17 @@ function register(){
 /* [Onclick] 登出 */
 function logout(){ 
 
+    console.log("[DBG] logout Callback Function");
     userLogout();
-    window.location.reload();
+    //window.location.reload();
 }
 
 /* 呼叫 api 登出會員 */
 function userLogout(){
 
     let apiUrl = '/user';
+
+    console.log("[DBG] userLogout logout api");
     
     fetch(apiUrl,
         {
@@ -222,23 +225,23 @@ function getLoginStatus(){
     )
     .then(result => 
     {
-        
+        console.log("查詢登入狀態:", result);
         if (result.data != null) 
         {
             waitingState.textContent  = '登出系統';
             let onClickName  = `logout()`;
             waitingState.setAttribute('onclick', onClickName);
-            // console.log('[DBG]', waitingState);
+            console.log('[DBG]', waitingState);
         } 
         else if (result.data == null)
         {
             waitingState.textContent  = '登入/註冊';
             let onClickName  = `change('login')`;
             waitingState.setAttribute('onclick', onClickName);
-            // console.log('[DBG]', waitingState);
+            console.log('[DBG]', waitingState);
         }
         
-        // console.log('[DBG] [GetLoginStatus] Result = ', result);
+        console.log('[DBG] [GetLoginStatus] Result = ', result);
     }); 
 }
 
