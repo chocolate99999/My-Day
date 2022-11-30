@@ -11,7 +11,6 @@ const flash          = require('connect-flash');
 const bcrypt         = require('bcrypt');
 const saltRounds     = 10;
 const methodOverride = require("method-override");
-
 const passport      = require("passport");
 const usePassport   = require("./config/passport");
 // usePassport(app);
@@ -20,6 +19,8 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
+app.use(flash());
+app.use(methodOverride('_method'));
 app.use(cookieParser(process.env.SECRET));
 app.use(
   session({
@@ -28,14 +29,13 @@ app.use(
     saveUninitialized: false,
   })
 );
-app.use(flash());
-app.use(methodOverride('_method'));
 
 const requireLogin = (req, res, next) => {
-  if(!req.session.isVerified === true){
-    res.redirect("/"); // 未驗證就一直導向"未登入"時的畫面
-  }else{
+  if(req.session.user){
     next();
+  }else{
+    // res.redirect("/"); // 未驗證就一直導向"未登入"時的畫面
+    return;
   }
 };
 
@@ -51,40 +51,43 @@ mongoose.connect("mongodb://0.0.0.0:27017/examples", {
 
 app.get("/", (req, res) => {
   // console.log('Cookies: ', req.cookies);
-  // console.log('SessionID:', req.sessionID); 
+  console.log('首頁 SessionID:', req.sessionID); 
   res.render("index");
 });
 
 /* 取得當前登入的使用者資訊 */
-app.get("/user", 
-  async(req, res, next) => {
-    console.log("Session", req.session);
-    console.log("SessionID", req.sessionID);
+app.get("/user", (req, res, next) => {
+  // console.log("驗證功能", req.session.name);
+  // console.log("驗證 SessionID", req.sessionID);
   try{ 
-    if(req.session.isVerified === true){
+    console.log("req.session.user", req.session.user);
+    if(req.session.user){
       res.status(200).json({
         "data": {
-          "id": 1,
-          "name": "小喵喵",
-          "email": "cat@zoo.com"
+          "id": req.session.user._id,
+          "name": req.session.user.name,
+          "email": req.session.user.email
         }
       });
-      // res.render("index");
+      console.log("已驗證 SessionID", req.sessionID);  
     }else{
-      res.status(403).send("You are not authorized to see my secret.");
+      res.json({
+        "data": null  
+      }); 
+      console.log("未驗證 SessionID", req.sessionID);
     }
   }catch(err){
     next(err);
   }  
 });
 
-app.get("/secret", requireLogin, (req, res) => {
-  if(req.session.isVerified === true){
-    res.send("Here is my secret - so far so good.");  //[已驗證]保持登入狀態的頁面
-  }else{
-    res.status(403).send("You are not authorized to see my secret.");
-  }
-});
+// app.get("/secret", requireLogin, (req, res) => {
+//   if(req.session.isVerified === true){
+//     res.send("Here is my secret - so far so good.");  //[已驗證]保持登入狀態的頁面
+//   }else{
+//     res.status(403).send("You are not authorized to see my secret.");
+//   }
+// });
 
 /* 登入 */
 app.patch("/user", async (req, res, next) => {
@@ -93,7 +96,7 @@ app.patch("/user", async (req, res, next) => {
 
   try{
     let foundUser = await User.findOne({ email });
-    console.log("登入", foundUser);
+    // console.log("登入", foundUser);
 
     if(foundUser){
       bcrypt.compare(password, encrypted(password), function(err, result) {
@@ -101,11 +104,10 @@ app.patch("/user", async (req, res, next) => {
           next(err);
         }
         if(result === true){
-          req.session.isVerified = true;
+          req.session.user = foundUser;
           res.status(200).json({
             "ok": true
           });
-          // res.redirect("user");
         }else{
           res.status(400).json({
             "error": true,
@@ -170,7 +172,7 @@ app.post("/user", async (req, res, next) => {
 app.delete("/user", (req, res, next) => {
   console.log('===== [DBG][Sign_Out] =====');
   try{
-    req.session.isVerified = null;
+    req.session.user = null;
     res.status(200).json({
       "ok": true
     });

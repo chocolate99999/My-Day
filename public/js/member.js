@@ -79,14 +79,15 @@ function login(){
                 
                 if (result.ok) 
                 {
-                    // window.location.reload(); 
-                    console.log(result.ok);
+                    window.location.reload();                   
+                    getLoginStatus();
+                    // console.log(result.ok);
                 } 
                 else if (result.error) 
                 {
                     loginError.textContent   = result.message;
                     loginError.style.display = 'block';
-                    console.log('error');
+                    // console.log('error');
                 }
             }
         );
@@ -210,7 +211,7 @@ function getLoginStatus(){
 
     let apiUrl = '/user';
     
-    let waitingState  = document.querySelector('a.stateSwitch');
+    let waitingState = document.querySelector('a.stateSwitch');
     
     fetch(apiUrl,
         {
