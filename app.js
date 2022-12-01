@@ -30,15 +30,6 @@ app.use(
   })
 );
 
-const requireLogin = (req, res, next) => {
-  if(req.session.user){
-    next();
-  }else{
-    // res.redirect("/"); // 未驗證就一直導向"未登入"時的畫面
-    return;
-  }
-};
-
 mongoose.connect("mongodb://0.0.0.0:27017/examples", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -53,14 +44,13 @@ app.get("/", (req, res) => {
   // console.log('Cookies: ', req.cookies);
   console.log('首頁 SessionID:', req.sessionID); 
   res.render("index");
+ 
 });
 
 /* 取得當前登入的使用者資訊 */
 app.get("/user", (req, res, next) => {
-  // console.log("驗證功能", req.session.name);
-  // console.log("驗證 SessionID", req.sessionID);
   try{ 
-    console.log("req.session.user", req.session.user);
+    // console.log("req.session.user", req.session.user);
     if(req.session.user){
       res.status(200).json({
         "data": {
@@ -75,19 +65,12 @@ app.get("/user", (req, res, next) => {
         "data": null  
       }); 
       console.log("未驗證 SessionID", req.sessionID);
+      console.log("未驗證 Session", req.session);
     }
   }catch(err){
     next(err);
   }  
 });
-
-// app.get("/secret", requireLogin, (req, res) => {
-//   if(req.session.isVerified === true){
-//     res.send("Here is my secret - so far so good.");  //[已驗證]保持登入狀態的頁面
-//   }else{
-//     res.status(403).send("You are not authorized to see my secret.");
-//   }
-// });
 
 /* 登入 */
 app.patch("/user", async (req, res, next) => {
@@ -99,7 +82,7 @@ app.patch("/user", async (req, res, next) => {
     // console.log("登入", foundUser);
 
     if(foundUser){
-      bcrypt.compare(password, encrypted(password), function(err, result) {
+      bcrypt.compare(password, encrypted(password), (err, result) => {
         if(err){
           next(err);
         }
@@ -108,11 +91,15 @@ app.patch("/user", async (req, res, next) => {
           res.status(200).json({
             "ok": true
           });
+          console.log("已登入 Session", req.session);
+          console.log("已登入 SessionID", req.sessionID);
         }else{
           res.status(400).json({
             "error": true,
             "message": "Email 或 密碼，輸入錯誤"
           });
+          console.log("未登入 Session", req.session);
+          console.log("未登入 SessionID", req.sessionID);
         }
       });
     }else{
@@ -172,12 +159,12 @@ app.post("/user", async (req, res, next) => {
 app.delete("/user", (req, res, next) => {
   console.log('===== [DBG][Sign_Out] =====');
   try{
-    req.session.user = null;
+    req.session.destroy();
     res.status(200).json({
       "ok": true
     });
-    // console.log("登出 Session", req.session);
-    // console.log("登出 SessionID", req.sessionID);
+    console.log("登出 Session", req.session);
+    console.log("登出 SessionID", req.sessionID);
   }catch(err){
     next(err);
   }

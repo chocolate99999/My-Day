@@ -177,8 +177,8 @@ function register(){
 function logout(){ 
 
     console.log("[DBG] logout Callback Function");
+    window.location.reload();
     userLogout();
-    //window.location.reload();
 }
 
 /* 呼叫 api 登出會員 */
@@ -201,6 +201,7 @@ function userLogout(){
     )
     .then(result => 
         {
+            getLoginStatus();
             console.log('[DBG] [LogoutUser] Result = ', result);
         }
     );
