@@ -1,3 +1,7 @@
+console.clear();
+
+console.log('== Start calendar.js  ==');
+
 let tbody = document.querySelector("tbody");  
     
 let calendar = {  
@@ -19,7 +23,7 @@ let calendar = {
     // 獲取此時的月份
     month = self.month;
     month = date.getMonth();
-
+    
     // 年份月份寫入日曆
     form.getElementsByTagName("th")[1].innerText = year + "年" + (month + 1) + "月";
 
@@ -76,6 +80,14 @@ let calendar = {
         // 將 當天 元素的 id 設定為 today
         aTags[firstDay + date - 1].id = 'today';
       }
+
+      /* 處理路徑尾端想要放置的資料型態為字串後，再丟入 a 標籤中 href 屬性值  
+      Example:
+        2022.12.25 --> /dayPlan/2022-12-25
+        2023.1.1   --> /dayPlan/2023-1-1
+      */
+        let timeString = '/dayPlan/'+ year + '-' + (month + 1) + '-'+ date;
+        aTags[firstDay + date - 1].setAttribute('href', timeString);
     }
 
     // 一個月只有 5 週時，刪除多餘的 最後1週(tr)

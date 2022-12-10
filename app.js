@@ -5,15 +5,13 @@ const ejs            = require("ejs");
 const mongoose       = require("mongoose");
 const bodyParser     = require("body-parser");
 const User           = require("./models/user");
+const UserList       = require("./models/userList");
 const cookieParser   = require('cookie-parser'); 
 const session        = require('express-session');
 const flash          = require('connect-flash');
 const bcrypt         = require('bcrypt');
 const saltRounds     = 10;
 const methodOverride = require("method-override");
-const passport      = require("passport");
-const usePassport   = require("./config/passport");
-// usePassport(app);
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,7 +30,7 @@ app.use(
 
 mongoose.connect("mongodb://0.0.0.0:27017/examples", {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useUnifiedTopology: true
 }).then(()=> {
   console.log("Successfully connected to mongoDB.");
 }).catch((error) => {
@@ -44,11 +42,17 @@ app.get("/", (req, res) => {
   // console.log('Cookies: ', req.cookies);
   console.log('首頁 SessionID:', req.sessionID); 
   res.render("index");
- 
+});
+
+app.get("/dayPlan/:time", (req, res) => {
+  console.log("路由: /dayPlan/:time");
+  console.log("req.params:", req.params);
+  console.log("time:", req.params.time);
+  res.render("todolist");
 });
 
 /* 取得當前登入的使用者資訊 */
-app.get("/user", (req, res, next) => {
+app.get("/api/user", (req, res, next) => {
   try{ 
     // console.log("req.session.user", req.session.user);
     if(req.session.user){
@@ -73,7 +77,7 @@ app.get("/user", (req, res, next) => {
 });
 
 /* 登入 */
-app.patch("/user", async (req, res, next) => {
+app.patch("/api/user", async (req, res, next) => {
   console.log('===== [DBG][Sign_In] =====');
   let {name, email, password} = req.body;
 
@@ -123,7 +127,7 @@ function encrypted(password){
 // console.log("Encrypted :", encrypted('123456'));
 
 /* 註冊 */
-app.post("/user", async (req, res, next) => {
+app.post("/api/user", async (req, res, next) => {
   console.log('===== [DBG][Sign_Up] =====');
   let {name, email, password} = req.body;
 
@@ -156,7 +160,7 @@ app.post("/user", async (req, res, next) => {
 });
 
 /* 登出 */
-app.delete("/user", (req, res, next) => {
+app.delete("/api/user", (req, res, next) => {
   console.log('===== [DBG][Sign_Out] =====');
   try{
     req.session.destroy();
@@ -168,7 +172,26 @@ app.delete("/user", (req, res, next) => {
   }catch(err){
     next(err);
   }
-})
+});
+
+/* [API] 取得當天日期的代辦清單 */
+app.get("/api/dayPlan", (req, res, next) => {
+  console.log('===== [DBG][Date_Todolist] =====');
+  // res.render("todolist");
+	
+  res.status(200).json({
+    "data": {
+      "year": 2022,
+      "month": 12,
+      "day": 5,
+      "todolist": {
+        "hours": 15,
+        "minutes": 30,
+        "item": "跟同事胖橘喵喝下午茶"
+      }
+    }
+  });
+});
 
 app.get("/*", (req, res) => {
   res.status(404).send("404 Page not found.");
