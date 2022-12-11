@@ -46,9 +46,10 @@ app.get("/", (req, res) => {
 
 app.get("/dayPlan/:time", (req, res) => {
   console.log("路由: /dayPlan/:time");
+  let { time } = req.params;
   console.log("req.params:", req.params);
   console.log("time:", req.params.time);
-  res.render("todolist");
+  res.render("todolist", { time });
 });
 
 /* 取得當前登入的使用者資訊 */

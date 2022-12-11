@@ -36,12 +36,13 @@
     </header>
 
     <main class="todayPlan">
+        <h1><%= time %></h1>
         <h1 class="title">Today Plan</h1>
 
-        <form action="">
-            <input type="time">
-            <input type="text">
-            <button type="button">Add to List</button>
+        <form action="/datePlan" method="get">
+            <input type="time" name="time">
+            <input type="text" name="todoItem">
+            <button type="submit">Add to List</button>
         </form>
 
         <br/>
@@ -57,4 +58,5 @@
 
 </body>
     <script src="../js/todolist.js"></script>
+    <script src="../js/member.js"></script>  
 </html>

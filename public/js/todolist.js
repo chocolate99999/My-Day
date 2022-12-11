@@ -1,3 +1,7 @@
+console.clear();
+
+console.log('== Start todolist.js  ==');
+
 // 攝氏溫度資料變數
 let tempC, tempMaxC, tempMinC, feelsLikeC;
 
@@ -73,24 +77,24 @@ async function getLocation(position){
 
     // 實際要渲染的天氣圖片
     let iconImg = [      
-        {icon: "01d", description: "clear sky"       , iconUrl: "./icons/day.svg"              },
-        {icon: "01n", description: "clear sky"       , iconUrl: "./icons/night.svg"            },
-        {icon: "02d", description: "few clouds"      , iconUrl: "./icons/cloudy-day-1.svg"     },
-        {icon: "02n", description: "few clouds"      , iconUrl: "./icons/cloudy-night-1.svg"   },
-        {icon: "03d", description: "scattered clouds", iconUrl: "./icons/cloudy.svg"           },
-        {icon: "03n", description: "scattered clouds", iconUrl: "./icons/cloudy.svg"           },
-        {icon: "04d", description: "broken clouds"   , iconUrl: "./icons/cloudy.svg"           },
-        {icon: "04n", description: "broken clouds"   , iconUrl: "./icons/cloudy.svg"           },
-        {icon: "09d", description: "shower rain"     , iconUrl: "./icons/rainy-1.svg"          },
-        {icon: "09n", description: "shower rain"     , iconUrl: "./icons/rainy-1.svg"          },
-        {icon: "10d", description: "rain"            , iconUrl: "./icons/rainy-6.svg"          },
-        {icon: "10n", description: "rain"            , iconUrl: "./icons/rainy-6.svg"          },
-        {icon: "11d", description: "thunderstorm"    , iconUrl: "./icons/thunder.svg"          },
-        {icon: "11n", description: "thunderstorm"    , iconUrl: "./icons/thunder.svg"          },
-        {icon: "13d", description: "snow"            , iconUrl: "./icons/icons8-light-snow.gif"},
-        {icon: "13n", description: "snow"            , iconUrl: "./icons/icons8-light-snow.gif"},
-        {icon: "50d", description: "mist"         , iconUrl: "./icons/icons8-haze.gif"},
-        {icon: "50n", description: "mist"         , iconUrl: "./icons/icons8-fog.gif"}
+        {icon: "01d", description: "clear sky"       , iconUrl: "../img/icon/weather/day.svg"              },
+        {icon: "01n", description: "clear sky"       , iconUrl: "../img/icon/weather/night.svg"            },
+        {icon: "02d", description: "few clouds"      , iconUrl: "../img/icon/weather/cloudy-day-1.svg"     },
+        {icon: "02n", description: "few clouds"      , iconUrl: "../img/icon/weather/cloudy-night-1.svg"   },
+        {icon: "03d", description: "scattered clouds", iconUrl: "../img/icon/weather/cloudy.svg"           },
+        {icon: "03n", description: "scattered clouds", iconUrl: "../img/icon/weather/cloudy.svg"           },
+        {icon: "04d", description: "broken clouds"   , iconUrl: "../img/icon/weather/cloudy.svg"           },
+        {icon: "04n", description: "broken clouds"   , iconUrl: "../img/icon/weather/cloudy.svg"           },
+        {icon: "09d", description: "shower rain"     , iconUrl: "../img/icon/weather/rainy-1.svg"          },
+        {icon: "09n", description: "shower rain"     , iconUrl: "../img/icon/weather/rainy-1.svg"          },
+        {icon: "10d", description: "rain"            , iconUrl: "../img/icon/weather/rainy-6.svg"          },
+        {icon: "10n", description: "rain"            , iconUrl: "../img/icon/weather/rainy-6.svg"          },
+        {icon: "11d", description: "thunderstorm"    , iconUrl: "../img/icon/weather/thunder.svg"          },
+        {icon: "11n", description: "thunderstorm"    , iconUrl: "../img/icon/weather/thunder.svg"          },
+        {icon: "13d", description: "snow"            , iconUrl: "../img/icon/weather/icons8-light-snow.gif"},
+        {icon: "13n", description: "snow"            , iconUrl: "../img/icon/weather/icons8-light-snow.gif"},
+        {icon: "50d", description: "mist"         , iconUrl: "../img/icon/weather/icons8-haze.gif"},
+        {icon: "50n", description: "mist"         , iconUrl: "../img/icon/weather/icons8-fog.gif"}
     ]
 
     // 找出跟 目前天氣 相對應的 天氣圖片，並且渲染
@@ -253,7 +257,3 @@ addBtn.addEventListener('click', e => {
     inputTime.value = '';
     inputText.value = '';   
 })
-
-
-    
-
