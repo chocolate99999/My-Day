@@ -202,8 +202,8 @@ addBtn.addEventListener('click', e => {
 
     // todo 事項 功能圖片: 完成 & 刪除  
     let iconTodo = [
-        {url: "./icons/check-solid.svg", description: "check"},
-        {url: "./icons/trash-solid.svg", description: "trash"},
+        {url: "../img/icon/todoList/check-solid.svg", description: "check"},
+        {url: "../img/icon/todoList/trash-solid.svg", description: "trash"},
     ]
 
     for(let i = 0; i < iconTodo.length; i++){
