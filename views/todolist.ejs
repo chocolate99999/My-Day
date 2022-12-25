@@ -36,14 +36,16 @@
     </header>
 
     <main class="todayPlan">
-        <h1><%= time %></h1>
+        <h1 class="date"><%= time %></h1>
         <h1 class="title">Today Plan</h1>
 
-        <form action="/datePlan" method="get">
+        <form>
             <input type="time" name="time">
             <input type="text" name="todoItem">
-            <button type="submit">Add to List</button>
+            <button type="button">Add to List</button>
         </form>
+
+        <h1 class="warning"></h1>
 
         <br/>
         <br/>

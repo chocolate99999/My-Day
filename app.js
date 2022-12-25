@@ -17,7 +17,6 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
-app.use(flash());
 app.use(methodOverride('_method'));
 app.use(cookieParser(process.env.SECRET));
 app.use(
@@ -49,7 +48,7 @@ app.get("/dayPlan/:time", (req, res) => {
   let { time } = req.params;
   console.log("req.params:", req.params);
   console.log("time:", req.params.time);
-  res.render("todolist", { time });
+  res.render("todolist", { time });  // add new Page for User --userTodoList
 });
 
 /* 取得當前登入的使用者資訊 */
@@ -175,23 +174,47 @@ app.delete("/api/user", (req, res, next) => {
   }
 });
 
-/* [API] 取得當天日期的代辦清單 */
-app.get("/api/dayPlan", (req, res, next) => {
-  console.log('===== [DBG][Date_Todolist] =====');
-  // res.render("todolist");
-	
-  res.status(200).json({
-    "data": {
-      "year": 2022,
-      "month": 12,
-      "day": 5,
-      "todolist": {
-        "hours": 15,
-        "minutes": 30,
-        "item": "跟同事胖橘喵喝下午茶"
-      }
-    }
-  });
+/* 建立新的代辦事項，並儲存到資料庫 */
+app.post("/api/dayPlan", async (req, res, next) => {
+  console.log('===== [DBG][Add_One_Todolist] =====');
+  console.log("req.session:", req.session);
+  let {year, month, day, todoList} = req.body;
+
+  try{
+    if(req.session.user){
+      let newUserList = await new UserList({
+        userId: req.session.user._id,
+        year  : year,
+        month : month,
+        day   : day,
+        todoList: todoList
+      });
+      newUserList
+      .save()
+      .then(() => {
+        console.log("== 建立成功 ==", newUserList);  
+        res.status(200).json({
+          "ok": true,
+          "message": "建立成功!"
+        });
+      })
+      .catch((e) => {
+        console.log("== 建立失敗 ==");
+        console.log(e);
+        res.status(400).json({
+          "error": true,
+          "message": "建立失敗，請注意輸入是否正確或完整!"
+        });
+      })
+    }else{
+      res.status(403).json({
+        "error": true,
+        "message": "請先登入，才能新增待辦事項!"
+      });
+    }   
+  }catch(err){
+    next(err);
+  }   
 });
 
 app.get("/*", (req, res) => {

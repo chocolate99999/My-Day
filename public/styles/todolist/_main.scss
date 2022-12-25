@@ -5,10 +5,14 @@ body{
 header{
     section.weather{
         .city{
-
+            color: #fff;
         }
         .description{
-
+            color: #fff;
+        }
+        img{
+            width: 5vw;
+            height: 5vw;
         }
         h1{            
             a, .divider{
@@ -23,35 +27,44 @@ header{
 }
 
 main{
-    h1{
+    .date, .title, .warning{
         text-align: center;
+    }
+    .date{
         color: #FFFFFF;
     }
     .title{
-        text-align: center;
         color: #004B97;
     }
     form{
         display: flex;
         justify-content: center;
         align-items: center;
+        input, button{
+            padding: 0.25rem 0.5rem;
+            margin: 0.1rem;
+            font-size: 1.75rem;
+        }
+        input[type="time"]{
+            width:  190px;
+            height: 40.19px;
+            text-align: center;
+        }
+        button{
+            background-color: rgb(1, 146, 114);
+            color: #fff;
+        }
     }
-    input, button{
+    .warning{
+        color: #ff0000;
+    }
+    .sort button{
         padding: 0.25rem 0.5rem;
         margin: 0.1rem;
         font-size: 1.75rem;
-    }
-    input[type="time"]{
-        width:  190px;
-        height: 40.19px;
-        text-align: center;
-    }
-
-    button{
         background-color: rgb(1, 146, 114);
         color: #fff;
     }
-
     section.todoBox{
         width: 55vw;
         margin: 0 auto;
@@ -70,10 +83,12 @@ main{
             .todo-time{
                 width: 15%;
                 outline: 1px solid red;
+                color: #004B97; //Neil
             }
             .todo-text{
                 width: 80%;
                 outline: 1px solid blue;
+                color: #004B97; //Neil
             } 
             button{
                 align-self: center;

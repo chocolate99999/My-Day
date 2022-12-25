@@ -167,21 +167,55 @@ function switchToC() {
     signF.classList.remove("active");   
 }
 
-/* Today Plan List */
-let addBtn = document.querySelector("form button");
-addBtn.addEventListener('click', e => {
+// 產生 1 筆待辦事項
+async function createTodoItem(){
 
-    // 從 input 取值  
-    let form     = e.target.parentElement;
-    let todoTime = form.children[0].value;
-    let todoText = form.children[1].value;
+    // 從 input 取值 
+    let todayPlan = document.querySelector(".todayPlan"); 
+    let form      = todayPlan.children[2];
+    let todoTime  = form.children[0].value;
+    let todoText  = form.children[1].value;
 
     // input 無輸入值 就 離開函式
     if(todoTime === "" || todoText === ""){
         // swal('請輸入時間及事項'); // https://sweetalert.js.org/guides/ [待處理]
         return;
     }
+
+    // [DOM]新增待辦事項成功與否的訊息
+    let warning = document.querySelector(".warning");
+
+    // 如使用者未登入，就不給新增待辦事項
+    let Result = await getApiData('/api/user');
+    console.log('[DBG] /api/user', Result.data);
+    if(Result.data == null){
+        warning.textContent = '請先登入，才能新增待辦事項!';
+        return; 
+    }
+        
+    // [API] 建立新的代辦清單
+    let dateStringArray = window.location.pathname.split('/');
+        dateStringArray = dateStringArray[2].split('-');
+    let year    = dateStringArray[0];
+    let month   = dateStringArray[1];
+    let day     = dateStringArray[2];
+
+    // 獲取新增事項的時間
+    let todoTimeArray = todoTime.split(':');
+    let hours         = todoTimeArray[0];
+    let minutes       = todoTimeArray[1];
     
+    // 獲取待辦事項的數據資料
+    let AddResult = await AddOneTodoItem(year, month, day, hours, minutes, todoText);
+    console.log('[DBG] AddOneTodoItem 結果', AddResult);
+
+    if(AddResult.error){
+        warning.textContent = AddResult.message; 
+        return;  
+    }else{
+        warning.textContent = AddResult.message;  
+    }
+        
     // 建立 todo 事項
     let todoBox = document.querySelector(".todoBox");
     let todo    = document.createElement("div");
@@ -255,5 +289,37 @@ addBtn.addEventListener('click', e => {
     let inputTime = document.querySelector('[type="time"]');
     let inputText = document.querySelector('[type="text"]');
     inputTime.value = '';
-    inputText.value = '';   
-})
+    inputText.value = '';  
+}
+
+/* 在 代辦清單 中 新增 待辦事項 */
+let addBtn = document.querySelector("form button");
+addBtn.addEventListener('click', createTodoItem);
+
+// [API] 建立新的待辦事項
+async function AddOneTodoItem(year, month, day, hours, minutes, todoItem){
+    let apiUrl   = '/api/dayPlan';     
+    let response = await fetch(apiUrl, 
+        {
+            method  : 'POST',
+            body    : JSON.stringify({               
+                "year" : year,
+                "month": month,
+                "day"  : day,
+                "todoList":  
+                    {
+                        "hours"   : hours,
+                        "minutes" : minutes,
+                        "todoItem": todoItem
+                    }
+            }),           
+            headers : {'Content-Type': 'application/json'}
+        }
+    ); 
+
+    let result = await response.json();
+    return result;      
+}
+
+
+
