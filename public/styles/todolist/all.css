@@ -400,6 +400,9 @@ main section.todoBox {
   margin: 0 auto;
   outline: 1px solid red;
 }
+main section.todoBox .warning {
+  color: blueviolet;
+}
 main section.todoBox div.todo {
   display: flex;
   justify-content: center;

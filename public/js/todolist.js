@@ -168,7 +168,7 @@ function switchToC() {
 }
 
 // 產生 1 筆待辦事項
-async function createTodoItem(){
+async function createTodoItemCallBack(){
 
     // 從 input 取值 
     let todayPlan = document.querySelector(".todayPlan"); 
@@ -193,29 +193,69 @@ async function createTodoItem(){
         return; 
     }
         
-    // [API] 建立新的代辦清單
+    // 獲取新增事項的時間
     let dateStringArray = window.location.pathname.split('/');
         dateStringArray = dateStringArray[2].split('-');
     let year    = dateStringArray[0];
     let month   = dateStringArray[1];
     let day     = dateStringArray[2];
 
-    // 獲取新增事項的時間
     let todoTimeArray = todoTime.split(':');
     let hours         = todoTimeArray[0];
     let minutes       = todoTimeArray[1];
     
     // 獲取待辦事項的數據資料
-    let AddResult = await AddOneTodoItem(year, month, day, hours, minutes, todoText);
-    console.log('[DBG] AddOneTodoItem 結果', AddResult);
+    let addResult = await AddOneTodoItem(year, month, day, hours, minutes, todoText);
+    console.log('[DBG] AddOneTodoItem 結果', addResult);
 
-    if(AddResult.error){
-        warning.textContent = AddResult.message; 
+    if(addResult.error){
+        warning.textContent = addResult.message; 
         return;  
     }else{
-        warning.textContent = AddResult.message;  
+        warning.textContent = addResult.message;  
     }
-        
+       
+    // 建立 todo 事項
+    createTodoItem(todoTime, todoText);
+
+    // 清除 input 中已輸入的 值
+    let inputTime = document.querySelector('[type="time"]');
+    let inputText = document.querySelector('[type="text"]');
+    inputTime.value = '';
+    inputText.value = '';  
+}
+
+/* 在 待辦清單 中 新增 待辦事項 */
+let addBtn = document.querySelector("form button");
+addBtn.addEventListener('click', createTodoItemCallBack);
+
+// [API] 建立新的待辦事項
+async function AddOneTodoItem(year, month, day, hours, minutes, todoItem){
+    let apiUrl   = '/api/dayPlan';     
+    let response = await fetch(apiUrl, 
+        {
+            method  : 'POST',
+            body    : JSON.stringify({               
+                "year" : year,
+                "month": month,
+                "day"  : day,
+                "todoList":  
+                    {
+                        "hours"   : hours,
+                        "minutes" : minutes,
+                        "todoItem": todoItem
+                    }
+            }),           
+            headers : {'Content-Type': 'application/json'}
+        }
+    ); 
+
+    let result = await response.json();
+    return result;      
+}
+
+function createTodoItem(todoTime, todoText){
+
     // 建立 todo 事項
     let todoBox = document.querySelector(".todoBox");
     let todo    = document.createElement("div");
@@ -284,35 +324,16 @@ async function createTodoItem(){
         button.appendChild(img);
         todo.appendChild(button);
     }
-
-    // 清除 input 中已輸入的 值
-    let inputTime = document.querySelector('[type="time"]');
-    let inputText = document.querySelector('[type="text"]');
-    inputTime.value = '';
-    inputText.value = '';  
 }
 
-/* 在 代辦清單 中 新增 待辦事項 */
-let addBtn = document.querySelector("form button");
-addBtn.addEventListener('click', createTodoItem);
-
-// [API] 建立新的待辦事項
-async function AddOneTodoItem(year, month, day, hours, minutes, todoItem){
-    let apiUrl   = '/api/dayPlan';     
+// [API] 取得當天日期的待辦清單
+async function GetDateTodoList(time){
+    
+    let apiUrl   = '/api/dayPlan/'+ time;
+    
     let response = await fetch(apiUrl, 
         {
-            method  : 'POST',
-            body    : JSON.stringify({               
-                "year" : year,
-                "month": month,
-                "day"  : day,
-                "todoList":  
-                    {
-                        "hours"   : hours,
-                        "minutes" : minutes,
-                        "todoItem": todoItem
-                    }
-            }),           
+            method  : 'GET', 
             headers : {'Content-Type': 'application/json'}
         }
     ); 
@@ -321,5 +342,35 @@ async function AddOneTodoItem(year, month, day, hours, minutes, todoItem){
     return result;      
 }
 
+// 取得當天日期的待辦清單
+async function GetTimeTodoList(){
 
+    let dateStringArray = window.location.pathname.split('/');
+        dateStringArray = dateStringArray[2];
+    console.log('[DBG] dateStringArray 結果', dateStringArray);
+    
+    let result = await GetDateTodoList(dateStringArray);
+    console.log("GetTimeTodoList 結果: ", result);
+
+    let warning = document.querySelector(".todoBox .warning");
+
+    if(result.error){
+        warning.textContent = result.message;
+        return; 
+    }
+
+    if(result.data.length === 0)
+        return; 
+    else{
+        let dateTodoList = result.data;
+        for(let i = 0; i <= dateTodoList.length; i++){
+            let hours    = dateTodoList[i].todoList.hours;
+            let minutes  = dateTodoList[i].todoList.minutes;
+            let todoTime = hours + ':' + minutes;
+            let todoItem = dateTodoList[i].todoList.todoItem;
+            createTodoItem(todoTime, todoItem);
+        }     
+    }     
+}
+GetTimeTodoList();
 

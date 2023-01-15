@@ -174,10 +174,64 @@ app.delete("/api/user", (req, res, next) => {
   }
 });
 
+async function searchDatabaseByTime(userId, year, month, day){
+
+  console.log('===== [DBG][Search_Database_By_Time] =====');
+
+  let foundUserList = await UserList.find({
+    userId : userId,
+    year: { $eq: parseInt(year) },
+    month: { $eq: parseInt(month) },
+    day:{ $eq: parseInt(day) }
+  });
+  console.log('foundUserList: ', foundUserList);
+
+  return foundUserList; 
+}
+
+/* 取得當天的待辦清單資訊 */
+app.get("/api/dayPlan/:time", async(req, res, next) => {
+  console.log('===== [DBG][Get_Date_Todolist] =====');
+  console.log("路由: /api/dayPlan/:time");
+  let { time } = req.params;
+  let timeArray = time.split('-');
+  
+  try{
+    if(req.session.user){
+      const userId = req.session.user._id;
+      const year   = timeArray[0];
+      const month  = timeArray[1];
+      const day    = timeArray[2];
+      let searchDbResult = await searchDatabaseByTime(userId, year, month, day);
+      // console.log('searchDbResult: ', searchDbResult);
+      if(searchDbResult.length === 0){
+        console.log("== [沒有值] 可讀取 ==", searchDbResult);
+        res.json({
+          "data": searchDbResult
+        });
+        return;
+      }
+      console.log("== [有值] 可讀取 ==", searchDbResult);
+      res.status(200).json({
+        "data": searchDbResult
+      }); 
+    }
+    else{  
+      console.log("== 沒有登入就無法讀取內容，內容呈現空值 ==");
+      res.status(403).json({
+        "error": true,
+        "message": "未登入系統，拒絕存取!"
+      });
+    }
+  }catch(err){
+    next(err);
+  } 
+});
+
 /* 建立新的代辦事項，並儲存到資料庫 */
 app.post("/api/dayPlan", async (req, res, next) => {
   console.log('===== [DBG][Add_One_Todolist] =====');
-  console.log("req.session:", req.session);
+  console.log("req.session: ", req.session);
   let {year, month, day, todoList} = req.body;
 
   try{
