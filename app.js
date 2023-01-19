@@ -182,9 +182,9 @@ async function searchDatabaseByTime(userId, year, month, day){
     userId : userId,
     year: { $eq: parseInt(year) },
     month: { $eq: parseInt(month) },
-    day:{ $eq: parseInt(day) }
+    day: { $eq: parseInt(day) }
   });
-  console.log('foundUserList: ', foundUserList);
+  // console.log('foundUserList: ', foundUserList);
 
   return foundUserList; 
 }
@@ -227,6 +227,23 @@ app.get("/api/dayPlan/:time", async(req, res, next) => {
     next(err);
   } 
 });
+
+async function searchSameTimeTodoItem(userId, year, month, day, hours, minutes){
+
+  console.log('===== [DBG][searchSameTime] =====');
+
+  let foundSameTimeTodoItem = await UserList.find({
+    userId : userId,
+    year: { $eq: parseInt(year) },
+    month: { $eq: parseInt(month) },
+    day: { $eq: parseInt(day) },
+    "todoList.hours" : { $eq: parseInt(hours) },
+    "todoList.minutes" : { $eq: parseInt(minutes) }, 
+  });
+  console.log('foundSameTime: ', foundSameTimeTodoItem);  
+  return foundSameTimeTodoItem; 
+}
+searchSameTimeTodoItem("6374b4993962e480cfc10b3d", 2022, 12, 16, 15, 30);
 
 /* 建立新的代辦事項，並儲存到資料庫 */
 app.post("/api/dayPlan", async (req, res, next) => {
