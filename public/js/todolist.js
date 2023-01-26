@@ -363,7 +363,7 @@ async function GetTimeTodoList(){
         return; 
     else{
         let dateTodoList = result.data;
-        for(let i = 0; i <= dateTodoList.length; i++){
+        for(let i = 0; i < dateTodoList.length; i++){
             let hours    = dateTodoList[i].todoList.hours;
             let minutes  = dateTodoList[i].todoList.minutes;
             let todoTime = hours + ':' + minutes;

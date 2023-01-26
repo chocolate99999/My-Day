@@ -1,4 +1,4 @@
-console.clear();
+//console.clear();
 
 console.log('== Start member.js  ==');
 
@@ -35,7 +35,7 @@ function change(state){
 /* [Onclick] 登入 */
 function login(){
 
-    let apiUrl = '/user';
+    let apiUrl = '/api/user';
     
     /* 正規表示法 - 驗證 Email 的 Pattern */
     let verifyEmailPattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;   
@@ -96,7 +96,7 @@ function login(){
 /* [Onclick] 註冊 */
 function register(){
 
-    let apiUrl = '/user';
+    let apiUrl = '/api/user';
     
     /* 正規表示法 - 驗證 Email 的 Pattern */
     let verifyEmailPattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;    
@@ -183,7 +183,7 @@ function logout(){
 /* 呼叫 api 登出會員 */
 function userLogout(){
 
-    let apiUrl = '/user';
+    let apiUrl = '/api/user';
 
     console.log("[DBG] userLogout logout api");
     
@@ -208,9 +208,10 @@ function userLogout(){
 /* 呼叫 api 取得目前登入狀態，並隱藏顯示 登入/註冊 或 登出系統 */
 function getLoginStatus(){
 
-    let apiUrl = '/user';
+    let apiUrl = '/api/user';
     
     let waitingState = document.querySelector('a.stateSwitch');
+    console.log(waitingState);
     
     fetch(apiUrl,
         {

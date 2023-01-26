@@ -3,6 +3,8 @@ body{
 }
 
 header{
+    display: flex;
+    justify-content: space-between;
     section.weather{
         .city{
             color: #fff;
@@ -23,6 +25,26 @@ header{
                 opacity: 1;
             }
         } 
+    }
+    ul{
+        display: flex;
+        justify-content: flex-end;
+        flex: 3 1 100px;
+        list-style-type: none;
+        width: 70%;
+        // outline: 1px solid green;
+        li{
+            width: 12%;
+            display: flex;
+            justify-content: flex-end;
+            cursor: pointer;
+            // outline: 1px solid red;
+            a{
+                text-decoration: none;
+                font-size: 1rem;
+                color: #666666;
+            }
+        }
     }
 }
 

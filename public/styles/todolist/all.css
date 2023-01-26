@@ -339,6 +339,10 @@ body {
   background-color: #00E3E3;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+}
 header section.weather .city {
   color: #fff;
 }
@@ -355,6 +359,24 @@ header section.weather h1 a, header section.weather h1 .divider {
 }
 header section.weather h1 a:hover, header section.weather h1 .active {
   opacity: 1;
+}
+header ul {
+  display: flex;
+  justify-content: flex-end;
+  flex: 3 1 100px;
+  list-style-type: none;
+  width: 70%;
+}
+header ul li {
+  width: 12%;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+header ul li a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #666666;
 }
 
 main .date, main .title, main .warning {

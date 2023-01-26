@@ -205,13 +205,13 @@ app.get("/api/dayPlan/:time", async(req, res, next) => {
       let searchDbResult = await searchDatabaseByTime(userId, year, month, day);
       // console.log('searchDbResult: ', searchDbResult);
       if(searchDbResult.length === 0){
-        console.log("== [沒有值] 可讀取 ==", searchDbResult);
+        // console.log("== [沒有值] 可讀取 ==", searchDbResult);
         res.json({
           "data": searchDbResult
         });
         return;
       }
-      console.log("== [有值] 可讀取 ==", searchDbResult);
+      // console.log("== [有值] 可讀取 ==", searchDbResult);
       res.status(200).json({
         "data": searchDbResult
       }); 
@@ -230,7 +230,7 @@ app.get("/api/dayPlan/:time", async(req, res, next) => {
 
 async function searchSameTimeTodoItem(userId, year, month, day, hours, minutes){
 
-  console.log('===== [DBG][searchSameTime] =====');
+  console.log('===== [DBG][searchSameTimeTodoItem] =====');
 
   let foundSameTimeTodoItem = await UserList.find({
     userId : userId,
@@ -240,17 +240,22 @@ async function searchSameTimeTodoItem(userId, year, month, day, hours, minutes){
     "todoList.hours" : { $eq: parseInt(hours) },
     "todoList.minutes" : { $eq: parseInt(minutes) }, 
   });
-  console.log('foundSameTime: ', foundSameTimeTodoItem);  
-  return foundSameTimeTodoItem; 
+  // console.log('[243 DBG]foundSameTimeTodoItem: ', foundSameTimeTodoItem); 
+
+  if(foundSameTimeTodoItem.length !== 0) 
+    return true;
+
+  return false;
 }
-searchSameTimeTodoItem("6374b4993962e480cfc10b3d", 2022, 12, 16, 15, 30);
 
 /* 建立新的代辦事項，並儲存到資料庫 */
 app.post("/api/dayPlan", async (req, res, next) => {
   console.log('===== [DBG][Add_One_Todolist] =====');
   console.log("req.session: ", req.session);
   let {year, month, day, todoList} = req.body;
-
+  let hours   = todoList.hours;
+  let minutes = todoList.minutes;
+  
   try{
     if(req.session.user){
       let newUserList = await new UserList({
@@ -260,6 +265,22 @@ app.post("/api/dayPlan", async (req, res, next) => {
         day   : day,
         todoList: todoList
       });
+      const userId = newUserList.userId;
+      let foundSameTimeTodoItem = await searchSameTimeTodoItem(userId, year, month, day, hours, minutes);
+      // console.log('[271 DBG]foundSameTimeTodoItem: ', foundSameTimeTodoItem); // true
+
+      if(foundSameTimeTodoItem){
+        // console.log("[274 DBG] DB 有相同時間: ", foundSameTimeTodoItem);
+        // console.log("資料庫中 有 相同時間，無法新增");
+        res.status(409).json({
+          "error": true,
+          "message": "已有相同時間的待辦事項，請重新輸入!"
+        });
+        return;
+      }
+      
+      // console.log("[279 DBG] DB 有相同時間: ", foundSameTimeTodoItem);
+      // console.log("資料庫中 沒有 相同時間，可以新增");
       newUserList
       .save()
       .then(() => {
@@ -276,7 +297,7 @@ app.post("/api/dayPlan", async (req, res, next) => {
           "error": true,
           "message": "建立失敗，請注意輸入是否正確或完整!"
         });
-      })
+      })  
     }else{
       res.status(403).json({
         "error": true,
