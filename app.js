@@ -322,6 +322,41 @@ async function searchTodoId(userId, year, month, day, hours, minutes){
   return foundTodoId; 
 }
 
+/* 刪除 1 筆待辦事項 */
+app.delete("/api/dayPlan", async (req, res, next) => {
+  console.log('===== [DBG][Delete_One_TodoItem] =====');
+  console.log("[DBG 328]req.session: ", req.session);
+  let {year, month, day, todoList} = req.body;
+  
+  try{
+    if(req.session.user){
+      let userId      = req.session.user._id;
+      let hours       = todoList.hours;
+      let minutes     = todoList.minutes;
+      let deletedTodoId = await searchTodoId(userId, year, month, day, hours, minutes);
+      
+      UserList.findOneAndDelete({ "_id": { $eq: deletedTodoId } })
+        .then((deletedTodoItem) => {  
+          console.log("[DBG 340]deletedTodoItem", deletedTodoItem);
+          res.status(200).json({
+            "ok": true,
+            "message": "刪除成功!"
+          });
+        })
+        .catch((e) => {
+          console.log("[DBG 347]刪除失敗: ", e);
+        });
+    }else{
+      res.status(403).json({
+        "error": true,
+        "message": "請先登入，才能刪除待辦事項!"
+      });
+    }
+  }catch(err){
+    next(err);
+  } 
+});
+
 app.get("/*", (req, res) => {
   res.status(404).send("404 Page not found.");
 });
