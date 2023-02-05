@@ -302,12 +302,28 @@ function createTodoItem(todoTime, todoText){
             button.addEventListener('click', e => { // removeBtn
                 let todoItem = e.target.parentElement; 
 
+                // console.log('[BDG 306 e.target]: ', e.target);
+                // console.log('[BDG 307 todoItem]: ', todoItem);
+
+                let todoItemTime = todoItem.childNodes[0].textContent;
+                    todoItemTime = todoItemTime.split(':');                
+                let hours        = todoItemTime[0];
+                let minutes      = todoItemTime[1];
+
+                let dateStringArray = window.location.pathname.split('/');
+                    dateStringArray = dateStringArray[2].split('-');
+                let year            = dateStringArray[0];
+                let month           = dateStringArray[1];
+                let day             = dateStringArray[2];
+
+                DeleteTodoItemCallBack(year, month, day, hours, minutes);
+
                 // 刪除 todoItem 出現的動態效果
                 todoItem.style.animation = 'scaleDown 0.3s forwards'; 
 
                 // 動畫結束後，再移除該筆 todoItem
                 todoItem.addEventListener('animationend', () => {
-                    todoItem.remove(); 
+                    todoItem.remove();
                 })   
             })
         }
@@ -374,3 +390,44 @@ async function GetTimeTodoList(){
 }
 GetTimeTodoList();
 
+// [API] 刪除 1 筆待辦事項
+async function DeleteOneTodoItem(year, month, day, hours, minutes){
+    let apiUrl   = '/api/dayPlan';     
+    let response = await fetch(apiUrl, 
+        {
+            method  : 'DELETE',
+            body    : JSON.stringify({               
+                "year" : year,
+                "month": month,
+                "day"  : day,
+                "todoList":  
+                    {
+                        "hours"   : hours,
+                        "minutes" : minutes,
+                    }
+            }),           
+            headers : {'Content-Type': 'application/json'}
+        }
+    ); 
+
+    let result = await response.json();
+    return result;      
+}
+
+// 刪除 1 筆待辦事項
+async function DeleteTodoItemCallBack(year, month, day, hours, minutes){
+
+    let deleteResult = await DeleteOneTodoItem(year, month, day, hours, minutes);
+
+    let warning = document.querySelector(".todoBox .warning");
+
+    if(deleteResult.ok){
+        // console.log("[DBG 425] 已有登入，具有刪除功能! ", deleteResult);
+        warning.textContent = deleteResult.message;
+    }else{
+        // 如使用者未登入，就不給刪除待辦事項
+        // console.log("[DBG 429] 尚未登入，無法操作! ", deleteResult);
+        warning.textContent = deleteResult.message;
+        return; 
+    }   
+}
