@@ -230,7 +230,7 @@ app.get("/api/dayPlan/:time", async(req, res, next) => {
 
 async function searchSameTimeTodoItem(userId, year, month, day, hours, minutes){
 
-  console.log('===== [DBG][searchSameTimeTodoItem] =====');
+  console.log('===== [DBG][Search_SameTime_TodoItem] =====');
 
   let foundSameTimeTodoItem = await UserList.find({
     userId : userId,
@@ -240,7 +240,7 @@ async function searchSameTimeTodoItem(userId, year, month, day, hours, minutes){
     "todoList.hours" : { $eq: parseInt(hours) },
     "todoList.minutes" : { $eq: parseInt(minutes) }, 
   });
-  // console.log('[243 DBG]foundSameTimeTodoItem: ', foundSameTimeTodoItem); 
+  // console.log('foundSameTimeTodoItem: ', foundSameTimeTodoItem); 
 
   if(foundSameTimeTodoItem.length !== 0) 
     return true;
@@ -267,20 +267,15 @@ app.post("/api/dayPlan", async (req, res, next) => {
       });
       const userId = newUserList.userId;
       let foundSameTimeTodoItem = await searchSameTimeTodoItem(userId, year, month, day, hours, minutes);
-      // console.log('[271 DBG]foundSameTimeTodoItem: ', foundSameTimeTodoItem); // true
 
       if(foundSameTimeTodoItem){
-        // console.log("[274 DBG] DB 有相同時間: ", foundSameTimeTodoItem);
-        // console.log("資料庫中 有 相同時間，無法新增");
         res.status(409).json({
           "error": true,
           "message": "已有相同時間的待辦事項，請重新輸入!"
         });
         return;
       }
-      
-      // console.log("[279 DBG] DB 有相同時間: ", foundSameTimeTodoItem);
-      // console.log("資料庫中 沒有 相同時間，可以新增");
+
       newUserList
       .save()
       .then(() => {
@@ -308,6 +303,24 @@ app.post("/api/dayPlan", async (req, res, next) => {
     next(err);
   }   
 });
+
+async function searchTodoId(userId, year, month, day, hours, minutes){
+
+  console.log('===== [DBG][Search_Todo_Id] =====');
+
+  let foundTodoId = await UserList.findOne({
+    userId : userId,
+    year: { $eq: parseInt(year) },
+    month: { $eq: parseInt(month) },
+    day: { $eq: parseInt(day) },
+    "todoList.hours" : { $eq: parseInt(hours) },
+    "todoList.minutes" : { $eq: parseInt(minutes) }, 
+  });
+  
+  foundTodoId = foundTodoId._id.valueOf();
+  console.log('[BDG 321]foundTodoId: ', typeof(foundTodoId));
+  return foundTodoId; 
+}
 
 app.get("/*", (req, res) => {
   res.status(404).send("404 Page not found.");
