@@ -1,5 +1,30 @@
 console.clear();
 
+/* cat */
+gsap.to("#left-hand", {
+  rotate: -20,
+  transformOrigin: "top",
+  repeat: -1,
+  yoyo: true,
+  duration: 2,
+  ease: "power1.inOut"
+});
+
+/* tail [待: 處理 尾巴、頭 的擺動]*/
+let tail = gsap.timeline({repeat: -1, yoyo: true,});
+
+tail.to("#tail",{
+  ease: "power1.in",
+  morphSVG:{shape:"M447.606 379.471v51.687"},
+  duration:1,
+  delay:2
+        })
+    .to("#tail",{
+  ease: "power1.out",
+  duration:1,
+  morphSVG:{shape:"M447.606 379.471v24.772s.061 26.915 28.211 26.915"}
+        });
+
 console.log('== Start calendar.js  ==');
 
 let tbody = document.querySelector("tbody");  
