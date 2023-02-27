@@ -123,9 +123,27 @@ let calendar = {
     // 取出最後1週第1天的文字
     let extraTrFirstA = extraA.textContent;    
     
-    // 若最後1週第1天 無日期(空字串)，則刪除最後1週
+    // 若 最後 1 週 第 1 天 無日期(空字串)，則刪除 最後 1 週
     if(extraTrFirstA === ''){  
       extraTr.remove();
+
+      // 1 個月有 5 週 
+      let nightBackground = document.querySelector(".night");
+      nightBackground.style.height = '48.5vw';
+
+      let forest = document.querySelector('div.forest');
+      forest.classList.remove('bottonAdd');
+      forest.classList.add('bottonCut');
+    }
+    else{
+
+      // 1 個月有 6 週
+      let nightBackground = document.querySelector(".night");
+      nightBackground.style.height = '56.2vw';
+
+      let forest = document.querySelector('div.forest');
+      forest.classList.remove('bottonCut');
+      forest.classList.add('bottonAdd');
     }
 
     // 處理 無日期(空字串) 的格子，使其點擊無法連結(移除它的 a標籤)

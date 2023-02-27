@@ -594,16 +594,15 @@ body main {
   position: relative;
   width: 100%;
   height: 48.5vw;
-  background-color: #000033;
 }
-body main .nightBackground {
+body main .night {
   width: 100%;
   height: 48.5vw;
   position: absolute;
   background: linear-gradient(180deg, #000000, #000033);
   overflow: hidden;
 }
-body main .nightBackground .moon {
+body main .night .moon {
   position: absolute;
   top: 3%;
   left: 6%;
@@ -632,7 +631,7 @@ body main .nightBackground .moon {
     box-shadow: inset -10px 2px 0 0px #fef376, 0 0 15px 10px #FFFF37;
   }
 }
-body main .nightBackground .star div {
+body main .night .star div {
   position: absolute;
   background-image: url("https://ivang-design.com//svg-load/air/star.png");
   background-size: 15px 15px;
@@ -643,97 +642,97 @@ body main .nightBackground .star div {
           animation: starShine 3.5s linear infinite;
   transition: all 1200ms linear;
 }
-body main .nightBackground .star div:nth-child(1) {
+body main .night .star div:nth-child(1) {
   left: 75%;
   top: 5%;
   -webkit-animation-delay: 1s;
           animation-delay: 1s;
 }
-body main .nightBackground .star div:nth-child(2) {
+body main .night .star div:nth-child(2) {
   left: 45%;
   top: 7%;
   -webkit-animation-delay: 2.7s;
           animation-delay: 2.7s;
 }
-body main .nightBackground .star div:nth-child(3) {
+body main .night .star div:nth-child(3) {
   left: 18%;
   top: 7%;
   -webkit-animation-delay: 1.8s;
           animation-delay: 1.8s;
 }
-body main .nightBackground .star div:nth-child(4) {
+body main .night .star div:nth-child(4) {
   left: 30%;
   top: 10%;
   -webkit-animation-delay: 2.2s;
           animation-delay: 2.2s;
 }
-body main .nightBackground .star div:nth-child(5) {
+body main .night .star div:nth-child(5) {
   left: 92%;
   top: 15%;
   -webkit-animation-delay: 1.2s;
           animation-delay: 1.2s;
 }
-body main .nightBackground .star div:nth-child(6) {
+body main .night .star div:nth-child(6) {
   left: 60%;
   top: 4%;
   -webkit-animation-delay: 2.3s;
           animation-delay: 2.3s;
 }
-body main .nightBackground .star div:nth-child(7) {
+body main .night .star div:nth-child(7) {
   left: 70%;
   top: 12%;
   -webkit-animation-delay: 1.7s;
           animation-delay: 1.7s;
 }
-body main .nightBackground .star div:nth-child(8) {
+body main .night .star div:nth-child(8) {
   left: 5%;
   top: 25%;
   -webkit-animation-delay: 1s;
           animation-delay: 1s;
 }
-body main .nightBackground .star div:nth-child(9) {
+body main .night .star div:nth-child(9) {
   left: 28%;
   top: 25%;
   -webkit-animation-delay: 1s;
           animation-delay: 1s;
 }
-body main .nightBackground .star div:nth-child(10) {
+body main .night .star div:nth-child(10) {
   left: 95%;
   top: 27%;
   -webkit-animation-delay: 2.7s;
           animation-delay: 2.7s;
 }
-body main .nightBackground .star div:nth-child(11) {
+body main .night .star div:nth-child(11) {
   left: 8%;
   top: 21%;
   -webkit-animation-delay: 1.8s;
           animation-delay: 1.8s;
 }
-body main .nightBackground .star div:nth-child(12) {
+body main .night .star div:nth-child(12) {
   left: 91%;
   top: 3%;
   -webkit-animation-delay: 2.2s;
           animation-delay: 2.2s;
 }
-body main .nightBackground .star div:nth-child(13) {
+body main .night .star div:nth-child(13) {
   left: 82%;
   top: 24%;
   -webkit-animation-delay: 1.2s;
           animation-delay: 1.2s;
 }
-body main .nightBackground .star div:nth-child(14) {
+body main .night .star div:nth-child(14) {
   left: 51%;
   top: 20%;
   -webkit-animation-delay: 2.3s;
           animation-delay: 2.3s;
 }
-body main .nightBackground .star div:nth-child(15) {
+body main .night .star div:nth-child(15) {
   left: 50%;
   top: 32%;
   -webkit-animation-delay: 1.7s;
           animation-delay: 1.7s;
 }
-body main .nightBackground .star div:nth-child(16) {
+body main .night .star div:nth-child(16) {
   left: 22%;
   top: 38%;
   -webkit-animation-delay: 1s;
@@ -775,10 +774,10 @@ body main .nightBackground .star div:nth-child(16) {
     opacity: 0.4;
   }
 }
-body main .nightBackground .forest {
+body main .night .forest {
   position: relative;
 }
-body main .nightBackground .forest .spruce {
+body main .night .bottonCut .spruce {
   width: 0;
   height: 0;
   border-left: 60px solid transparent;
@@ -788,7 +787,7 @@ body main .nightBackground .forest .spruce {
   bottom: -350px;
   left: 35px;
 }
-body main .nightBackground .forest .spruce__mid::before, body main .nightBackground .forest .spruce__mid::after, body main .nightBackground .forest .spruce__top::before, body main .nightBackground .forest .spruce__top::after {
+body main .night .bottonCut .spruce__mid::before, body main .night .bottonCut .spruce__mid::after, body main .night .bottonCut .spruce__top::before, body main .night .bottonCut .spruce__top::after {
   content: "";
   width: 0;
   height: 0;
@@ -800,23 +799,23 @@ body main .nightBackground .forest .spruce__mid::before, body main .nightBackgro
   bottom: -90px;
   left: -27px;
 }
-body main .nightBackground .forest .spruce__mid::after, body main .nightBackground .forest .spruce__top::after {
+body main .night .bottonCut .spruce__mid::after, body main .night .bottonCut .spruce__top::after {
   transform: rotate(163deg);
   left: -33px;
 }
-body main .nightBackground .forest .spruce__top {
+body main .night .bottonCut .spruce__top {
   transform: scale(0.6);
   bottom: 35px;
   position: absolute;
 }
-body main .nightBackground .forest .spruce__top::before {
+body main .night .bottonCut .spruce__top::before {
   border-top: 60px solid transparent;
   transform: rotate(25deg);
 }
-body main .nightBackground .forest .spruce__top::after {
+body main .night .bottonCut .spruce__top::after {
   transform: rotate(155deg);
 }
-body main .nightBackground .forest .spruce--1 {
+body main .night .bottonCut .spruce--1 {
   left: 100px;
   bottom: -615px;
   transform: scale(0.9);
@@ -824,14 +823,14 @@ body main .nightBackground .forest .spruce--1 {
   -webkit-animation: 0.9s linear 0s infinite alternate spruce1;
           animation: 0.9s linear 0s infinite alternate spruce1;
 }
-body main .nightBackground .forest .spruce--2 {
+body main .night .bottonCut .spruce--2 {
   left: -15px;
   bottom: -620px;
   -webkit-animation: 1s linear 0s infinite alternate spruce2;
           animation: 1s linear 0s infinite alternate spruce2;
   z-index: 2;
 }
-body main .nightBackground .forest .spruce--3 {
+body main .night .bottonCut .spruce--3 {
   left: -40px;
   bottom: -625px;
   transform: scale(0.8);
@@ -839,7 +838,7 @@ body main .nightBackground .forest .spruce--3 {
   -webkit-animation: 0.9s linear 0s infinite alternate spruce3;
           animation: 0.9s linear 0s infinite alternate spruce3;
 }
-body main .nightBackground .forest .spruce--4 {
+body main .night .bottonCut .spruce--4 {
   left: 42px;
   bottom: -605px;
   transform: scale(1.2) rotateY(35deg);
@@ -848,7 +847,7 @@ body main .nightBackground .forest .spruce--4 {
           animation: 1s linear 0s infinite alternate spruce4;
   z-index: 4;
 }
-body main .nightBackground .forest .spruce--5 {
+body main .night .bottonCut .spruce--5 {
   left: 15px;
   bottom: -585px;
   transform: scale(0.85) rotateY(30deg);
@@ -857,18 +856,115 @@ body main .nightBackground .forest .spruce--5 {
   -webkit-animation: 1s linear 0s infinite alternate spruce5;
           animation: 1s linear 0s infinite alternate spruce5;
 }
-body main .nightBackground .forest .spruce--6 {
+body main .night .bottonCut .spruce--6 {
   left: 65px;
-  bottom: -565px;
+  bottom: -600px;
   transform: scale(0.95);
   filter: brightness(0.95);
   z-index: 3;
   -webkit-animation: 1s linear 0s infinite alternate spruce6;
           animation: 1s linear 0s infinite alternate spruce6;
 }
-body main .nightBackground .forest .spruce--7 {
+body main .night .bottonCut .spruce--7 {
   left: 125px;
   bottom: -610px;
+  transform: scale(1.2) rotateY(50deg);
+  filter: brightness(0.98);
+  z-index: 3;
+  -webkit-animation: 1s linear 0s infinite alternate spruce7;
+          animation: 1s linear 0s infinite alternate spruce7;
+}
+body main .night .bottonAdd .spruce {
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 160px solid var(--spruce-mid);
+  position: absolute;
+  bottom: -350px;
+  left: 35px;
+}
+body main .night .bottonAdd .spruce__mid::before, body main .night .bottonAdd .spruce__mid::after, body main .night .bottonAdd .spruce__top::before, body main .night .bottonAdd .spruce__top::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 60px solid var(--spruce-mid);
+  transform: rotate(18deg);
+  position: absolute;
+  bottom: -90px;
+  left: -27px;
+}
+body main .night .bottonAdd .spruce__mid::after, body main .night .bottonAdd .spruce__top::after {
+  transform: rotate(163deg);
+  left: -33px;
+}
+body main .night .bottonAdd .spruce__top {
+  transform: scale(0.6);
+  bottom: 35px;
+  position: absolute;
+}
+body main .night .bottonAdd .spruce__top::before {
+  border-top: 60px solid transparent;
+  transform: rotate(25deg);
+}
+body main .night .bottonAdd .spruce__top::after {
+  transform: rotate(155deg);
+}
+body main .night .bottonAdd .spruce--1 {
+  left: 100px;
+  bottom: -712px;
+  transform: scale(0.9);
+  filter: brightness(0.7);
+  -webkit-animation: 0.9s linear 0s infinite alternate spruce1;
+          animation: 0.9s linear 0s infinite alternate spruce1;
+}
+body main .night .bottonAdd .spruce--2 {
+  left: -15px;
+  bottom: -717px;
+  -webkit-animation: 1s linear 0s infinite alternate spruce2;
+          animation: 1s linear 0s infinite alternate spruce2;
+  z-index: 2;
+}
+body main .night .bottonAdd .spruce--3 {
+  left: -40px;
+  bottom: -722px;
+  transform: scale(0.8);
+  filter: brightness(0.75);
+  -webkit-animation: 0.9s linear 0s infinite alternate spruce3;
+          animation: 0.9s linear 0s infinite alternate spruce3;
+}
+body main .night .bottonAdd .spruce--4 {
+  left: 42px;
+  bottom: -702px;
+  transform: scale(1.2) rotateY(35deg);
+  filter: brightness(1.3);
+  -webkit-animation: 1s linear 0s infinite alternate spruce4;
+          animation: 1s linear 0s infinite alternate spruce4;
+  z-index: 4;
+}
+body main .night .bottonAdd .spruce--5 {
+  left: 15px;
+  bottom: -682px;
+  transform: scale(0.85) rotateY(30deg);
+  filter: brightness(0.7);
+  z-index: -2;
+  -webkit-animation: 1s linear 0s infinite alternate spruce5;
+          animation: 1s linear 0s infinite alternate spruce5;
+}
+body main .night .bottonAdd .spruce--6 {
+  left: 65px;
+  bottom: -697px;
+  transform: scale(0.95);
+  filter: brightness(0.95);
+  z-index: 3;
+  -webkit-animation: 1s linear 0s infinite alternate spruce6;
+          animation: 1s linear 0s infinite alternate spruce6;
+}
+body main .night .bottonAdd .spruce--7 {
+  left: 125px;
+  bottom: -707px;
   transform: scale(1.2) rotateY(50deg);
   filter: brightness(0.98);
   z-index: 3;
@@ -987,12 +1083,12 @@ body main .nightBackground .forest .spruce--7 {
     transform: scale(1.2) rotateY(50deg) rotate(-1deg);
   }
 }
-body main .nightBackground .tent {
+body main .night .tent {
   position: absolute;
   bottom: 95px;
   right: 465px;
 }
-body main .nightBackground .tent__back {
+body main .night .tent__back {
   width: 100px;
   height: 110px;
   background: radial-gradient(circle, #ffa065, #b3794a);
@@ -1001,7 +1097,7 @@ body main .nightBackground .tent__back {
   bottom: 0;
   left: 265px;
 }
-body main .nightBackground .tent__back::before {
+body main .night .tent__back::before {
   content: "";
   width: 0;
   height: 0;
@@ -1013,7 +1109,7 @@ body main .nightBackground .tent__back::before {
   bottom: -6px;
   left: 83px;
 }
-body main .nightBackground .tent__back::after {
+body main .night .tent__back::after {
   content: "";
   width: 20px;
   height: 40px;
@@ -1025,7 +1121,7 @@ body main .nightBackground .tent__back::after {
   bottom: -25px;
   left: 109px;
 }
-body main .nightBackground .tent__front {
+body main .night .tent__front {
   width: 85px;
   height: 130px;
   background: radial-gradient(circle, #ffb98e, #b3794a);
@@ -1035,7 +1131,7 @@ body main .nightBackground .tent__front {
   bottom: -20px;
   left: 255px;
 }
-body main .nightBackground .tent__front::before {
+body main .night .tent__front::before {
   content: "";
   width: 113px;
   height: 123px;
@@ -1050,7 +1146,7 @@ body main .nightBackground .tent__front::before {
           animation: brightTent 8s infinite alternate;
   transition: all 2000ms linear;
 }
-body main .nightBackground .tent__front::after {
+body main .night .tent__front::after {
   content: "";
   width: 103px;
   height: 54px;
@@ -1061,7 +1157,7 @@ body main .nightBackground .tent__front::after {
   bottom: 11px;
   left: -50px;
 }
-body main .nightBackground .tent__prop {
+body main .night .tent__prop {
   width: 1px;
   height: 150px;
   background: var(--light);
@@ -1072,7 +1168,7 @@ body main .nightBackground .tent__prop {
   opacity: 0.4;
   z-index: 3;
 }
-body main .nightBackground .tent__prop::before, body main .nightBackground .tent__prop::after {
+body main .night .tent__prop::before, body main .night .tent__prop::after {
   content: "";
   width: 1px;
   height: 155px;
@@ -1081,19 +1177,19 @@ body main .nightBackground .tent__prop::before, body main .nightBackground .tent
   bottom: 10px;
   left: 174px;
 }
-body main .nightBackground .tent__prop::before {
+body main .night .tent__prop::before {
   height: 170px;
   transform: rotate(-7deg);
   bottom: 53px;
   left: 99px;
 }
-body main .nightBackground .tent__prop::after {
+body main .night .tent__prop::after {
   height: 152px;
   transform: rotate(-85deg);
   bottom: 140px;
   left: 165px;
 }
-body main .nightBackground .tent__pole {
+body main .night .tent__pole {
   width: 5px;
   height: 20px;
   background: var(--pole);
@@ -1103,7 +1199,7 @@ body main .nightBackground .tent__pole {
   bottom: -6px;
   left: 120px;
 }
-body main .nightBackground .tent__pole::before, body main .nightBackground .tent__pole::after {
+body main .night .tent__pole::before, body main .night .tent__pole::after {
   content: "";
   width: 5px;
   height: 20px;
@@ -1114,16 +1210,17 @@ body main .nightBackground .tent__pole::before, body main .nightBackground .tent
   bottom: 86px;
   left: 120px;
 }
-body main .nightBackground .tent__pole::before {
+body main .night .tent__pole::before {
   transform: rotate(-30deg);
   bottom: 0px;
+  left: 130px;
 }
-body main .nightBackground .tent__pole::after {
+body main .night .tent__pole::after {
   transform: rotate(-5deg);
   bottom: 80px;
   left: 310px;
 }
-body main .nightBackground .tent__details::before {
+body main .night .tent__details::before {
   content: "";
   width: 24px;
   height: 118px;
@@ -1136,7 +1233,7 @@ body main .nightBackground .tent__details::before {
   left: 289px;
   opacity: 0.25;
 }
-body main .nightBackground .tent__details::after {
+body main .night .tent__details::after {
   content: "";
   width: 43px;
   height: 90px;
@@ -1163,7 +1260,7 @@ body main .nightBackground .tent__details::after {
     box-shadow: 0px 0px 206px 34px #b66e37;
   }
 }
-body main #catBox {
+body main .night .cat {
   width: 50%;
   height: 30vw;
   position: absolute;
