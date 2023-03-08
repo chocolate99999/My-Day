@@ -110,15 +110,86 @@
         <h2><a href="/">My Day</a></h2>
 
         <ul>
-            <li><a onclick="booking()">預定行程</a></li>  
+            <li><a onclick="booking()">Schedule</a></li>  
             <li><a class="stateSwitch" onclick="change('login')">登入/註冊</a></li>
         </ul>
       </nav>    
     </header>
 
     <main>
+      <!-- 白天背景 -->
+      <section class="daytime">
+        <div id="sun"></div>
+        <div id="sea"></div>
+        <div id="sand"></div>
+
+        <div id="dog">
+          <div class="trunk"></div>
+          <div class="tail">
+            <div class="helix"></div>
+          </div>
+          <div class="head">
+            <div class="left-ear"></div>
+            <div class="right-ear"></div>
+            <div class="left-eye"></div>
+            <div class="right-eye"></div>
+            <div class="mouth">
+              <div class="left-spot"></div>
+              <div class="right-spot"></div>
+            </div>
+            <div class="nose"></div>
+            <div class="tongue"></div>
+          </div>  
+          <div class="collar">
+            <div class="medal"></div> 
+          </div>
+          <div class="front-left-paw"></div>
+          <div class="front-right-paw"></div>
+          <div class="back-left-paw"></div>
+          <div class="back-right-paw"></div>
+        </div>
+
+        <div id="ball"></div>
+
+        <div id="bucket">
+          <div class="base"></div>
+          <div class="body"></div>
+          <div class="rim"></div>
+          <div class="spade"></div>
+        </div>
+
+        <div id="sandcastle">
+          <div class="flagpole">
+            <div class="flag"></div>
+          </div>
+          <div class="castle-top"></div>
+          <div class="castle-middle"></div>
+          <div class="castle-bottom"></div>
+        </div>
+
+        <div id="boat">
+          <ul class="no-bullet">
+            <ul class="fume">
+              <li class="fume4"></li>
+              <li class="fume3"></li>
+              <li class="fume2"></li>
+              <li class="fume1"></li>
+            </ul>
+            <li class="smokestack"></li>
+            <li class="white-body">
+              <ul class="windows">
+                <li class="circle"></li>
+                <li class="circle"></li>
+                <li class="circle"></li>
+              </ul>
+            </li>
+            <li class="boat-body"></li>
+          </ul>
+        </div>
+      </section>
+
       <!-- 黑夜背景 -->
-      <section class="night">
+      <!-- <section class="night">
         <div class="moon"></div>
 
         <div class="star">
@@ -177,12 +248,12 @@
           <div class="tent__details"></div>
           <div class="tent__prop"></div>
           <div class="tent__pole"></div>
-        </div> 
+        </div>  -->
 
-        <svg class="cat" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
+        <!-- <svg class="cat" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5"> -->
         
           <!-- y數值 越靠近 0，喵的位置會越往下移動 -->
-          <g id="cat">
+          <!-- <g id="cat">
             <svg class="cat" x="-250" y="84">
               <path id="right-hand" d="M399.588 305.324s-27.311-.341-25.911 8.246c1.027 6.301 8.592 7.007 14.778 7.167 6.187.16 36.063-.563 11.133-15.413z" fill="#98aebe"/>
               
@@ -234,8 +305,8 @@
               <path id="left-hand" d="M426.186 311.409s-15.939 22.179-8.101 25.956c5.751 2.771 10.668-3.022 14.345-7.998 3.678-4.977 20.216-29.869-6.244-17.958z" fill="#98aebe"/>   
             </svg>               
           </g>  
-        </svg> 
-      </section> 
+        </svg> -->
+      <!-- </section> -->
 
       <section class="calendar">
         <table id="calendar">
