@@ -10,21 +10,6 @@ gsap.to("#left-hand", {
   ease: "power1.inOut"
 });
 
-/* tail [待: 處理 尾巴、頭 的擺動]*/
-let tail = gsap.timeline({repeat: -1, yoyo: true,});
-
-tail.to("#tail",{
-  ease: "power1.in",
-  morphSVG:{shape:"M447.606 379.471v51.687"},
-  duration:1,
-  delay:2
-        })
-    .to("#tail",{
-  ease: "power1.out",
-  duration:1,
-  morphSVG:{shape:"M447.606 379.471v24.772s.061 26.915 28.211 26.915"}
-        });
-
 console.log('== Start calendar.js  ==');
 
 let tbody = document.querySelector("tbody");  
@@ -127,23 +112,25 @@ let calendar = {
     if(extraTrFirstA === ''){  
       extraTr.remove();
 
-      // 1 個月有 5 週 
-      let nightBackground = document.querySelector(".night");
-      nightBackground.style.height = '48.5vw';
+      // 1 個月有 5 週
+      let calendarBox = document.querySelector(".calendar");
+      calendarBox.style.transform = 'scale(0.9, 0.9)';
+      calendarBox.style.marginTop = '0px'; 
 
-      let forest = document.querySelector('div.forest');
-      forest.classList.remove('bottonAdd');
-      forest.classList.add('bottonCut');
+      /* 黑夜: 貓的位置 old-> y="78" */
+      let catAbove = document.querySelector(".catPosition");
+      catAbove.setAttribute('y', '90');
     }
     else{
 
       // 1 個月有 6 週
-      let nightBackground = document.querySelector(".night");
-      nightBackground.style.height = '56.2vw';
+      let calendarBox = document.querySelector(".calendar");
+      calendarBox.style.transform = 'scale(0.8, 0.8)';
+      calendarBox.style.marginTop = '-50px';
 
-      let forest = document.querySelector('div.forest');
-      forest.classList.remove('bottonCut');
-      forest.classList.add('bottonAdd');
+      /* 黑夜: 貓的位置 old-> y="562" */
+      let catBelow = document.querySelector(".catPosition");
+      catBelow.setAttribute('y', '576');
     }
 
     // 處理 無日期(空字串) 的格子，使其點擊無法連結(移除它的 a標籤)
