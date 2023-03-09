@@ -1,5 +1,32 @@
 console.clear();
 
+console.log('===== Start Test Now Time =====');
+
+let nowHour = new Date().getHours();
+console.log("[BDG] typeof(nowHour): ", typeof(nowHour));  //number
+console.log("[BDG] nowHour: ", nowHour);   
+
+/* 根據當地現在時間切換白天、夜晚背景
+   example: 
+          白天 - 6~18 
+          晚上 - 0~5、19~24
+*/
+if((nowHour > 5) && (nowHour < 19)){
+  let daytimeBox = document.querySelector("main > section.daytime");
+  let nightBox   = document.querySelector("main > section.night");
+  nightBox.style.display   = 'none';
+  daytimeBox.style.display = 'block';
+
+}else{
+  let nightBox   = document.querySelector("main > section.night");
+  let daytimeBox = document.querySelector("main > section.daytime");
+  daytimeBox.style.display   = 'none';
+  nightBox.style.display     = 'block';
+
+}
+
+console.log('===== End Test Now Time  =====');
+
 /* cat */
 gsap.to("#left-hand", {
   rotate: -20,
