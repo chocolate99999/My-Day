@@ -8,18 +8,18 @@ console.log("[BDG] nowHour: ", nowHour);
 
 /* 根據當地現在時間切換白天、夜晚背景
    example: 
-          白天 - 6~18 
-          晚上 - 0~5、19~24
+          白天 - 6~18       
+          晚上 - 0~5、19~24 
 */
 if((nowHour > 5) && (nowHour < 19)){
-  let daytimeBox = document.querySelector("main > section.daytime");
-  let nightBox   = document.querySelector("main > section.night");
+  let daytimeBox = document.querySelector("article > section.daytime");
+  let nightBox   = document.querySelector("article > section.night");
   nightBox.style.display   = 'none';
-  daytimeBox.style.display = 'block';
+  daytimeBox.style.display = 'block'; 
 
 }else{
-  let nightBox   = document.querySelector("main > section.night");
-  let daytimeBox = document.querySelector("main > section.daytime");
+  let nightBox   = document.querySelector("article > section.night");
+  let daytimeBox = document.querySelector("article > section.daytime");
   daytimeBox.style.display   = 'none';
   nightBox.style.display     = 'block';
 
