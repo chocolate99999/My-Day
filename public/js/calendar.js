@@ -12,16 +12,16 @@ console.log("[BDG] nowHour: ", nowHour);
           晚上 - 0~5、19~24 
 */
 if((nowHour > 5) && (nowHour < 19)){
-  let daytimeBox = document.querySelector("article > section.daytime");
-  let nightBox   = document.querySelector("article > section.night");
-  nightBox.style.display   = 'none';
-  daytimeBox.style.display = 'block'; 
-
+  
+  let backgroundBox = document.querySelector(".background-box");
+  backgroundBox.classList.remove('nightBox');
+  backgroundBox.classList.add('dayBox'); 
+  
 }else{
-  let nightBox   = document.querySelector("article > section.night");
-  let daytimeBox = document.querySelector("article > section.daytime");
-  daytimeBox.style.display   = 'none';
-  nightBox.style.display     = 'block';
+  
+  let backgroundBox = document.querySelector(".background-box");
+  backgroundBox.classList.remove('dayBox');
+  backgroundBox.classList.add('nightBox');
 
 }
 
@@ -144,9 +144,9 @@ let calendar = {
       calendarBox.style.transform = 'scale(0.9, 0.9)';
       calendarBox.style.marginTop = '0px'; 
 
-      /* 黑夜: 貓的位置 old-> y="78" */
-      let catAbove = document.querySelector(".catPosition");
-      catAbove.setAttribute('y', '90');
+      /* 黑夜: 貓的位置 old-> y="78" 第二版 y="90" */
+      let catAbove = document.querySelector(".cat-position");
+      catAbove.setAttribute('y', '138');
     }
     else{
 
@@ -156,8 +156,8 @@ let calendar = {
       calendarBox.style.marginTop = '-50px';
 
       /* 黑夜: 貓的位置 old-> y="562" */
-      let catBelow = document.querySelector(".catPosition");
-      catBelow.setAttribute('y', '576');
+      let catBelow = document.querySelector(".cat-position");
+      catBelow.setAttribute('y', '623');
     }
 
     // 處理 無日期(空字串) 的格子，使其點擊無法連結(移除它的 a標籤)

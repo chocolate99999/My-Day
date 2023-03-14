@@ -597,16 +597,21 @@ body main {
   width: 100%;
   height: 48.5vw;
 }
-body main .daytime {
+body main .background-box {
+  position: absolute;
   width: 100%;
   height: 48.5vw;
+}
+body main .dayBox .daytime {
   position: absolute;
+  width: 100%;
+  height: 48.5vw;
   background: linear-gradient(180deg, #55b4f6, #b2ebfe, #b2ebfe);
   z-index: -3;
   overflow: hidden;
   /* The beach ball (circle at the back) */
 }
-body main .daytime #sun {
+body main .dayBox .daytime #sun {
   position: absolute;
   top: 9%;
   right: 6%;
@@ -635,7 +640,7 @@ body main .daytime #sun {
     box-shadow: inset 0 0 50px 2px #fef376, 0 0 100px 20px #ffd07e, 0 0 200px 100px #fff877;
   }
 }
-body main .daytime #sea {
+body main .dayBox .daytime #sea {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -644,7 +649,7 @@ body main .daytime #sea {
   background: linear-gradient(to right bottom, #0776ad 0%, #0b87c5 1%, rgba(108, 210, 254, 0.5) 50%, #6cd2fe 100%);
   box-shadow: 0 0 5px #0776ad;
 }
-body main .daytime #sand {
+body main .dayBox .daytime #sand {
   position: absolute;
   bottom: -15%;
   left: -10%;
@@ -654,13 +659,13 @@ body main .daytime #sand {
   background: linear-gradient(to right bottom, #edcd9a 0%, rgb(240, 228, 207) 70%, rgb(240, 228, 207) 84%, rgb(233, 234, 220) 88%, rgb(208, 229, 226) 91%, rgba(174, 238, 248, 0.3) 95%, rgba(118, 221, 241, 0) 99%, rgba(118, 221, 241, 0) 100%);
   box-shadow: 0 0 10px #edcd9a;
 }
-body main .daytime #dog {
+body main .dayBox .daytime #dog {
   position: absolute;
   left: 14%;
   top: 65%;
   transform: translate(-50%, -50%);
 }
-body main .daytime #dog .trunk {
+body main .dayBox .daytime #dog .trunk {
   width: 154px;
   height: 120px;
   border-radius: 47%;
@@ -670,7 +675,7 @@ body main .daytime #dog .trunk {
   -webkit-animation: run 0.4s infinite 0.2s cubic-bezier(0.4, 0.34, 0.16, 0.79);
           animation: run 0.4s infinite 0.2s cubic-bezier(0.4, 0.34, 0.16, 0.79);
 }
-body main .daytime #dog .tail {
+body main .dayBox .daytime #dog .tail {
   position: absolute;
   right: -8px;
   top: 30px;
@@ -682,7 +687,7 @@ body main .daytime #dog .tail {
   transform: rotate(30deg) translate(0px, -30px) rotate(20deg) rotateY(180deg) rotateX(180deg);
   z-index: -3;
 }
-body main .daytime #dog .tail .helix {
+body main .dayBox .daytime #dog .tail .helix {
   content: " ";
   display: block;
   position: absolute;
@@ -694,7 +699,7 @@ body main .daytime #dog .tail .helix {
   background-color: #45aee2;
   transform: rotate(45deg);
 }
-body main .daytime #dog .collar {
+body main .dayBox .daytime #dog .collar {
   width: 60px;
   height: 77px;
   background: #f27779;
@@ -705,7 +710,7 @@ body main .daytime #dog .collar {
   transform: rotate(60deg);
   z-index: 9;
 }
-body main .daytime #dog .collar .medal {
+body main .dayBox .daytime #dog .collar .medal {
   width: 21px;
   height: 18px;
   background: #f7e191;
@@ -717,7 +722,7 @@ body main .daytime #dog .collar .medal {
   -webkit-animation: medal 2.2s infinite 0.5s cubic-bezier(0.4, 0.34, 0.16, 0.79);
           animation: medal 2.2s infinite 0.5s cubic-bezier(0.4, 0.34, 0.16, 0.79);
 }
-body main .daytime #dog .head {
+body main .dayBox .daytime #dog .head {
   border-radius: 47%;
   position: absolute;
   background: #fef9e8;
@@ -730,7 +735,7 @@ body main .daytime #dog .head {
   -webkit-animation: dog-head 3.8s infinite 1s cubic-bezier(0.4, 0.34, 0.16, 0.79);
           animation: dog-head 3.8s infinite 1s cubic-bezier(0.4, 0.34, 0.16, 0.79);
 }
-body main .daytime #dog .head .left-ear {
+body main .dayBox .daytime #dog .head .left-ear {
   position: absolute;
   border: 32px solid transparent;
   border-left: 30px solid #2d2d2d;
@@ -739,7 +744,7 @@ body main .daytime #dog .head .left-ear {
   top: -55px;
   right: 40px;
 }
-body main .daytime #dog .head .right-ear {
+body main .dayBox .daytime #dog .head .right-ear {
   position: absolute;
   border: 32px solid transparent;
   border-left: 30px solid #2d2d2d;
@@ -748,7 +753,7 @@ body main .daytime #dog .head .right-ear {
   bottom: -55px;
   right: 40px;
 }
-body main .daytime #dog .head .left-eye {
+body main .dayBox .daytime #dog .head .left-eye {
   position: absolute;
   height: 22px;
   width: 22px;
@@ -757,7 +762,7 @@ body main .daytime #dog .head .left-eye {
   top: 12px;
   left: 38px;
 }
-body main .daytime #dog .head .left-eye::before {
+body main .dayBox .daytime #dog .head .left-eye::before {
   content: "";
   position: absolute;
   display: block;
@@ -771,7 +776,7 @@ body main .daytime #dog .head .left-eye::before {
   -webkit-animation: eye 10s infinite 0.18s linear;
           animation: eye 10s infinite 0.18s linear;
 }
-body main .daytime #dog .head .right-eye {
+body main .dayBox .daytime #dog .head .right-eye {
   position: absolute;
   height: 22px;
   width: 22px;
@@ -780,7 +785,7 @@ body main .daytime #dog .head .right-eye {
   top: 75px;
   left: 38px;
 }
-body main .daytime #dog .head .right-eye::before {
+body main .dayBox .daytime #dog .head .right-eye::before {
   content: "";
   position: absolute;
   display: block;
@@ -794,7 +799,7 @@ body main .daytime #dog .head .right-eye::before {
   -webkit-animation: eye 10s infinite 0.18s linear;
           animation: eye 10s infinite 0.18s linear;
 }
-body main .daytime #dog .head .mouth {
+body main .dayBox .daytime #dog .head .mouth {
   position: absolute;
   transform: rotate(-180deg);
   border: 34px solid transparent;
@@ -803,7 +808,7 @@ body main .daytime #dog .head .mouth {
   bottom: 23px;
   right: 2px;
 }
-body main .daytime #dog .head .mouth .left-spot {
+body main .dayBox .daytime #dog .head .mouth .left-spot {
   content: "";
   position: absolute;
   display: block;
@@ -816,7 +821,7 @@ body main .daytime #dog .head .mouth .left-spot {
   transform: rotate(135deg);
   -webkit-box-reflect: below 3px;
 }
-body main .daytime #dog .head .mouth .right-spot {
+body main .dayBox .daytime #dog .head .mouth .right-spot {
   content: "";
   position: absolute;
   display: block;
@@ -829,7 +834,7 @@ body main .daytime #dog .head .mouth .right-spot {
   transform: rotate(145deg);
   -webkit-box-reflect: right 3px;
 }
-body main .daytime #dog .head .mouth::before {
+body main .dayBox .daytime #dog .head .mouth::before {
   content: "";
   position: absolute;
   top: 0px;
@@ -845,7 +850,7 @@ body main .daytime #dog .head .mouth::before {
   transform: rotate(180deg);
   -webkit-box-reflect: below 0.01px;
 }
-body main .daytime #dog .head .nose {
+body main .dayBox .daytime #dog .head .nose {
   position: absolute;
   transform: rotate(0deg);
   border: 10px solid transparent;
@@ -855,7 +860,7 @@ body main .daytime #dog .head .nose {
   right: 19px;
   z-index: -3;
 }
-body main .daytime #dog .head .tongue {
+body main .dayBox .daytime #dog .head .tongue {
   position: absolute;
   background: #f33131;
   width: 28%;
@@ -890,7 +895,7 @@ body main .daytime #dog .head .tongue {
     width: 28%;
   }
 }
-body main .daytime #dog .front-left-paw {
+body main .dayBox .daytime #dog .front-left-paw {
   width: 20px;
   height: 60px;
   border-radius: 10px;
@@ -902,7 +907,7 @@ body main .daytime #dog .front-left-paw {
           animation: paw 0.8s infinite 0.18s cubic-bezier(0.4, 0.34, 0.16, 0.79);
   transform-origin: 50% 0%;
 }
-body main .daytime #dog .front-right-paw {
+body main .dayBox .daytime #dog .front-right-paw {
   width: 20px;
   height: 60px;
   border-radius: 10px;
@@ -914,7 +919,7 @@ body main .daytime #dog .front-right-paw {
           animation: paw 0.8s infinite 0s cubic-bezier(0.4, 0.34, 0.16, 0.79);
   transform-origin: 50% 0%;
 }
-body main .daytime #dog .back-left-paw {
+body main .dayBox .daytime #dog .back-left-paw {
   width: 20px;
   height: 60px;
   border-radius: 10px;
@@ -927,7 +932,7 @@ body main .daytime #dog .back-left-paw {
           animation: paw 0.8s infinite 0.3s cubic-bezier(0.4, 0.34, 0.16, 0.79);
   transform-origin: 50% 0%;
 }
-body main .daytime #dog .back-right-paw {
+body main .dayBox .daytime #dog .back-right-paw {
   width: 20px;
   height: 60px;
   border-radius: 10px;
@@ -940,7 +945,7 @@ body main .daytime #dog .back-right-paw {
           animation: paw 0.9s infinite 0.2s cubic-bezier(0.4, 0.34, 0.16, 0.79);
   transform-origin: 50% 0%;
 }
-body main .daytime #dog::after {
+body main .dayBox .daytime #dog::after {
   content: "";
   position: absolute;
   display: block;
@@ -1101,7 +1106,7 @@ body main .daytime #dog::after {
     left: 50px;
   }
 }
-body main .daytime #ball {
+body main .dayBox .daytime #ball {
   position: absolute;
   left: 7%;
   top: 77%;
@@ -1116,7 +1121,7 @@ body main .daytime #ball {
   -webkit-animation: rotateBall 2s infinite alternate;
           animation: rotateBall 2s infinite alternate;
 }
-body main .daytime #ball:before {
+body main .dayBox .daytime #ball:before {
   display: block;
   position: absolute;
   content: "";
@@ -1128,7 +1133,7 @@ body main .daytime #ball:before {
   border-radius: 50%;
   z-index: 2;
 }
-body main .daytime #ball:after {
+body main .dayBox .daytime #ball:after {
   display: block;
   position: absolute;
   content: "";
@@ -1175,7 +1180,7 @@ body main .daytime #ball:after {
     transform: rotate(60deg);
   }
 }
-body main .daytime #bucket {
+body main .dayBox .daytime #bucket {
   position: absolute;
   right: 15vw;
   bottom: 10vh;
@@ -1185,7 +1190,7 @@ body main .daytime #bucket {
   perspective: 200;
   transform-style: preserve-3d;
 }
-body main .daytime #bucket .base {
+body main .dayBox .daytime #bucket .base {
   position: absolute;
   bottom: 0.4vh;
   left: 8.5%;
@@ -1195,7 +1200,7 @@ body main .daytime #bucket .base {
   border-radius: 50%;
   z-index: 1;
 }
-body main .daytime #bucket .body {
+body main .dayBox .daytime #bucket .body {
   position: absolute;
   top: 0;
   left: 0;
@@ -1207,7 +1212,7 @@ body main .daytime #bucket .body {
   perspective-origin: 50% 50%;
   z-index: 2;
 }
-body main .daytime #bucket .rim {
+body main .dayBox .daytime #bucket .rim {
   position: absolute;
   top: 0;
   left: 0;
@@ -1218,7 +1223,7 @@ body main .daytime #bucket .rim {
   border-bottom-right-radius: 50%;
   z-index: 3;
 }
-body main .daytime #bucket .rim::before {
+body main .dayBox .daytime #bucket .rim::before {
   display: block;
   position: absolute;
   content: "";
@@ -1230,7 +1235,7 @@ body main .daytime #bucket .rim::before {
   border-radius: 50%;
   z-index: 4;
 }
-body main .daytime #bucket .spade {
+body main .dayBox .daytime #bucket .spade {
   position: absolute;
   width: 0.6vh;
   height: 4vh;
@@ -1240,7 +1245,7 @@ body main .daytime #bucket .spade {
   transform: rotate(-15deg);
   z-index: 5;
 }
-body main .daytime #bucket .spade::before {
+body main .dayBox .daytime #bucket .spade::before {
   display: block;
   position: absolute;
   content: "";
@@ -1251,7 +1256,7 @@ body main .daytime #bucket .spade::before {
   transform: rotate(22deg) translate(0, 0);
   background: #eb6357;
 }
-body main .daytime #bucket .spade::after {
+body main .dayBox .daytime #bucket .spade::after {
   display: block;
   position: absolute;
   content: "";
@@ -1263,7 +1268,7 @@ body main .daytime #bucket .spade::after {
   border: 0.6vh solid #4b8a69;
   border-radius: 0.4vh;
 }
-body main .daytime #sandcastle {
+body main .dayBox .daytime #sandcastle {
   position: absolute;
   bottom: -2vh;
   right: -14vw;
@@ -1271,7 +1276,7 @@ body main .daytime #sandcastle {
   width: 300px;
   height: 300px;
 }
-body main .daytime #sandcastle .flagpole {
+body main .dayBox .daytime #sandcastle .flagpole {
   position: relative;
   right: -148px;
   bottom: -20px;
@@ -1280,7 +1285,7 @@ body main .daytime #sandcastle .flagpole {
   background: #C19974;
   z-index: 5;
 }
-body main .daytime #sandcastle .flagpole .flag {
+body main .dayBox .daytime #sandcastle .flagpole .flag {
   position: absolute;
   right: -18px;
   border-top: 10px solid transparent;
@@ -1318,7 +1323,7 @@ body main .daytime #sandcastle .flagpole .flag {
     transform: rotateY(-125deg);
   }
 }
-body main .daytime #sandcastle .castle-top {
+body main .dayBox .daytime #sandcastle .castle-top {
   position: absolute;
   width: 60px;
   left: 50%;
@@ -1327,7 +1332,7 @@ body main .daytime #sandcastle .castle-top {
   height: 50px;
   background: var(--sand-accent);
 }
-body main .daytime #sandcastle .castle-top::after {
+body main .dayBox .daytime #sandcastle .castle-top::after {
   content: "";
   position: absolute;
   top: -18px;
@@ -1336,7 +1341,7 @@ body main .daytime #sandcastle .castle-top::after {
   border-radius: 15%;
   background: repeating-linear-gradient(to right, var(--sand-accent), var(--sand-accent) 23px, transparent 23px, transparent 37px);
 }
-body main .daytime #sandcastle .castle-middle {
+body main .dayBox .daytime #sandcastle .castle-middle {
   position: absolute;
   width: 90px;
   left: 50%;
@@ -1345,7 +1350,7 @@ body main .daytime #sandcastle .castle-middle {
   height: 50px;
   background: var(--sand-color);
 }
-body main .daytime #sandcastle .castle-middle::after {
+body main .dayBox .daytime #sandcastle .castle-middle::after {
   content: "";
   position: absolute;
   top: -18px;
@@ -1354,7 +1359,7 @@ body main .daytime #sandcastle .castle-middle::after {
   border-radius: 15%;
   background: repeating-linear-gradient(to right, var(--sand-color), var(--sand-color) 23px, transparent 23px, transparent 33px);
 }
-body main .daytime #sandcastle .castle-bottom {
+body main .dayBox .daytime #sandcastle .castle-bottom {
   position: absolute;
   width: 120px;
   left: 50%;
@@ -1363,7 +1368,7 @@ body main .daytime #sandcastle .castle-bottom {
   height: 50px;
   background: var(--sand-accent);
 }
-body main .daytime #sandcastle .castle-bottom::before {
+body main .dayBox .daytime #sandcastle .castle-bottom::before {
   content: "";
   position: absolute;
   top: -18px;
@@ -1372,7 +1377,7 @@ body main .daytime #sandcastle .castle-bottom::before {
   border-radius: 15%;
   background: repeating-linear-gradient(to right, var(--sand-accent), var(--sand-accent) 23px, transparent 23px, transparent 33px);
 }
-body main .daytime #sandcastle .castle-bottom::after {
+body main .dayBox .daytime #sandcastle .castle-bottom::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -1383,7 +1388,7 @@ body main .daytime #sandcastle .castle-bottom::after {
   background: #C19974;
   border-radius: 50% 50% 0 0;
 }
-body main .daytime #boat {
+body main .dayBox .daytime #boat {
   position: absolute;
   bottom: 330px;
   z-index: 1;
@@ -1391,10 +1396,10 @@ body main .daytime #boat {
   -webkit-animation: boatMove 30s linear infinite;
           animation: boatMove 30s linear infinite;
 }
-body main .daytime #boat .no-bullet .fume {
+body main .dayBox .daytime #boat .no-bullet .fume {
   margin: 0px;
 }
-body main .daytime #boat .no-bullet .fume .fume1 {
+body main .dayBox .daytime #boat .no-bullet .fume .fume1 {
   background-color: white;
   border-radius: 50%;
   width: 7px;
@@ -1403,7 +1408,7 @@ body main .daytime #boat .no-bullet .fume .fume1 {
   -webkit-animation: smokeup 2s linear infinite;
           animation: smokeup 2s linear infinite;
 }
-body main .daytime #boat .no-bullet .fume .fume2 {
+body main .dayBox .daytime #boat .no-bullet .fume .fume2 {
   background-color: white;
   border-radius: 50%;
   width: 9px;
@@ -1412,7 +1417,7 @@ body main .daytime #boat .no-bullet .fume .fume2 {
   -webkit-animation: smokeup 2.1s linear infinite;
           animation: smokeup 2.1s linear infinite;
 }
-body main .daytime #boat .no-bullet .fume .fume3 {
+body main .dayBox .daytime #boat .no-bullet .fume .fume3 {
   background-color: white;
   border-radius: 50%;
   width: 12px;
@@ -1421,7 +1426,7 @@ body main .daytime #boat .no-bullet .fume .fume3 {
   -webkit-animation: smokeup 2.2s linear infinite;
           animation: smokeup 2.2s linear infinite;
 }
-body main .daytime #boat .no-bullet .fume .fume4 {
+body main .dayBox .daytime #boat .no-bullet .fume .fume4 {
   background-color: white;
   border-radius: 50%;
   width: 15px;
@@ -1458,32 +1463,32 @@ body main .daytime #boat .no-bullet .fume .fume4 {
     opacity: 0;
   }
 }
-body main .daytime #boat .no-bullet .smokestack {
+body main .dayBox .daytime #boat .no-bullet .smokestack {
   width: 10px;
   height: 17px;
   background: #a18e6e;
   bottom: 30px;
   margin-left: 45px;
 }
-body main .daytime #boat .no-bullet .white-body {
+body main .dayBox .daytime #boat .no-bullet .white-body {
   width: 65px;
   height: 16px;
   background: #FFF;
   margin: 0px 13px;
   border-top-left-radius: 20px;
 }
-body main .daytime #boat .no-bullet .white-body .windows {
+body main .dayBox .daytime #boat .no-bullet .white-body .windows {
   display: flex;
   justify-content: space-evenly;
 }
-body main .daytime #boat .no-bullet .white-body .windows .circle {
+body main .dayBox .daytime #boat .no-bullet .white-body .windows .circle {
   background: #a18e6e;
   width: 7px;
   height: 7px;
   margin: 5px 3px;
   border-radius: 50%;
 }
-body main .daytime #boat .no-bullet .boat-body {
+body main .dayBox .daytime #boat .no-bullet .boat-body {
   position: relative;
   width: 100px;
   height: 20px;
@@ -1491,7 +1496,7 @@ body main .daytime #boat .no-bullet .boat-body {
   border-top-left-radius: 3px;
   border-bottom-left-radius: 20px;
 }
-body main .daytime #boat .no-bullet .boat-body::after {
+body main .dayBox .daytime #boat .no-bullet .boat-body::after {
   position: absolute;
   content: "";
   display: block;
@@ -1554,14 +1559,15 @@ body main .daytime #boat .no-bullet .boat-body::after {
     bottom: 338px;
   }
 }
-body main .night {
+body main .nightBox .night {
+  position: absolute;
   width: 100%;
   height: 48.5vw;
-  position: absolute;
   background: linear-gradient(180deg, #000000, #000033);
   overflow: hidden;
+  outline: 3px solid pink;
 }
-body main .night #moon {
+body main .nightBox .night #moon {
   position: absolute;
   top: 6%;
   left: 6%;
@@ -1590,7 +1596,7 @@ body main .night #moon {
     box-shadow: inset 0 0 2px 2px #fdfd7a, 0 0 15px 10px #FFFF37;
   }
 }
-body main .night #star div {
+body main .nightBox .night #star div {
   position: absolute;
   background-image: url("https://ivang-design.com//svg-load/air/star.png");
   background-size: 15px 15px;
@@ -1601,127 +1607,127 @@ body main .night #star div {
           animation: starShine 3.5s linear infinite;
   transition: all 1200ms linear;
 }
-body main .night #star div:nth-child(1) {
+body main .nightBox .night #star div:nth-child(1) {
   left: 75%;
   top: 5%;
   -webkit-animation-delay: 1s;
           animation-delay: 1s;
 }
-body main .night #star div:nth-child(2) {
+body main .nightBox .night #star div:nth-child(2) {
   left: 45%;
   top: 7%;
   -webkit-animation-delay: 2.7s;
           animation-delay: 2.7s;
 }
-body main .night #star div:nth-child(3) {
+body main .nightBox .night #star div:nth-child(3) {
   left: 18%;
   top: 7%;
   -webkit-animation-delay: 1.8s;
           animation-delay: 1.8s;
 }
-body main .night #star div:nth-child(4) {
+body main .nightBox .night #star div:nth-child(4) {
   left: 87%;
   top: 8%;
   -webkit-animation-delay: 2.2s;
           animation-delay: 2.2s;
 }
-body main .night #star div:nth-child(5) {
+body main .nightBox .night #star div:nth-child(5) {
   left: 92%;
   top: 15%;
   -webkit-animation-delay: 1.2s;
           animation-delay: 1.2s;
 }
-body main .night #star div:nth-child(6) {
+body main .nightBox .night #star div:nth-child(6) {
   left: 60%;
   top: 4%;
   -webkit-animation-delay: 2.3s;
           animation-delay: 2.3s;
 }
-body main .night #star div:nth-child(7) {
+body main .nightBox .night #star div:nth-child(7) {
   left: 70%;
   top: 12%;
   -webkit-animation-delay: 1.7s;
           animation-delay: 1.7s;
 }
-body main .night #star div:nth-child(8) {
+body main .nightBox .night #star div:nth-child(8) {
   left: 5%;
   top: 25%;
   -webkit-animation-delay: 1s;
           animation-delay: 1s;
 }
-body main .night #star div:nth-child(9) {
+body main .nightBox .night #star div:nth-child(9) {
   left: 28%;
   top: 25%;
   -webkit-animation-delay: 1s;
           animation-delay: 1s;
 }
-body main .night #star div:nth-child(10) {
+body main .nightBox .night #star div:nth-child(10) {
   left: 95%;
   top: 27%;
   -webkit-animation-delay: 2.7s;
           animation-delay: 2.7s;
 }
-body main .night #star div:nth-child(11) {
+body main .nightBox .night #star div:nth-child(11) {
   left: 8%;
   top: 32%;
   -webkit-animation-delay: 1.8s;
           animation-delay: 1.8s;
 }
-body main .night #star div:nth-child(12) {
+body main .nightBox .night #star div:nth-child(12) {
   left: 91%;
   top: 3%;
   -webkit-animation-delay: 2.2s;
           animation-delay: 2.2s;
 }
-body main .night #star div:nth-child(13) {
+body main .nightBox .night #star div:nth-child(13) {
   left: 82%;
   top: 24%;
   -webkit-animation-delay: 1.2s;
           animation-delay: 1.2s;
 }
-body main .night #star div:nth-child(14) {
+body main .nightBox .night #star div:nth-child(14) {
   left: 11%;
   top: 27%;
   -webkit-animation-delay: 2.3s;
           animation-delay: 2.3s;
 }
-body main .night #star div:nth-child(15) {
+body main .nightBox .night #star div:nth-child(15) {
   left: 87%;
   top: 32%;
   -webkit-animation-delay: 1.7s;
           animation-delay: 1.7s;
 }
-body main .night #star div:nth-child(16) {
+body main .nightBox .night #star div:nth-child(16) {
   left: 22%;
   top: 38%;
   -webkit-animation-delay: 1s;
           animation-delay: 1s;
 }
-body main .night #star div:nth-child(17) {
+body main .nightBox .night #star div:nth-child(17) {
   left: 8%;
   top: 11%;
   -webkit-animation-delay: 2.2s;
           animation-delay: 2.2s;
 }
-body main .night #star div:nth-child(18) {
+body main .nightBox .night #star div:nth-child(18) {
   left: 10%;
   top: 6%;
   -webkit-animation-delay: 1.2s;
           animation-delay: 1.2s;
 }
-body main .night #star div:nth-child(19) {
+body main .nightBox .night #star div:nth-child(19) {
   left: 3%;
   top: 4%;
   -webkit-animation-delay: 2.3s;
           animation-delay: 2.3s;
 }
-body main .night #star div:nth-child(20) {
+body main .nightBox .night #star div:nth-child(20) {
   left: 31%;
   top: 44%;
   -webkit-animation-delay: 1.7s;
           animation-delay: 1.7s;
 }
-body main .night #star div:nth-child(21) {
+body main .nightBox .night #star div:nth-child(21) {
   left: 71%;
   top: 6%;
   -webkit-animation-delay: 1s;
@@ -1763,10 +1769,10 @@ body main .night #star div:nth-child(21) {
     opacity: 0.4;
   }
 }
-body main .night #forest {
+body main .nightBox .night #forest {
   position: relative;
 }
-body main .night #forest .spruce {
+body main .nightBox .night #forest .spruce {
   width: 0;
   height: 0;
   border-left: 60px solid transparent;
@@ -1776,7 +1782,7 @@ body main .night #forest .spruce {
   bottom: -350px;
   left: 35px;
 }
-body main .night #forest .spruce__mid::before, body main .night #forest .spruce__mid::after, body main .night #forest .spruce__top::before, body main .night #forest .spruce__top::after {
+body main .nightBox .night #forest .spruce__mid::before, body main .nightBox .night #forest .spruce__mid::after, body main .nightBox .night #forest .spruce__top::before, body main .nightBox .night #forest .spruce__top::after {
   content: "";
   width: 0;
   height: 0;
@@ -1788,23 +1794,23 @@ body main .night #forest .spruce__mid::before, body main .night #forest .spruce_
   bottom: -90px;
   left: -27px;
 }
-body main .night #forest .spruce__mid::after, body main .night #forest .spruce__top::after {
+body main .nightBox .night #forest .spruce__mid::after, body main .nightBox .night #forest .spruce__top::after {
   transform: rotate(163deg);
   left: -33px;
 }
-body main .night #forest .spruce__top {
+body main .nightBox .night #forest .spruce__top {
   transform: scale(0.6);
   bottom: 35px;
   position: absolute;
 }
-body main .night #forest .spruce__top::before {
+body main .nightBox .night #forest .spruce__top::before {
   border-top: 60px solid transparent;
   transform: rotate(25deg);
 }
-body main .night #forest .spruce__top::after {
+body main .nightBox .night #forest .spruce__top::after {
   transform: rotate(155deg);
 }
-body main .night #forest .spruce--1 {
+body main .nightBox .night #forest .spruce--1 {
   left: 100px;
   bottom: -560px;
   transform: scale(0.9);
@@ -1812,14 +1818,14 @@ body main .night #forest .spruce--1 {
   -webkit-animation: 0.9s linear 0s infinite alternate spruce1;
           animation: 0.9s linear 0s infinite alternate spruce1;
 }
-body main .night #forest .spruce--2 {
+body main .nightBox .night #forest .spruce--2 {
   left: -15px;
   bottom: -570px;
   -webkit-animation: 1s linear 0s infinite alternate spruce2;
           animation: 1s linear 0s infinite alternate spruce2;
   z-index: 2;
 }
-body main .night #forest .spruce--3 {
+body main .nightBox .night #forest .spruce--3 {
   left: -40px;
   bottom: -575px;
   transform: scale(0.8);
@@ -1827,7 +1833,7 @@ body main .night #forest .spruce--3 {
   -webkit-animation: 0.9s linear 0s infinite alternate spruce3;
           animation: 0.9s linear 0s infinite alternate spruce3;
 }
-body main .night #forest .spruce--4 {
+body main .nightBox .night #forest .spruce--4 {
   left: 38px;
   bottom: -550px;
   transform: scale(1.2) rotateY(35deg);
@@ -1836,7 +1842,7 @@ body main .night #forest .spruce--4 {
           animation: 1s linear 0s infinite alternate spruce4;
   z-index: 4;
 }
-body main .night #forest .spruce--5 {
+body main .nightBox .night #forest .spruce--5 {
   left: 20px;
   bottom: -562px;
   transform: scale(0.85) rotateY(30deg);
@@ -1845,7 +1851,7 @@ body main .night #forest .spruce--5 {
   -webkit-animation: 1s linear 0s infinite alternate spruce5;
           animation: 1s linear 0s infinite alternate spruce5;
 }
-body main .night #forest .spruce--6 {
+body main .nightBox .night #forest .spruce--6 {
   left: 65px;
   bottom: -600px;
   transform: scale(0.95);
@@ -1854,7 +1860,7 @@ body main .night #forest .spruce--6 {
   -webkit-animation: 1s linear 0s infinite alternate spruce6;
           animation: 1s linear 0s infinite alternate spruce6;
 }
-body main .night #forest .spruce--7 {
+body main .nightBox .night #forest .spruce--7 {
   left: 125px;
   bottom: -570px;
   transform: scale(1.2) rotateY(50deg);
@@ -1975,12 +1981,12 @@ body main .night #forest .spruce--7 {
     transform: scale(1.2) rotateY(50deg) rotate(-1deg);
   }
 }
-body main .night #tent {
+body main .nightBox .night #tent {
   position: absolute;
   bottom: 95px;
   right: 455px;
 }
-body main .night #tent .tent-back {
+body main .nightBox .night #tent .tent-back {
   width: 100px;
   height: 110px;
   background: radial-gradient(circle, #ffa065, #b3794a);
@@ -1989,7 +1995,7 @@ body main .night #tent .tent-back {
   bottom: 0;
   left: 265px;
 }
-body main .night #tent .tent-back::before {
+body main .nightBox .night #tent .tent-back::before {
   content: "";
   width: 0;
   height: 0;
@@ -2001,7 +2007,7 @@ body main .night #tent .tent-back::before {
   bottom: -6px;
   left: 83px;
 }
-body main .night #tent .tent-back::after {
+body main .nightBox .night #tent .tent-back::after {
   content: "";
   width: 20px;
   height: 40px;
@@ -2013,7 +2019,7 @@ body main .night #tent .tent-back::after {
   bottom: -25px;
   left: 109px;
 }
-body main .night #tent .tent-front {
+body main .nightBox .night #tent .tent-front {
   width: 85px;
   height: 130px;
   background: radial-gradient(circle, #ffb98e, #b3794a);
@@ -2023,7 +2029,7 @@ body main .night #tent .tent-front {
   bottom: -20px;
   left: 255px;
 }
-body main .night #tent .tent-front::before {
+body main .nightBox .night #tent .tent-front::before {
   content: "";
   width: 113px;
   height: 123px;
@@ -2038,7 +2044,7 @@ body main .night #tent .tent-front::before {
           animation: brightTent 8s infinite alternate;
   transition: all 2000ms linear;
 }
-body main .night #tent .tent-front::after {
+body main .nightBox .night #tent .tent-front::after {
   content: "";
   width: 103px;
   height: 54px;
@@ -2049,7 +2055,7 @@ body main .night #tent .tent-front::after {
   bottom: 11px;
   left: -50px;
 }
-body main .night #tent .tent-details {
+body main .nightBox .night #tent .tent-details {
   width: 1px;
   height: 150px;
   background: var(--light);
@@ -2060,7 +2066,7 @@ body main .night #tent .tent-details {
   opacity: 0.4;
   z-index: 3;
 }
-body main .night #tent .tent-details::before, body main .night #tent .tent-details::after {
+body main .nightBox .night #tent .tent-details::before, body main .nightBox .night #tent .tent-details::after {
   content: "";
   width: 1px;
   height: 155px;
@@ -2069,19 +2075,19 @@ body main .night #tent .tent-details::before, body main .night #tent .tent-detai
   bottom: 10px;
   left: 174px;
 }
-body main .night #tent .tent-details::before {
+body main .nightBox .night #tent .tent-details::before {
   height: 170px;
   transform: rotate(-7deg);
   bottom: 53px;
   left: 99px;
 }
-body main .night #tent .tent-details::after {
+body main .nightBox .night #tent .tent-details::after {
   height: 152px;
   transform: rotate(-85deg);
   bottom: 140px;
   left: 165px;
 }
-body main .night #tent .tent-prop {
+body main .nightBox .night #tent .tent-prop {
   width: 5px;
   height: 20px;
   background: var(--pole);
@@ -2091,7 +2097,7 @@ body main .night #tent .tent-prop {
   bottom: -6px;
   left: 120px;
 }
-body main .night #tent .tent-prop::before, body main .night #tent .tent-prop::after {
+body main .nightBox .night #tent .tent-prop::before, body main .nightBox .night #tent .tent-prop::after {
   content: "";
   width: 5px;
   height: 20px;
@@ -2102,17 +2108,17 @@ body main .night #tent .tent-prop::before, body main .night #tent .tent-prop::af
   bottom: 86px;
   left: 120px;
 }
-body main .night #tent .tent-prop::before {
+body main .nightBox .night #tent .tent-prop::before {
   transform: rotate(-30deg);
   bottom: 0px;
   left: 130px;
 }
-body main .night #tent .tent-prop::after {
+body main .nightBox .night #tent .tent-prop::after {
   transform: rotate(-5deg);
   bottom: 80px;
   left: 310px;
 }
-body main .night #tent .tent-pole::before {
+body main .nightBox .night #tent .tent-pole::before {
   content: "";
   width: 24px;
   height: 118px;
@@ -2125,7 +2131,7 @@ body main .night #tent .tent-pole::before {
   left: 289px;
   opacity: 0.25;
 }
-body main .night #tent .tent-pole::after {
+body main .nightBox .night #tent .tent-pole::after {
   content: "";
   width: 43px;
   height: 90px;
@@ -2152,16 +2158,16 @@ body main .night #tent .tent-pole::after {
     box-shadow: 0px 0px 206px 34px #b66e37;
   }
 }
-body main .night #cat {
+body main .nightBox .night #cat {
   width: 50%;
   height: 32vw;
   position: absolute;
   right: 0;
-  top: -352px;
+  top: -400px;
   z-index: 11;
   overflow: visible;
 }
-body main .night #cat .cat .catPosition #tail {
+body main .nightBox .night #cat .cat .cat-position #tail {
   transform-origin: 0 0;
   -webkit-animation: tailSwing 4s infinite alternate;
           animation: tailSwing 4s infinite alternate;

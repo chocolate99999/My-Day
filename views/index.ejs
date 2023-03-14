@@ -117,8 +117,9 @@
     </header>
 
     <main>
-      <!-- 白天背景 -->
-      <section class="daytime">
+      <article class="background-box">
+        <!-- 白天背景 -->
+        <section class="daytime">
         <div id="sun"></div>
         <div id="sea"></div>
         <div id="sand"></div>
@@ -186,10 +187,10 @@
             <li class="boat-body"></li>
           </ul>
         </div>
-      </section>
+        </section>
 
-      <!-- 黑夜背景 -->
-      <section class="night">
+        <!-- 黑夜背景 -->
+        <section class="night">
         <div id="moon"></div>
 
         <div id="star">
@@ -258,7 +259,7 @@
         <!-- y數值 越靠近 0，喵的位置會越往下移動 // [old: x="-280" y="78"] -->
         <svg id="cat" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"     clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.5">
           <g class="cat"> 
-            <svg class="catPosition" x="-280">
+            <svg class="cat-position" x="-280">
               <path id="right-hand" d="M399.588 305.324s-27.311-.341-25.911 8.246c1.027 6.301 8.592 7.007 14.778 7.167 6.187.16 36.063-.563 11.133-15.413z" fill="#98aebe"/>
               
               <path id="body" d="M411.422 284.308s81.404-40.992 98.905-.679c11.659 26.856-7.93 42.028-43.527 42.028-23.361 0-43.863-1.588-52.67-5.836-8.807-4.248-2.708-35.513-2.708-35.513z" fill="#98aebe"/>
@@ -309,8 +310,9 @@
             </svg>               
           </g>
         </svg>  
-      </section>
-
+        </section>
+      </article>
+      
       <section class="calendar">
         <table id="calendar">
           <thead>
