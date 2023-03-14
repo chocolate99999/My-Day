@@ -1,31 +1,29 @@
 console.clear();
 
-console.log('===== Start Test Now Time =====');
+function switchBackground() {
 
-let nowHour = new Date().getHours();
-console.log("[BDG] typeof(nowHour): ", typeof(nowHour));  //number
-console.log("[BDG] nowHour: ", nowHour);   
+  let nowHour = new Date().getHours();
+  console.log("[BDG] nowHour: ", nowHour);   
 
-/* 根據當地現在時間切換白天、夜晚背景
-   example: 
-          白天 - 6~18       
-          晚上 - 0~5、19~24 
-*/
-if((nowHour > 5) && (nowHour < 19)){
-  
-  let backgroundBox = document.querySelector(".background-box");
-  backgroundBox.classList.remove('nightBox');
-  backgroundBox.classList.add('dayBox'); 
-  
-}else{
-  
-  let backgroundBox = document.querySelector(".background-box");
-  backgroundBox.classList.remove('dayBox');
-  backgroundBox.classList.add('nightBox');
+  /* 根據當地現在時間切換白天、夜晚背景
+    example: 
+            白天 - 6~18       
+            晚上 - 0~5、19~24 
+  */
+  if((nowHour > 5) && (nowHour < 19)){
+    
+    let backgroundBox = document.querySelector(".background-box");
+    backgroundBox.classList.remove('nightBox');
+    backgroundBox.classList.add('dayBox'); 
+    
+  }else{
+    
+    let backgroundBox = document.querySelector(".background-box");
+    backgroundBox.classList.remove('dayBox');
+    backgroundBox.classList.add('nightBox');
 
+  } 
 }
-
-console.log('===== End Test Now Time  =====');
 
 /* cat */
 gsap.to("#left-hand", {
@@ -236,9 +234,14 @@ let calendar = {
 };
 
 window.onload = function () {
+
   let form = document.getElementById("calendar");
+
   // 通過日曆物件去呼叫自身的 init 方法
   calendar.init(form);
+
+  // 根據當地現在時間切換白天、夜晚 的 UI背景
+  switchBackground();
 };
 // console.log(calendar);
 
