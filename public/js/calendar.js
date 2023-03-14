@@ -3,7 +3,7 @@ console.clear();
 function switchBackground() {
 
   let nowHour = new Date().getHours();
-  console.log("[BDG] nowHour: ", nowHour);   
+  // console.log("[BDG] nowHour: ", nowHour);   
 
   /* 根據當地現在時間切換白天、夜晚背景
     example: 
@@ -17,6 +17,16 @@ function switchBackground() {
     backgroundBox.classList.add('dayBox'); 
     
   }else{
+
+    /* cat */
+    gsap.to("#left-hand", {
+      rotate: -20,
+      transformOrigin: "top",
+      repeat: -1,
+      yoyo: true,
+      duration: 2,
+      ease: "power1.inOut"
+    });
     
     let backgroundBox = document.querySelector(".background-box");
     backgroundBox.classList.remove('dayBox');
@@ -24,16 +34,6 @@ function switchBackground() {
 
   } 
 }
-
-/* cat */
-gsap.to("#left-hand", {
-  rotate: -20,
-  transformOrigin: "top",
-  repeat: -1,
-  yoyo: true,
-  duration: 2,
-  ease: "power1.inOut"
-});
 
 console.log('== Start calendar.js  ==');
 
@@ -240,8 +240,11 @@ window.onload = function () {
   // 通過日曆物件去呼叫自身的 init 方法
   calendar.init(form);
 
-  // 根據當地現在時間切換白天、夜晚 的 UI背景
+  // UI背景 初始化 
   switchBackground();
+
+  // [timer] 根據當地現在時間 "即時" 切換白天、夜晚 的 UI背景
+  setInterval(switchBackground, 60000);
 };
 // console.log(calendar);
 

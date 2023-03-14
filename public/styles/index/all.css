@@ -617,12 +617,11 @@ body main .dayBox .daytime #sun {
   right: 6%;
   width: 100px;
   height: 100px;
-  background: radial-gradient(circle, #ffaa5a, #ffd79b);
   border-radius: 50%;
+  background: radial-gradient(circle, #ffaa5a, #ffd79b);
   box-shadow: inset 0 0 50px 2px #fef376, 0 0 100px 20px #ffd07e, 0 0 150px 50px #fff877;
   -webkit-animation: brightSun 4s infinite alternate;
           animation: brightSun 4s infinite alternate;
-  transition: all 2000ms linear;
 }
 @-webkit-keyframes brightSun {
   0% {
@@ -1578,7 +1577,6 @@ body main .nightBox .night #moon {
   box-shadow: inset 0 0 2px 2px #f7f772, 0 0 10px 5px #FFFF37;
   -webkit-animation: brightMoon 4s infinite alternate;
           animation: brightMoon 4s infinite alternate;
-  transition: all 2000ms linear;
 }
 @-webkit-keyframes brightMoon {
   0% {
