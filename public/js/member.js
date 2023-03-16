@@ -2,12 +2,13 @@
 
 console.log('== Start member.js  ==');
 
-/* 隱藏或顯示 登入、註冊狀態 */
+/* 隱藏或顯示 登入、註冊狀態、預訂日期區塊 */
 function change(state){
     
     let shadow          = document.querySelector('section.shadow');
     let logInBox        = document.querySelector('section.login');
     let registerBox     = document.querySelector('section.register');
+    let scheduleBox     = document.querySelector('section.schedule');
     
     if(state === "login"){
        
@@ -19,13 +20,19 @@ function change(state){
         
         shadow.style.display       = 'block';
         registerBox.style.display  = 'block';
-        logInBox.style.display     = 'none';           
+        logInBox.style.display     = 'none';        
     }
     else if(state === "close"){
         
         shadow.style.display       = 'none';
         logInBox.style.display     = 'none';
-        registerBox.style.display  = 'none';       
+        registerBox.style.display  = 'none';
+        scheduleBox.style.display  = 'none';              
+    }
+    else if(state === "schedule"){
+        
+        shadow.style.display       = 'block';
+        scheduleBox.style.display  = 'block';             
     }
     else{
         console.log("error");
@@ -211,7 +218,6 @@ function getLoginStatus(){
     let apiUrl = '/api/user';
     
     let waitingState = document.querySelector('a.stateSwitch');
-    console.log(waitingState);
     
     fetch(apiUrl,
         {
@@ -244,34 +250,7 @@ function getLoginStatus(){
         
         console.log('[DBG] [GetLoginStatus] Result = ', result);
     }); 
-}
-
-function booking(){
-
-    let apiUrl = '/user';
-
-    fetch(apiUrl, 
-        {
-            method : 'GET',
-            headers: {'Content-Type': 'application/json;'}
-        }
-    )
-    .then(res => {
-        return res.json();
-    }).then(result => {
-
-        // 若已登入，則跳轉至預定行程頁面 booking 
-        if(result.data !== null){
-
-            window.location.href = "/booking";
-        }
-        // 若尚未登入，則打開 登入 用的跳出式視窗，執行 登入流程。
-        else if(result.data === null){
-
-            change('login');
-        }
-    });
-}   
+}  
 
 /* 檢查會員登入狀態 */
 function loadDoneCallback(){     

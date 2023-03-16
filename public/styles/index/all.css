@@ -332,7 +332,14 @@ ol, ul {
   list-style: none;
 }
 
-/* 登入會員帳號 */
+:root {
+  --sand-color: #EBC69F;
+  --sand-accent: #EABB8C;
+  --spruce-mid: #4570bf;
+  --pole: #502801;
+  --light: #E4E5E4;
+}
+
 section.shadow {
   position: fixed;
   z-index: 1999;
@@ -343,6 +350,7 @@ section.shadow {
   display: none;
 }
 
+/* 登入會員帳號 */
 section.login {
   position: fixed;
   z-index: 2000;
@@ -536,12 +544,76 @@ section.register div.registerData p.loginWarning a {
   cursor: pointer;
 }
 
-:root {
-  --sand-color: #EBC69F;
-  --sand-accent: #EABB8C;
-  --spruce-mid: #4570bf;
-  --pole: #502801;
-  --light: #E4E5E4;
+/* Schedule */
+section.schedule {
+  position: fixed;
+  z-index: 2000;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 340px;
+  height: 301px;
+  border-radius: 5px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 60px #AAAAAA;
+  display: none;
+}
+section.schedule div.topColorBox {
+  height: 10px;
+  border-radius: 6px 6px 0px 0px;
+  background: linear-gradient(270deg, #337788 0%, #66AABB 100%);
+}
+section.schedule div.scheduleData {
+  display: flex;
+  flex-direction: column;
+}
+section.schedule div.scheduleData div.scheduleTitle {
+  display: flex;
+  align-items: center;
+  margin: 15px 15px 10px 15px;
+  position: relative;
+}
+section.schedule div.scheduleData div.scheduleTitle h2 {
+  width: 310px;
+  text-align: center;
+}
+section.schedule div.scheduleData div.scheduleTitle img {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 100;
+  width: 16px;
+  height: 16px;
+}
+section.schedule div.scheduleData input {
+  width: 310px;
+  height: 47px;
+  line-height: normal;
+  font-size: 1.25rem;
+  margin: 5px 15px;
+  padding: 15px;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+}
+section.schedule div.scheduleData .scheduleBtn {
+  width: 310px;
+  height: 47px;
+  color: #FFFFFF;
+  background: #448899;
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  font-size: 19px;
+  margin: 5px 15px;
+}
+section.schedule div.scheduleData p#scheduleError, section.schedule div.scheduleData p#scheduleSuccess {
+  width: 310px;
+  height: 47px;
+  line-height: 47px;
+  margin: 0 auto;
+  text-align: center;
+  color: #ff0000;
+  display: none;
 }
 
 body header {
