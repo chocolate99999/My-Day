@@ -253,16 +253,16 @@ app.post("/api/dayPlan", async (req, res, next) => {
   console.log('===== [DBG][Add_One_Todolist] =====');
   console.log("req.session: ", req.session);
   let {year, month, day, todoList} = req.body;
-  let hours   = todoList.hours;
-  let minutes = todoList.minutes;
+  let hours   = parseInt(todoList.hours);
+  let minutes = parseInt(todoList.minutes);
   
   try{
     if(req.session.user){
       let newUserList = await new UserList({
         userId: req.session.user._id,
-        year  : year,
-        month : month,
-        day   : day,
+        year  : parseInt(year),
+        month : parseInt(month),
+        day   : parseInt(day),
         todoList: todoList
       });
       const userId = newUserList.userId;

@@ -259,31 +259,33 @@ section.schedule{
                 // outline: 1px solid blue;
             }
         }
-        
-        input{
-            width: 310px;
-            height: 47px;
-            line-height: normal;
-            font-size: 1.25rem;
-            margin: 5px 15px;
-            padding: 15px;
-            border: 1px solid #CCCCCC;
-            border-radius: 5px;
-            // outline: 1px solid green;    
-        }
 
-        .scheduleBtn{
-            width: 310px;
-            height: 47px;
-            color: #FFFFFF;
-            background: #448899;
-            border:0;
-            outline:none;
-            border-radius: 5px;
-            font-size: 19px;
-            margin: 5px 15px; 
-            // outline: 1px solid fuchsia;   
-        }    
+        .scheduleDetailData{
+            input{
+                width: 310px;
+                height: 47px;
+                line-height: normal;
+                font-size: 1.25rem;
+                margin: 5px 15px;
+                padding: 15px;
+                border: 1px solid #CCCCCC;
+                border-radius: 5px;
+                // outline: 1px solid green;    
+            }
+    
+            .scheduleBtn{
+                width: 310px;
+                height: 47px;
+                color: #FFFFFF;
+                background: #448899;
+                border:0;
+                outline:none;
+                border-radius: 5px;
+                font-size: 19px;
+                margin: 5px 15px; 
+                // outline: 1px solid fuchsia;   
+            } 
+        }                 
                  
         p#scheduleError, p#scheduleSuccess{
             width: 310px;

@@ -585,7 +585,7 @@ section.schedule div.scheduleData div.scheduleTitle img {
   width: 16px;
   height: 16px;
 }
-section.schedule div.scheduleData input {
+section.schedule div.scheduleData .scheduleDetailData input {
   width: 310px;
   height: 47px;
   line-height: normal;
@@ -595,7 +595,7 @@ section.schedule div.scheduleData input {
   border: 1px solid #CCCCCC;
   border-radius: 5px;
 }
-section.schedule div.scheduleData .scheduleBtn {
+section.schedule div.scheduleData .scheduleDetailData .scheduleBtn {
   width: 310px;
   height: 47px;
   color: #FFFFFF;

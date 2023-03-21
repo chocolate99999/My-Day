@@ -113,10 +113,12 @@
           <img src="../img/icon/login/icon_close.png" onclick="change('close')" alt="delete scheduled date dialog box">
         </div>
         
-        <input type="date" name="date">
-        <input type="time" name="time">
-        <input type="text" name="todoItem">
-        <button type="button" class="scheduleBtn" onclick="schedule()">Schedule</button>
+        <form class="scheduleDetailData">
+          <input type="date" class="schedule-date" name="date">
+          <input type="time" class="schedule-time" name="time">
+          <input type="text" class="schedule-todoItem" name="todoItem">
+          <button type="button" class="scheduleBtn" onclick="schedule()">Schedule</button>
+        </form>       
                     
         <p id="scheduleError">Failure message</p>
 
@@ -130,8 +132,8 @@
         <h2><a href="/">My Day</a></h2>
 
         <ul>
-            <li><a onclick="change('schedule')">Schedule</a></li>  
-            <li><a class="stateSwitch" onclick="change('login')">登入/註冊</a></li>
+          <li><a onclick="change('schedule')">Schedule</a></li>  
+          <li><a class="stateSwitch" onclick="change('login')">登入/註冊</a></li>
         </ul>
       </nav>    
     </header>

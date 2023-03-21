@@ -250,7 +250,81 @@ function getLoginStatus(){
         
         console.log('[DBG] [GetLoginStatus] Result = ', result);
     }); 
-}  
+}
+
+// [API] 建立新的待辦事項
+async function AddOneTodoItem(year, month, day, hours, minutes, todoItem){
+    let apiUrl   = '/api/dayPlan';     
+    let response = await fetch(apiUrl, 
+        {
+            method  : 'POST',
+            body    : JSON.stringify({               
+                "year" : year,
+                "month": month,
+                "day"  : day,
+                "todoList":  
+                    {
+                        "hours"   : hours,
+                        "minutes" : minutes,
+                        "todoItem": todoItem
+                    }
+            }),           
+            headers : {'Content-Type': 'application/json'}
+        }
+    ); 
+
+    let result = await response.json();
+    return result;      
+}
+
+// 預訂某天某時段 且 建立待辦事項
+async function schedule(){
+
+    // 從 input 取值 
+    let scheduleDetailData = document.querySelector(".scheduleDetailData"); 
+    let scheduleDate       = scheduleDetailData.children[0].value;
+    let scheduleTime       = scheduleDetailData.children[1].value;
+    todoItem               = scheduleDetailData.children[2].value;
+    console.log(scheduleDate);
+    console.log(scheduleTime);
+    console.log(todoItem);
+
+    // input 無輸入值 就 離開函式
+    if(scheduleDate === "" || scheduleTime === "" || todoItem === ""){
+        // swal('請輸入時間及事項'); // https://sweetalert.js.org/guides/ [待處理]
+        return;
+    }
+
+    // 獲取新增事項的時間
+    let dateStringArray = scheduleDate.split('-'); 
+    console.log(dateStringArray);   
+    year  = dateStringArray[0];
+    month = dateStringArray[1];
+    day   = dateStringArray[2];
+    
+    let timeStringArray = scheduleTime.split(':');
+    hours   = timeStringArray[0];
+    minutes = timeStringArray[1];
+   
+    let result = await AddOneTodoItem(year, month, day, hours, minutes, todoItem);
+    console.log("[DBG] schedule result):", result);
+
+    if (result.ok){
+
+        // 新增成功就關閉 schedule 對話方塊
+        change('close');
+
+        // 清除 input 中已輸入的 值
+        let inputData     = document.querySelector(".schedule-date"); 
+        let inputTime     = document.querySelector(".schedule-time"); 
+        let inputTodoItem = document.querySelector(".schedule-todoItem"); 
+        inputData.value     = '';
+        inputTime.value     = '';  
+        inputTodoItem.value = '';                          
+    } 
+
+    return result;    
+} 
 
 /* 檢查會員登入狀態 */
 function loadDoneCallback(){     
