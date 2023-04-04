@@ -357,6 +357,60 @@ app.delete("/api/dayPlan", async (req, res, next) => {
   } 
 });
 
+async function searchDatabaseByMonth(userId, year, month){
+
+  console.log('===== [DBG][Search_Database_By_Month] =====');
+
+  let foundUserList = await UserList.find({
+    userId : userId,
+    year: { $eq: parseInt(year) },
+    month: { $eq: parseInt(month) }
+  });
+  console.log('[DBG 369]foundUserList: ', foundUserList);
+
+  return foundUserList; 
+}
+
+/* 取得當月全部的待辦事項 */
+app.get("/api/monthPlan/:time", async(req, res, next) => {
+  console.log('===== [DBG][Get_Month_Todolist] =====');
+  console.log("路由: /api/monthPlan/:time");
+  console.log("req.params:", req.params);
+  let { time } = req.params;
+  console.log("[380 DBG time: ]", time);
+  let timeArray = time.split('-');
+  
+  try{
+    if(req.session.user){
+      const userId = req.session.user._id;
+      const year   = timeArray[1];
+      const month  = timeArray[0];
+      let searchDbResult = await searchDatabaseByMonth(userId, year, month);
+      console.log('[DBG 389]searchDbResult: ', searchDbResult);
+      if(searchDbResult.length === 0){
+        console.log("== [沒有值] 可讀取 ==", searchDbResult);
+        res.json({
+          "data": searchDbResult
+        });
+        return;
+      }
+      console.log("== [有值] 可讀取 ==", searchDbResult);
+      res.status(200).json({
+        "data": searchDbResult
+      }); 
+    }
+    else{  
+      console.log("== 沒有登入就無法讀取內容，內容呈現空值 ==");
+      res.status(403).json({
+        "error": true,
+        "message": "未登入系統，拒絕存取!"
+      });
+    }
+  }catch(err){
+    next(err);
+  } 
+});
+
 app.get("/*", (req, res) => {
   res.status(404).send("404 Page not found.");
 });

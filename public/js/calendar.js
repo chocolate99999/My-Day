@@ -60,7 +60,7 @@ let calendar = {
     month = date.getMonth();
     
     // 年份月份寫入日曆
-    form.getElementsByTagName("th")[1].innerText = year + "年" + (month + 1) + "月";
+    form.getElementsByTagName("th")[1].innerText = (month + 1) + " " + year;
 
     // 獲取本月的天數
     let MonthDayCount = self.getDateLen(year, month);            
@@ -233,9 +233,65 @@ let calendar = {
   },
 };
 
+// [測試: API]取得當月的待辦清單
+async function Api_GetMonthTodoList(time){
+      
+    let apiUrl   = '/api/monthPlan/'+ time;
+    
+    let response = await fetch(apiUrl, 
+        {
+            method  : 'GET', 
+            headers : {'Content-Type': 'application/json'}
+        }
+    ); 
+
+    let result = await response.json();
+    return result;      
+}
+
+// [測試]取得當月全部的待辦清單
+async function GetMonthTodoList(){
+    
+  let yearMonthString = document.getElementById('title');
+      yearMonthString = yearMonthString.textContent;
+      yearMonthString = yearMonthString.split(' ');
+  console.log(yearMonthString); //4 2023
+
+  let month = yearMonthString[0];
+  let year  = yearMonthString[1]; 
+  let time = month + "-" + year;
+  console.log(time);
+  
+  let result = await Api_GetMonthTodoList(time);
+  console.log("Api_GetMonthTodoList 結果: ", result);
+
+  // let warning = document.querySelector(".todoBox .warning");
+
+  if(result.error){
+      console.log(result.message);
+      return; 
+  }
+
+  if(result.data.length === 0)
+      return; 
+  else{
+    console.log("[BDG]result.data", result.data);
+    // let dateTodoList = result.data;
+    // for(let i = 0; i < dateTodoList.length; i++){
+    //     let hours    = dateTodoList[i].todoList.hours;
+    //     let minutes  = dateTodoList[i].todoList.minutes;
+    //     let todoTime = hours + ':' + minutes;
+    //     let todoItem = dateTodoList[i].todoList.todoItem;
+    //     createTodoItem(todoTime, todoItem);
+    // }     
+  }     
+}
+
 window.onload = function () {
 
   let form = document.getElementById("calendar");
+  let arrow = document.querySelectorAll(".arrow");
+  console.log(arrow);
 
   // 通過日曆物件去呼叫自身的 init 方法
   calendar.init(form);
@@ -245,6 +301,11 @@ window.onload = function () {
 
   // [timer] 根據當地現在時間 "即時" 切換白天、夜晚 的 UI背景
   setInterval(switchBackground, 60000);
+
+  arrow.forEach(element => {
+    element.addEventListener('click', GetMonthTodoList);
+  });
+
 };
 // console.log(calendar);
 
