@@ -2309,4 +2309,29 @@ body main section.calendar #calendar tbody .day td a {
   /* 擴大點擊範圍 */
   display: block;
   height: 100px;
+  /* 作為 div 的 基準點*/
+  position: relative;
+}
+body main section.calendar #calendar tbody .day td a div {
+  width: 90px;
+  position: absolute;
+  left: 50%;
+  height: 80px;
+  transform: translate(-50%, -50%);
+}
+body main section.calendar #calendar tbody .day td a div img {
+  width: 18px;
+  height: 18px;
+}
+body main section.calendar #calendar tbody .day td a .checkDay {
+  top: 54%;
+}
+body main section.calendar #calendar tbody .day td a .checkDay img {
+  height: 18px;
+}
+body main section.calendar #calendar tbody .day td a .checkNight {
+  top: 55%;
+}
+body main section.calendar #calendar tbody .day td a .checkNight img {
+  height: 17.5px;
 }/*# sourceMappingURL=all.css.map */

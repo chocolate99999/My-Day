@@ -83,16 +83,16 @@ let calendar = {
       // 一週 7 天，7 個 td
       for (let day = 1; day <= 7; day++) {
 
-        let td     = document.createElement("td");
-        let a      = document.createElement("a"); 
+        let td  = document.createElement("td");
+        let a   = document.createElement("a");
 
         // 設置 href 屬性
         let href   = document.createAttribute("href");     
         href.value = '/dayPlan';
         a.setAttributeNode(href); 
 
-        // 父節點 加入 子節點
-        td.appendChild(a); 
+        // 父節點 加入 子節點      
+        td.appendChild(a);         
         tr.appendChild(td); 
       }
 
@@ -107,11 +107,13 @@ let calendar = {
 
       let nowDate = new Date();
 
-      if (
+      if 
+      (
         date  === nowDate.getDate() &&
         month === nowDate.getMonth() &&
         year  === nowDate.getFullYear()
-      ){
+      )
+      {
         // 將 當天 元素的 id 設定為 today
         aTags[firstDay + date - 1].id = 'today';
       }
@@ -121,8 +123,8 @@ let calendar = {
         2022.12.25 --> /dayPlan/2022-12-25
         2023.1.1   --> /dayPlan/2023-1-1
       */
-        let timeString = '/dayPlan/'+ year + '-' + (month + 1) + '-'+ date;
-        aTags[firstDay + date - 1].setAttribute('href', timeString);
+      let timeString = '/dayPlan/'+ year + '-' + (month + 1) + '-'+ date;
+      aTags[firstDay + date - 1].setAttribute('href', timeString);
     }
 
     // 一個月只有 5 週時，刪除多餘的 最後1週(tr)
@@ -158,7 +160,7 @@ let calendar = {
       catBelow.setAttribute('y', '623');
     }
 
-    // 處理 無日期(空字串) 的格子，使其點擊無法連結(移除它的 a標籤)
+    // 處理 無日期(空字串) 的格子，使其點擊無法連結(移除它的 a 標籤)
     let aTags = document.querySelectorAll("a");
     for (let i = 0; i < aTags.length; i++){
 
@@ -233,7 +235,7 @@ let calendar = {
   },
 };
 
-// [測試: API]取得當月的待辦清單
+// 取得當月的待辦事項
 async function Api_GetMonthTodoList(time){
       
     let apiUrl   = '/api/monthPlan/'+ time;
@@ -249,49 +251,111 @@ async function Api_GetMonthTodoList(time){
     return result;      
 }
 
-// [測試]取得當月全部的待辦清單
+// 取得當月全部的待辦事項
 async function GetMonthTodoList(){
-    
-  let yearMonthString = document.getElementById('title');
-      yearMonthString = yearMonthString.textContent;
-      yearMonthString = yearMonthString.split(' ');
-  console.log(yearMonthString); //4 2023
 
-  let month = yearMonthString[0];
-  let year  = yearMonthString[1]; 
-  let time = month + "-" + year;
-  console.log(time);
+  let aTag      = document.querySelector(".day > td > a");
+  let href      = aTag.getAttribute('href');
+  let dateParts = href.split('/')[2].split('-');
+
+  let year  = dateParts[0]; 
+  let month = dateParts[1]; 
+  let time  = month + "-" + year;
   
   let result = await Api_GetMonthTodoList(time);
-  console.log("Api_GetMonthTodoList 結果: ", result);
 
-  // let warning = document.querySelector(".todoBox .warning");
+  if(result.error)
+    return; 
+  
+  if(result.data.length === 0){
+    return; 
+  } 
+  else{
+    let monthAllTodoItem = result.data;
+    console.log(monthAllTodoItem);
+    for(let i = 0; i < monthAllTodoItem.length; i++){
+      year  = monthAllTodoItem[i].year;
+      month = monthAllTodoItem[i].month;
+      day   = monthAllTodoItem[i].day;
+      AddOneFoodImg(year, month, day);
+    }     
+  }     
+}
 
-  if(result.error){
-      console.log(result.message);
-      return; 
+function checkDayOrNight() {
+
+  let nowHour = new Date().getHours();
+
+  if((nowHour > 5) && (nowHour < 19))
+    
+    return "day";  
+    
+  else
+
+    return "night";  
+}
+
+function AddOneFoodImg(year, month, day){
+
+  // 尋找超連結標籤
+  let aTag = document.querySelector(`a[href="/dayPlan/${year}-${month}-${day}"]`);
+
+  if(aTag === null) // 如果找不到標籤，則執行下列程式
+    return;         // 中斷執行
+
+  /* Img */ 
+  let foodImg = document.createElement('img');
+  let src     = document.createAttribute('src');
+
+  /* 確認 白天、夜晚時間，各切換成 骨頭 或 魚 */
+  let timeState = checkDayOrNight();
+
+  if(timeState === "day"){
+    src.value   = "../img/icon/calendar/bone.png";
+    foodImg.setAttributeNode(src);   
+  }
+  else{
+    src.value   = "../img/icon/calendar/fish.png";
+    foodImg.setAttributeNode(src);
   }
 
-  if(result.data.length === 0)
-      return; 
+  /* 確認是否有 div */
+  let hasDiv = document.querySelector(`a[href="/dayPlan/${year}-${month}-${day}"] > div`);
+
+  if(hasDiv === null){
+
+    let newDiv = document.createElement('div');  
+    
+    newDiv.appendChild(foodImg); // 新增的 div 加入 食物圖片 
+    aTag.appendChild(newDiv);   
+  }
   else{
-    console.log("[BDG]result.data", result.data);
-    // let dateTodoList = result.data;
-    // for(let i = 0; i < dateTodoList.length; i++){
-    //     let hours    = dateTodoList[i].todoList.hours;
-    //     let minutes  = dateTodoList[i].todoList.minutes;
-    //     let todoTime = hours + ':' + minutes;
-    //     let todoItem = dateTodoList[i].todoList.todoItem;
-    //     createTodoItem(todoTime, todoItem);
-    // }     
-  }     
+
+    hasDiv.appendChild(foodImg); // 原有的 div 加入 食物圖片 
+    aTag.appendChild(hasDiv);  
+  }
+
+  /* 根據時間，食物圖片 切換成不同的樣式  
+     ex: 白天 => 骨頭，夜晚 => 魚
+  */
+  let addedDiv = document.querySelector(`a[href="/dayPlan/${year}-${month}-${day}"] > div`);
+  // console.log(addedDiv);
+  if(timeState === "day"){
+
+    addedDiv.classList.remove("checkNight");
+    addedDiv.classList.add("checkDay");  
+  }
+  else{
+
+    addedDiv.classList.remove("checkDay");
+    addedDiv.classList.add("checkNight");  
+  }
 }
 
 window.onload = function () {
 
-  let form = document.getElementById("calendar");
+  let form  = document.getElementById("calendar");
   let arrow = document.querySelectorAll(".arrow");
-  console.log(arrow);
 
   // 通過日曆物件去呼叫自身的 init 方法
   calendar.init(form);
@@ -302,11 +366,13 @@ window.onload = function () {
   // [timer] 根據當地現在時間 "即時" 切換白天、夜晚 的 UI背景
   setInterval(switchBackground, 60000);
 
+  // 取得當月全部的待辦事項
+  GetMonthTodoList();
+
+  // [按 button 時] 取得 上個月 或 下個月 全部的待辦事項
   arrow.forEach(element => {
     element.addEventListener('click', GetMonthTodoList);
   });
-
 };
-// console.log(calendar);
 
 

@@ -1,4 +1,4 @@
-//console.clear();
+console.clear();
 
 console.log('== Start member.js  ==');
 
@@ -285,9 +285,6 @@ async function schedule(){
     let scheduleDate       = scheduleDetailData.children[0].value;
     let scheduleTime       = scheduleDetailData.children[1].value;
     todoItem               = scheduleDetailData.children[2].value;
-    console.log(scheduleDate);
-    console.log(scheduleTime);
-    console.log(todoItem);
 
     // input 無輸入值 就 離開函式
     if(scheduleDate === "" || scheduleTime === "" || todoItem === ""){
