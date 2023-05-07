@@ -375,4 +375,9 @@ window.onload = function () {
   });
 };
 
-
+/* 回到上一頁時，要重新向伺服器請求資料 */
+window.onpageshow = function(event) {
+  if (event.persisted) {     // 頁面從瀏覽器的快取中讀取該屬性返回 ture
+    window.location.reload(); 
+  }
+};
