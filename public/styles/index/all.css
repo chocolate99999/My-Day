@@ -358,7 +358,7 @@ section.login {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 340px;
-  border-radius: 5px;
+  border-radius: 6px;
   background: #FFFFFF;
   box-shadow: 0px 4px 60px #AAAAAA;
   display: none;
@@ -455,7 +455,7 @@ section.register {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 340px;
-  border-radius: 5px;
+  border-radius: 6px;
   background: #FFFFFF;
   box-shadow: 0px 4px 60px #AAAAAA;
   display: none;
@@ -553,7 +553,7 @@ section.schedule {
   transform: translate(-50%, -50%);
   width: 340px;
   height: 301px;
-  border-radius: 5px;
+  border-radius: 6px;
   background: #FFFFFF;
   box-shadow: 0px 4px 60px #AAAAAA;
   display: none;
@@ -665,22 +665,24 @@ body header nav ul li a {
 }
 body main {
   display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 100%;
-  height: 48.5vw;
+  height: 45.5vw;
+  overflow: hidden;
 }
 body main .background-box {
   position: absolute;
   width: 100%;
-  height: 48.5vw;
+  height: 45.5vw;
 }
 body main .dayBox .daytime {
   position: absolute;
   width: 100%;
-  height: 48.5vw;
+  height: 45.5vw;
   background: linear-gradient(180deg, #55b4f6, #b2ebfe, #b2ebfe);
   z-index: -3;
-  overflow: hidden;
   /* The beach ball (circle at the back) */
 }
 body main .dayBox .daytime #sun {
@@ -752,10 +754,10 @@ body main .dayBox .daytime #dog .tail {
   top: 30px;
   border-top: 20px solid #fef9e8;
   border-right: 10px solid transparent;
-  border-bottom: 20px solid #fef9e8;
+  border-bottom: 15px solid #fef9e8;
   border-left: 25px solid #fef9e8;
-  border-radius: 50% 10% 50% 50%;
-  transform: rotate(30deg) translate(0px, -30px) rotate(20deg) rotateY(180deg) rotateX(180deg);
+  border-radius: 50% 5% 50% 50%;
+  transform: rotate(20deg) translate(0px, -30px) rotate(20deg) rotateY(180deg) rotateX(180deg);
   z-index: -3;
 }
 body main .dayBox .daytime #dog .tail .helix {
@@ -1461,7 +1463,7 @@ body main .dayBox .daytime #sandcastle .castle-bottom::after {
 }
 body main .dayBox .daytime #boat {
   position: absolute;
-  bottom: 330px;
+  bottom: 300px;
   z-index: 1;
   transform: translateX(-100px);
   -webkit-animation: boatMove 30s linear infinite;
@@ -1613,10 +1615,10 @@ body main .dayBox .daytime #boat .no-bullet .boat-body::after {
     transform: translateX(1200px);
   }
   50% {
-    bottom: 310px;
+    bottom: 280px;
   }
   100% {
-    bottom: 338px;
+    bottom: 308px;
   }
 }
 @keyframes boatMove {
@@ -1624,19 +1626,17 @@ body main .dayBox .daytime #boat .no-bullet .boat-body::after {
     transform: translateX(1200px);
   }
   50% {
-    bottom: 310px;
+    bottom: 280px;
   }
   100% {
-    bottom: 338px;
+    bottom: 308px;
   }
 }
 body main .nightBox .night {
   position: absolute;
   width: 100%;
-  height: 48.5vw;
+  height: 45.5vw;
   background: linear-gradient(180deg, #000000, #000033);
-  overflow: hidden;
-  outline: 3px solid pink;
 }
 body main .nightBox .night #moon {
   position: absolute;
@@ -1678,14 +1678,14 @@ body main .nightBox .night #star div {
   transition: all 1200ms linear;
 }
 body main .nightBox .night #star div:nth-child(1) {
-  left: 75%;
+  left: 78%;
   top: 5%;
   -webkit-animation-delay: 1s;
           animation-delay: 1s;
 }
 body main .nightBox .night #star div:nth-child(2) {
-  left: 45%;
-  top: 7%;
+  left: 88%;
+  top: 22%;
   -webkit-animation-delay: 2.7s;
           animation-delay: 2.7s;
 }
@@ -1798,10 +1798,40 @@ body main .nightBox .night #star div:nth-child(20) {
           animation-delay: 1.7s;
 }
 body main .nightBox .night #star div:nth-child(21) {
-  left: 71%;
-  top: 6%;
+  left: 4%;
+  top: 45%;
   -webkit-animation-delay: 1s;
           animation-delay: 1s;
+}
+body main .nightBox .night #star div:nth-child(22) {
+  left: 13%;
+  top: 48%;
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+}
+body main .nightBox .night #star div:nth-child(23) {
+  left: 16%;
+  top: 37%;
+  -webkit-animation-delay: 2.1s;
+          animation-delay: 2.1s;
+}
+body main .nightBox .night #star div:nth-child(24) {
+  left: 18%;
+  top: 26%;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+body main .nightBox .night #star div:nth-child(25) {
+  left: 80%;
+  top: 40%;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+body main .nightBox .night #star div:nth-child(26) {
+  left: 92%;
+  top: 37%;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
 }
 @-webkit-keyframes starShine {
   0% {
@@ -2266,9 +2296,8 @@ body main .nightBox .night #cat .cat .cat-position #tail {
   }
 }
 body main section.calendar {
-  margin: auto;
+  transform: scale(0.85, 0.85);
   z-index: 10;
-  transform: scale(0.9, 0.9);
 }
 body main section.calendar #calendar {
   width: 700px;

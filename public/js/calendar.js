@@ -141,23 +141,21 @@ let calendar = {
 
       // 1 個月有 5 週
       let calendarBox = document.querySelector(".calendar");
-      calendarBox.style.transform = 'scale(0.9, 0.9)';
-      calendarBox.style.marginTop = '0px'; 
+      calendarBox.style.transform = 'scale(0.85, 0.85)'; // [old:0.9]      
 
-      /* 黑夜: 貓的位置 old-> y="78" 第二版 y="90" */
+      /* 黑夜: 貓的位置 old-> y="78" 第二版 y="90" 第三版 y="138" */
       let catAbove = document.querySelector(".cat-position");
-      catAbove.setAttribute('y', '138');
+      catAbove.setAttribute('y', '140');
     }
     else{
 
       // 1 個月有 6 週
       let calendarBox = document.querySelector(".calendar");
-      calendarBox.style.transform = 'scale(0.8, 0.8)';
-      calendarBox.style.marginTop = '-50px';
+      calendarBox.style.transform = 'scale(0.75, 0.75)'; // [old:0.8]
 
-      /* 黑夜: 貓的位置 old-> y="562" */
+      /* 黑夜: 貓的位置 old-> y="562", 第二版 y="623" */
       let catBelow = document.querySelector(".cat-position");
-      catBelow.setAttribute('y', '623');
+      catBelow.setAttribute('y', '590');
     }
 
     // 處理 無日期(空字串) 的格子，使其點擊無法連結(移除它的 a 標籤)
