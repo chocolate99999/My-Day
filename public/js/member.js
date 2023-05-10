@@ -5,34 +5,34 @@ console.log('== Start member.js  ==');
 /* 隱藏或顯示 登入、註冊狀態、預訂日期區塊 */
 function change(state){
     
-    let shadow          = document.querySelector('section.shadow');
-    let logInBox        = document.querySelector('section.login');
-    let registerBox     = document.querySelector('section.register');
-    let scheduleBox     = document.querySelector('section.schedule');
+    let shadow      = document.querySelector('section.shadow');
+    let logInBox    = document.querySelector('section.login');
+    let registerBox = document.querySelector('section.register');
+    let scheduleBox = document.querySelector('section.schedule');
     
     if(state === "login"){
        
-        shadow.style.display       = 'block';
-        logInBox.style.display     = 'block';
-        registerBox.style.display  = 'none';
+        shadow.style.display      = 'block';
+        logInBox.style.display    = 'block';
+        registerBox.style.display = 'none';
     }
     else if(state === "register"){
         
-        shadow.style.display       = 'block';
-        registerBox.style.display  = 'block';
-        logInBox.style.display     = 'none';        
+        shadow.style.display      = 'block';
+        registerBox.style.display = 'block';
+        logInBox.style.display    = 'none';        
     }
     else if(state === "close"){
         
-        shadow.style.display       = 'none';
-        logInBox.style.display     = 'none';
-        registerBox.style.display  = 'none';
-        scheduleBox.style.display  = 'none';              
+        shadow.style.display      = 'none';
+        logInBox.style.display    = 'none';
+        registerBox.style.display = 'none';            
+        scheduleBox.style.display = 'none';            
     }
     else if(state === "schedule"){
         
-        shadow.style.display       = 'block';
-        scheduleBox.style.display  = 'block';             
+        shadow.style.display      = 'block';
+        scheduleBox.style.display = 'block';             
     }
     else{
         console.log("error");
@@ -293,8 +293,7 @@ async function schedule(){
     }
 
     // 獲取新增事項的時間
-    let dateStringArray = scheduleDate.split('-'); 
-    console.log(dateStringArray);   
+    let dateStringArray = scheduleDate.split('-');    
     year  = dateStringArray[0];
     month = dateStringArray[1];
     day   = dateStringArray[2];
@@ -304,20 +303,12 @@ async function schedule(){
     minutes = timeStringArray[1];
    
     let result = await AddOneTodoItem(year, month, day, hours, minutes, todoItem);
-    console.log("[DBG] schedule result):", result);
+    // console.log("[DBG] schedule result):", result);
 
     if (result.ok){
 
-        // 新增成功就關閉 schedule 對話方塊
-        change('close');
-
-        // 清除 input 中已輸入的 值
-        let inputData     = document.querySelector(".schedule-date"); 
-        let inputTime     = document.querySelector(".schedule-time"); 
-        let inputTodoItem = document.querySelector(".schedule-todoItem"); 
-        inputData.value     = '';
-        inputTime.value     = '';  
-        inputTodoItem.value = '';                          
+        // 新增 1 筆待辦事項後，需重新整理刷新頁面，從伺服器發出請求，渲染最新的 1 筆食物圖片
+        window.location.reload();                          
     } 
 
     return result;    
