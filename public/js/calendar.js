@@ -1,5 +1,7 @@
 console.clear();
 
+console.log('== Start calendar.js  ==');
+
 function switchBackground() {
 
   let nowHour = new Date().getHours();
@@ -18,6 +20,10 @@ function switchBackground() {
     
   }else{
 
+    let backgroundBox = document.querySelector(".background-box");
+    backgroundBox.classList.remove('dayBox');
+    backgroundBox.classList.add('nightBox');
+
     /* cat */
     gsap.to("#left-hand", {
       rotate: -20,
@@ -27,15 +33,8 @@ function switchBackground() {
       duration: 2,
       ease: "power1.inOut"
     });
-    
-    let backgroundBox = document.querySelector(".background-box");
-    backgroundBox.classList.remove('dayBox');
-    backgroundBox.classList.add('nightBox');
-
   } 
 }
-
-console.log('== Start calendar.js  ==');
 
 let tbody = document.querySelector("tbody");  
     
@@ -58,9 +57,14 @@ let calendar = {
     // 獲取此時的月份
     month = self.month;
     month = date.getMonth();
+
+    // 月份以 字串格式 呈現
+    let monthArray = ["January", "February", "March", "April", 'May', "June",
+                      "July", "August", "September", "October", "November", "December"]; 
+    let monthString = monthArray[month];
     
     // 年份月份寫入日曆
-    form.getElementsByTagName("th")[1].innerText = (month + 1) + " " + year;
+    form.getElementsByTagName("th")[1].innerText = monthString + '\xa0\xa0\xa0' + year;
 
     // 獲取本月的天數
     let MonthDayCount = self.getDateLen(year, month);            
