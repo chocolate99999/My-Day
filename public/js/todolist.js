@@ -95,7 +95,7 @@ async function getLocation(position){
         {icon: "13n", description: "snow"            , iconUrl: "../img/icon/weather/icons8-light-snow.gif"},
         {icon: "50d", description: "mist"         , iconUrl: "../img/icon/weather/icons8-haze.gif"},
         {icon: "50n", description: "mist"         , iconUrl: "../img/icon/weather/icons8-fog.gif"}
-    ]
+    ];
 
     // 找出跟 目前天氣 相對應的 天氣圖片，並且渲染
     for (let i = 0; i < iconImg.length; i++){
@@ -171,7 +171,8 @@ function switchToC() {
 async function createTodoItemCallBack(){
 
     // 從 input 取值 
-    let todayPlan = document.querySelector(".todayPlan"); 
+    // let todayPlan = document.querySelector(".todayPlan"); 
+    let main      = document.querySelector("main"); 
     let form      = todayPlan.children[2];
     let todoTime  = form.children[0].value;
     let todoText  = form.children[1].value;

@@ -332,12 +332,12 @@ ol, ul {
   list-style: none;
 }
 
-:root {
-  --sand-color: #EBC69F;
-  --sand-accent: #EABB8C;
-  --spruce-mid: #4570bf;
-  --pole: #502801;
-  --light: #E4E5E4;
+a {
+  text-decoration: none;
+}
+
+input, button {
+  border: none;
 }
 
 section.shadow {
@@ -616,7 +616,8 @@ section.schedule div.scheduleData p#scheduleError, section.schedule div.schedule
   display: none;
 }
 
-body header {
+/* header */
+header {
   width: 100%;
   min-height: 50px;
   display: flex;
@@ -632,37 +633,46 @@ body header {
   /*step 3 設定最大數值，確保在整個網頁的最上面*/
   z-index: 1000;
 }
-body header nav {
+header nav {
   width: 68.4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-body header nav h2 {
+header nav h2 {
   flex: 1 1 100px;
 }
-body header nav h2 a {
+header nav h2 a {
   text-decoration: none;
   color: #448899;
 }
-body header nav ul {
+header nav ul {
   display: flex;
   justify-content: flex-end;
   flex: 3 1 100px;
   list-style-type: none;
   width: 70%;
 }
-body header nav ul li {
+header nav ul li {
   width: 12%;
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
 }
-body header nav ul li a {
+header nav ul li a {
   text-decoration: none;
   font-size: 1rem;
   color: #666666;
 }
+
+:root {
+  --sand-color: #EBC69F;
+  --sand-accent: #EABB8C;
+  --spruce-mid: #4570bf;
+  --pole: #502801;
+  --light: #E4E5E4;
+}
+
 body main {
   display: flex;
   justify-content: center;
@@ -2363,4 +2373,125 @@ body main section.calendar #calendar tbody .day td a .checkNight {
 }
 body main section.calendar #calendar tbody .day td a .checkNight img {
   height: 17.5px;
-}/*# sourceMappingURL=all.css.map */
+}
+
+body {
+  background-color: #00E3E3;
+}
+body main {
+  display: flex;
+  flex-direction: column;
+}
+body main .date, body main .title, body main .warning {
+  text-align: center;
+}
+body main .date {
+  color: #FFFFFF;
+}
+body main .title {
+  color: #004B97;
+}
+body main form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body main form input, body main form button {
+  padding: 0.25rem 0.5rem;
+  margin: 0.1rem;
+  font-size: 1.75rem;
+}
+body main form input[type=time] {
+  width: 190px;
+  height: 40.19px;
+  text-align: center;
+}
+body main form button {
+  background-color: rgb(1, 146, 114);
+  color: #fff;
+}
+body main .warning {
+  color: #ff0000;
+}
+body main .sort button {
+  padding: 0.25rem 0.5rem;
+  margin: 0.1rem;
+  font-size: 1.75rem;
+  background-color: rgb(1, 146, 114);
+  color: #fff;
+}
+body main section.todoBox {
+  width: 55vw;
+  margin: 0 auto;
+}
+body main section.todoBox .warning {
+  color: blueviolet;
+}
+body main section.todoBox div.todo {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  margin-bottom: 1rem;
+  -webkit-animation: scaleUp 0.3s forwards;
+          animation: scaleUp 0.3s forwards;
+  transition: all 0.1s ease;
+  outline: 1px solid green;
+}
+body main section.todoBox div.todo .todo-time {
+  width: 15%;
+  outline: 1px solid red;
+  color: #004B97;
+}
+body main section.todoBox div.todo .todo-text {
+  width: 80%;
+  outline: 1px solid blue;
+  color: #004B97;
+}
+body main section.todoBox div.todo button {
+  align-self: center;
+  display: block;
+  width: 3vw;
+  height: 3vw;
+  padding: 7px;
+  outline: 1px solid black;
+}
+body main section.todoBox div.todo button img {
+  display: block;
+  width: 2vw;
+  height: 2vw;
+  pointer-events: none;
+  outline: 1px solid orangered;
+}
+body main section.todoBox div.todo button.complete {
+  background-color: rgb(50, 255, 50);
+}
+body main section.todoBox div.todo button.remove {
+  background-color: red;
+}
+body main section.todoBox .done {
+  opacity: 0.5;
+  text-decoration: line-through;
+  text-decoration-thickness: 0.2rem;
+}
+
+@-webkit-keyframes scaleUp {
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleUp {
+  to {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes scaleDown {
+  to {
+    transform: scale(0);
+  }
+}
+@keyframes scaleDown {
+  to {
+    transform: scale(0);
+  }
+}/*# sourceMappingURL=layout.css.map */

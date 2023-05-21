@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express        = require("express");
+const expressLayouts = require('express-ejs-layouts');
 const app            = express();
 const ejs            = require("ejs");
 const mongoose       = require("mongoose");
@@ -17,6 +18,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
+app.use(expressLayouts);
 app.use(methodOverride('_method'));
 app.use(cookieParser(process.env.SECRET));
 app.use(
@@ -40,7 +42,7 @@ mongoose.connect("mongodb://0.0.0.0:27017/examples", {
 app.get("/", (req, res) => {
   // console.log('Cookies: ', req.cookies);
   console.log('首頁 SessionID:', req.sessionID); 
-  res.render("index");
+  res.render("pages/index", { title: "My Day" });
 });
 
 app.get("/dayPlan/:time", (req, res) => {
@@ -48,7 +50,7 @@ app.get("/dayPlan/:time", (req, res) => {
   let { time } = req.params;
   console.log("req.params:", req.params);
   console.log("time:", req.params.time);
-  res.render("todolist", { time });  // add new Page for User --userTodoList
+  res.render("pages/todolist", { title: "Today Plan", time });  // add new Page for User --userTodoList
 });
 
 /* 取得當前登入的使用者資訊 */

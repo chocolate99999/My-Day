@@ -1,19 +1,20 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-   name: {
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  password: {
     type: String,
     required: true,
-   },
-   email: {
-    type: String,
-    required: true,
-   },
-   password: {
-    type: String,
-    required: true,
-   },
-   createdAt: {
+    maxLength: 1024
+  },
+  createdAt: {
     type: Date,
     default: Date.now  // 取得當下時間戳記
   }

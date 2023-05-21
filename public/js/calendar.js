@@ -214,7 +214,6 @@ let calendar = {
   init(form) {
     /* 1.獲取日陣列 */
     dayTable = form.getElementsByTagName("a");
-    // console.log(dayTable);
 
     /* 2.建立日曆，傳入當前時間 */ 
     this.createCalendar(form, new Date());
