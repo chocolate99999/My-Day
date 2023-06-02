@@ -3,6 +3,7 @@ const express        = require("express");
 const expressLayouts = require('express-ejs-layouts');
 const app            = express();
 const ejs            = require("ejs");
+const engine         = require('ejs-mate');
 const mongoose       = require("mongoose");
 const bodyParser     = require("body-parser");
 const User           = require("./models/user");
@@ -17,6 +18,8 @@ const methodOverride = require("method-override");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.engine('ejs', engine);
+app.set('views', './views');
 app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.use(methodOverride('_method'));
@@ -50,7 +53,7 @@ app.get("/dayPlan/:time", (req, res) => {
   let { time } = req.params;
   console.log("req.params:", req.params);
   console.log("time:", req.params.time);
-  res.render("pages/todolist", { title: "Today Plan", time });  // add new Page for User --userTodoList
+  res.render("pages/todolist", { title: "Today Plan", time});  // add new Page for User --userTodoList
 });
 
 /* 取得當前登入的使用者資訊 */

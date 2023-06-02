@@ -1,45 +1,226 @@
-// header{
-//     display: flex;
-//     justify-content: space-between;
-//     section.weather{
-//         .city{
-//             color: #fff;
-//         }
-//         .description{
-//             color: #fff;
-//         }
-//         img{
-//             width: 5vw;
-//             height: 5vw;
-//         }
-//         h1{            
-//             a, .divider{
-//                 color: #fff;
-//                 opacity: 0.6;
-//             }
-//             a:hover, .active{
-//                 opacity: 1;
-//             }
-//         } 
-//     }
-//     ul{
-//         display: flex;
-//         justify-content: flex-end;
-//         flex: 3 1 100px;
-//         list-style-type: none;
-//         width: 70%;
-//         // outline: 1px solid green;
-//         li{
-//             width: 12%;
-//             display: flex;
-//             justify-content: flex-end;
-//             cursor: pointer;
-//             // outline: 1px solid red;
-//             a{
-//                 text-decoration: none;
-//                 font-size: 1rem;
-//                 color: #666666;
-//             }
-//         }
-//     }
-// }
+aside {
+    display: flex;
+    width: 20rem;
+    height: 20rem;
+    position: relative;
+    // outline: 1px solid red;
+    .hot-air-balloon {
+        width: 20rem;
+        height: 20rem;
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);        
+        .balloon {
+            width: 15rem;
+            height: 15rem;
+            background-color: #F27C68;
+            border-radius: 50%;
+            border: 4px solid #D7E7EA;
+            position: absolute;
+            left: 50%;
+            top: 52px;
+            transform: translate(-50%);
+            animation: moving-balloon 3s ease infinite;
+            z-index: 1;
+            // outline: 1px solid green;
+            section.weather{
+                position: relative;
+                text-align: center;
+                margin-top: 30%;
+                z-index: 3;
+                // outline: 1px solid blue;
+                .date{
+                    color: #004B97;
+                    margin-top: 15%;
+                    // outline: 1px solid yellow;
+                }
+                .city{
+                    color: #f2f5ff;
+                    margin-top: -10%;
+                    // outline: 1px solid orangered;
+                }
+                .description{
+                    color: #cacaca;
+                    margin-top: 1%;
+                    // outline: 1px solid aqua;
+                }
+                .weatherIcon{
+                    width: 5vw;
+                    height: 5vw;
+                    margin-top: -5%;
+                    // outline: 1px solid brown;
+                }
+            }
+            
+            &::after {
+                width: 10rem;
+                height: 2rem; 
+                border-top: 3.75rem solid #F27C68;
+                border-left: 1.85rem solid transparent;
+                border-right: 1.85rem solid transparent;
+                content: '';
+                position: absolute;
+                top: 200px; 
+                left: 50%;
+                transform: translate(-50%);
+                // outline: 1px solid black;
+            }
+            
+            &::before {
+              width: 100px; 
+              height: 25px;
+              background-color: #E86B5A;
+              border-radius: 5px;
+              content: '';
+              position: absolute;
+              left: 50%;
+              top: 16rem; 
+              transform: translate(-50%);
+            //   outline: 1px solid blueviolet;
+            }
+        }
+          
+        .basket {
+            width: 5rem;  
+            height: 3rem;
+            background: #D1C1A6;
+            border-radius: 0 0 8px 8px; 
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            top: 24.5rem; 
+            animation: moving-basket 3s ease infinite;
+            // outline: 1px solid red;
+            
+            &:before {
+              width: 5.5rem;
+              height: 1rem;
+              background: #B2A082;
+              border-radius: 3px;
+              content: '';
+              position: absolute;
+              top: -1rem;
+              left: 50%;
+              transform: translate(-50%);
+            //   outline: 1px solid turquoise;
+            }
+          
+            &:after {
+              width: 2rem;
+              height: 3.3rem;
+              border-left: 2px solid #B2A082;
+              border-right: 2px solid #B2A082;
+              content: '';
+              position: absolute;
+              top: -3.8rem; 
+              left: 50%;
+              transform: translate(-50%) perspective(50px) rotateX(-40deg);
+            //   outline: 1px solid black;
+            }
+        }
+                    
+        .cloud div{           
+            background: white;
+            border-radius: 3.15rem;
+            position: absolute;
+            animation: moving-cloud 3s ease infinite;
+            z-index: 2;
+            
+            &::before {
+              width: 3.75rem;
+              height: 3.75rem;
+              background: white;
+              border-radius: 50%;
+              content: '';
+              position: absolute;
+              top: -2.5rem;
+              left: 1.25rem;
+              z-index: -1;
+            //   outline: 1px solid red; //[x]
+            }
+            
+            &::after {
+              width: 3.15rem;
+              height: 3.15rem;
+              background: white;
+              border-radius: 50%;
+              content: '';
+              position: absolute;
+              top: -1.85rem;
+              right: 1.55rem;
+              z-index: -1;
+            //   outline: 1px solid red;//[x]
+            }
+        }
+        .cloud div:nth-child(1){
+            width: 140px;
+            height: 1.85rem;
+            top: 6.25rem;
+            right: -5rem;
+            text-align: center;
+
+            #temp{                        
+                position: relative;
+                z-index: 3;
+                // outline: 1px solid green;
+                .temp{
+                    color: #019272;
+                }                
+                a, .divider{
+                    // color: #555555;
+                    color: #019272; //[暫定]
+                    opacity: 0.4;
+                    // outline: 1px solid fuchsia;
+                }
+                a:hover, .active{
+                    opacity: 1;
+                    // outline: 1px solid orangered;
+                }
+            } 
+        }
+        .cloud div:nth-child(2){
+            width: 150px;
+            height: 4rem;
+            top: 28rem;
+            right: 8rem;
+            text-align: center;
+            padding: 10px;
+
+            p{
+                font-weight: bold;
+            }
+            .body-temp{
+                color: #ef767a;
+            }          
+            .temp-max, .temp-min{
+                color: #7d7abc;
+            }                      
+        }
+    }
+    @keyframes moving-balloon {
+        0% {
+
+            transform:  translate(-50%); 
+        }
+        50% { 
+            transform: translate(-50%, -10%); 
+        }
+    }    
+    @keyframes moving-basket {
+        0% { 
+            transform:  translate(-50%); 
+        }
+        50% { 
+            transform: translate(-50%, -40%);
+        }
+    }    
+    @keyframes moving-cloud {
+        0% { 
+            transform:  translateX(0);
+        }
+        50% { 
+            transform: translateX(-7%);
+        }
+    }
+}

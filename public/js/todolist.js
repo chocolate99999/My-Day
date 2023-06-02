@@ -11,7 +11,7 @@ let renderTemp        = document.querySelector(".temp");
 let renderTempMax     = document.querySelector(".temp-max");
 let renderTempMin     = document.querySelector(".temp-min");
 let renderFeelsLike   = document.querySelector(".feels-like");
-let renderIcon        = document.querySelector("img");
+let renderIcon        = document.querySelector(".weatherIcon");
 let signC             = document.getElementById("celsius");
 let signF             = document.getElementById("fahrenheit");
 
@@ -171,15 +171,13 @@ function switchToC() {
 async function createTodoItemCallBack(){
 
     // 從 input 取值 
-    // let todayPlan = document.querySelector(".todayPlan"); 
-    let main      = document.querySelector("main"); 
-    let form      = todayPlan.children[2];
-    let todoTime  = form.children[0].value;
-    let todoText  = form.children[1].value;
+    let inputBox  = document.querySelector(".inputBox");
+    let todoTime  = inputBox.children[0].value;    
+    let todoText  = inputBox.children[1].value;    
 
     // input 無輸入值 就 離開函式
     if(todoTime === "" || todoText === ""){
-        // swal('請輸入時間及事項'); // https://sweetalert.js.org/guides/ [待處理]
+        swal('Oops...', 'Looks like something is missing.'); // https://sweetalert.js.org/guides/
         return;
     }
 
@@ -190,7 +188,9 @@ async function createTodoItemCallBack(){
     let Result = await getApiData('/api/user');
     console.log('[DBG] /api/user', Result.data);
     if(Result.data == null){
-        warning.textContent = '請先登入，才能新增待辦事項!';
+        // warning.textContent = '請先登入，才能新增待辦事項!';
+        // warning.textContent = 'Please log in first before adding a to-do item!';
+        swal('Please log in first before adding a to-do item!'); 
         return; 
     }
         
@@ -220,14 +220,14 @@ async function createTodoItemCallBack(){
     createTodoItem(todoTime, todoText);
 
     // 清除 input 中已輸入的 值
-    let inputTime = document.querySelector('[type="time"]');
-    let inputText = document.querySelector('[type="text"]');
-    inputTime.value = '';
-    inputText.value = '';  
+    let inputTime = document.getElementById('todoTime');
+    let inputText = document.getElementById('todoItem');
+    inputTime.value = "";
+    inputText.value = "";  
 }
 
 /* 在 待辦清單 中 新增 待辦事項 */
-let addBtn = document.querySelector("form button");
+let addBtn = document.querySelector("#addBtn");
 addBtn.addEventListener('click', createTodoItemCallBack);
 
 // [API] 建立新的待辦事項
@@ -257,12 +257,21 @@ async function AddOneTodoItem(year, month, day, hours, minutes, todoItem){
 
 function createTodoItem(todoTime, todoText){
 
+    // 時間 的 十位數 都要 自動補零，否則 UI 會顯示 12:1(正確值是 12:01) 或 1:1(正確值是 01:01)
+    todoTime    = todoTime.split(':');
+    let hours   = todoTime[0];
+    let minutes = todoTime[1];
+
+    hours       = hours.padStart(2,'0');
+    minutes     = minutes.padStart(2,'0');
+    todoTime    = hours + ':' + minutes;
+
     // 建立 todo 事項
     let todoBox = document.querySelector(".todoBox");
     let todo    = document.createElement("div");
-    let timeBox = document.createElement("h1");
-    let textBox = document.createElement("h1");
-    let time    = document.createTextNode(`${todoTime}`);
+    let timeBox = document.createElement("h2");
+    let textBox = document.createElement("h2");
+    let time    = document.createTextNode(`${todoTime}`); 
     let text    = document.createTextNode(`${todoText}`);
 
     todo.classList.add("todo");
@@ -278,7 +287,7 @@ function createTodoItem(todoTime, todoText){
     // todo 事項 功能圖片: 完成 & 刪除  
     let iconTodo = [
         {url: "../img/icon/todoList/check-solid.svg", description: "check"},
-        {url: "../img/icon/todoList/trash-solid.svg", description: "trash"},
+        {url: "../img/icon/todoList/trash-bin.png", description: "trash"},
     ]
 
     for(let i = 0; i < iconTodo.length; i++){
@@ -301,11 +310,7 @@ function createTodoItem(todoTime, todoText){
         }else{       
             button.classList.add("remove");   
             button.addEventListener('click', e => { // removeBtn
-                let todoItem = e.target.parentElement; 
-
-                // console.log('[BDG 306 e.target]: ', e.target);
-                // console.log('[BDG 307 todoItem]: ', todoItem);
-
+                let todoItem     = e.target.parentElement; 
                 let todoItemTime = todoItem.childNodes[0].textContent;
                     todoItemTime = todoItemTime.split(':');                
                 let hours        = todoItemTime[0];
@@ -424,7 +429,7 @@ async function DeleteTodoItemCallBack(year, month, day, hours, minutes){
 
     if(deleteResult.ok){
         // console.log("[DBG 425] 已有登入，具有刪除功能! ", deleteResult);
-        warning.textContent = deleteResult.message;
+        warning.textContent = deleteResult.message; //[暫時]
     }else{
         // 如使用者未登入，就不給刪除待辦事項
         // console.log("[DBG 429] 尚未登入，無法操作! ", deleteResult);

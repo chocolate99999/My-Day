@@ -1,21 +1,31 @@
-<h1 class="date"><%= time %></h1>
-<h1 class="title">Today Plan</h1>
+<%- include('../partials/sidebar') %> 
 
-<form>
-    <input type="time" name="time">
-    <input type="text" name="todoItem">
-    <button type="button">Add to List</button>
-</form>
+<article class="todayPlan">
+    <section class="planBox">
+        <h1 class="title">Today Plan</h1>
+        <form>  
+            <div class="inputBox">
+                <input type="time" id="todoTime" name="time">
+                <input type="text" id="todoItem" name="todoItem">         
+                <img id="addBtn" src="../../img/icon/todoList/add.png" alt="add a to-do item"> 
+            </div>
+            
+            <div class="todoBox">
+                <!-- <h1 class="warning"></h1> -->
+            </div> 
+        </form>
+        <h1 class="warning"></h1>
+        
 
-<h1 class="warning"></h1>
+        <!-- <br/>
+        <br/> -->
 
-<br/>
-<br/>
+        <!-- <div class="sort">
+            <button>Sort By Time</button>
+        </div> --> 
+    </section>   
+</article>  
 
-<div class="sort">
-    <button>Sort By Time</button>
-</div>
-
-<section class="todoBox">
-    <h1 class="warning"></h1>
-</section>
+<script src="../js/member.js"></script> 
+<script src="../js/todolist.js"></script> 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
