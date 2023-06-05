@@ -402,17 +402,17 @@ section.login div.loginData input {
 }
 section.login div.loginData input::-moz-placeholder {
   font-size: 1rem;
-  font-weight: 800;
+  font-weight: 600;
   color: #757575;
 }
 section.login div.loginData input:-ms-input-placeholder {
   font-size: 1rem;
-  font-weight: 800;
+  font-weight: 600;
   color: #757575;
 }
 section.login div.loginData input::placeholder {
   font-size: 1rem;
-  font-weight: 800;
+  font-weight: 600;
   color: #757575;
 }
 section.login div.loginData input#loginPwd {
@@ -430,7 +430,7 @@ section.login div.loginData .loginBtn {
   margin: 5px 15px;
 }
 section.login div.loginData p#loginError {
-  width: 310px;
+  width: 315px;
   height: 47px;
   line-height: 47px;
   margin: 0 auto;
@@ -439,12 +439,23 @@ section.login div.loginData p#loginError {
   display: none;
 }
 section.login div.loginData p.registerWarning {
-  margin: 5px 15px 15px 15px;
+  margin: 10px 15px 15px 15px;
   text-align: center;
 }
 section.login div.loginData p.registerWarning a {
   text-decoration: none;
   cursor: pointer;
+}
+section.login div.loginData p.registerWarning a #subRegister {
+  color: #448899;
+  border: 2px #448899 solid;
+  padding: 5px;
+  border-radius: 25px;
+}
+section.login div.loginData p.registerWarning a #subRegister:hover {
+  display: inline-block;
+  transform: scale(1);
+  outline: gainsboro solid medium;
 }
 
 /* 註冊會員帳號 */
@@ -502,17 +513,17 @@ section.register div.registerData input#registerPwd {
 }
 section.register div.registerData ::-moz-placeholder {
   font-size: 1rem;
-  font-weight: 800;
+  font-weight: 600;
   color: #757575;
 }
 section.register div.registerData :-ms-input-placeholder {
   font-size: 1rem;
-  font-weight: 800;
+  font-weight: 600;
   color: #757575;
 }
 section.register div.registerData ::placeholder {
   font-size: 1rem;
-  font-weight: 800;
+  font-weight: 600;
   color: #757575;
 }
 section.register div.registerData .registerBtn {
@@ -527,21 +538,40 @@ section.register div.registerData .registerBtn {
   margin: 5px 15px;
 }
 section.register div.registerData p#registerError, section.register div.registerData p#registerSuccess {
-  width: 310px;
+  width: 315px;
   height: 47px;
   line-height: 47px;
   margin: 0 auto;
+  margin-top: -10px;
   text-align: center;
   color: #ff0000;
   display: none;
 }
+section.register div.registerData p#registerError #subRegisterSuccess, section.register div.registerData p#registerSuccess #subRegisterSuccess {
+  display: inline-block;
+  width: 315px;
+  height: 47px;
+  position: relative;
+  top: -30px;
+}
 section.register div.registerData p.loginWarning {
-  margin: 5px 15px 15px 15px;
+  margin: 10px 15px 15px 15px;
   text-align: center;
 }
 section.register div.registerData p.loginWarning a {
   text-decoration: none;
   cursor: pointer;
+}
+section.register div.registerData p.loginWarning a #subSignIn {
+  color: #448899;
+  border: 2px #448899 solid;
+  padding: 5px;
+  border-radius: 25px;
+}
+section.register div.registerData p.loginWarning a #subSignIn:hover {
+  display: inline-block;
+  transform: scale(1);
+  outline: gainsboro solid medium;
 }
 
 /* Schedule */
@@ -595,6 +625,21 @@ section.schedule div.scheduleData .scheduleDetailData input {
   border: 1px solid #CCCCCC;
   border-radius: 5px;
 }
+section.schedule div.scheduleData .scheduleDetailData .schedule-todoItem::-moz-placeholder {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #757575;
+}
+section.schedule div.scheduleData .scheduleDetailData .schedule-todoItem:-ms-input-placeholder {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #757575;
+}
+section.schedule div.scheduleData .scheduleDetailData .schedule-todoItem::placeholder {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #757575;
+}
 section.schedule div.scheduleData .scheduleDetailData .scheduleBtn {
   width: 310px;
   height: 47px;
@@ -634,10 +679,11 @@ header {
   z-index: 1000;
 }
 header nav {
-  width: 68.4rem;
+  width: 95%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  outline: 1px solid red;
 }
 header nav h2 {
   flex: 1 1 100px;
@@ -652,19 +698,67 @@ header nav ul {
   flex: 3 1 100px;
   list-style-type: none;
   width: 70%;
+  outline: 1px solid blue;
 }
 header nav ul li {
-  width: 12%;
+  width: 10%;
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
 }
 header nav ul li a {
+  text-align: right;
   text-decoration: none;
   font-size: 1rem;
   color: #666666;
 }
 
+@media screen and (max-width: 980px) {
+  header nav ul li {
+    width: 12%;
+  }
+}
+@media screen and (max-width: 820px) {
+  header nav ul li {
+    width: 14%;
+  }
+}
+@media screen and (max-width: 768px) {
+  header nav ul li {
+    width: 20%;
+  }
+}
+@media screen and (max-width: 600px) {
+  header nav {
+    width: 90%;
+  }
+  header nav ul li {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 414px) {
+  header nav h2 {
+    width: 40%;
+  }
+  header nav ul {
+    justify-content: flex-start;
+  }
+  header nav ul li {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 360px) {
+  header nav {
+    width: 95%;
+    justify-content: space-around;
+  }
+  header nav h2 {
+    flex: 1 1 50px;
+  }
+  header nav ul {
+    flex: 2 1 50px;
+  }
+}
 aside {
   display: flex;
   width: 20rem;

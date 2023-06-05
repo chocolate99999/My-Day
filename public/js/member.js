@@ -55,13 +55,19 @@ function login(){
     console.log('[DBG] [login] loginPassword = ', loginPassword);
     
     // 確認 Email 是否符合 規格
-    if(verifyEmailPattern.test(loginEmail) === false || loginPassword === '' || loginPassword === ' '){
+    if(verifyEmailPattern.test(loginEmail) === false){
 
-        loginError.textContent = 'Email/密碼 格式錯誤，請重新輸入';        
+        loginError.textContent   = 'Please enter a valid email/password format!'; 
+        loginError.style.display = 'block';       
+    }
+    else if(loginPassword === '' || loginPassword === ''){
+
+        loginError.textContent   = 'Please avoid entering blank spaces!';
+        loginError.style.display = 'block';
     }
     else{
 
-        loginError.textContent = '登入中...'; 
+        loginError.textContent = 'Logging in...'; 
   
         fetch(apiUrl,
             {
@@ -121,17 +127,17 @@ function register(){
     // 確認 Email 是否符合 規格
     if(verifyEmailPattern.test(registerEmail) == false){
 
-        registerError.textContent   = '請輸入正確的Email格式';   
+        registerError.textContent   = 'Please enter a valid email format!';   
         registerError.style.display = 'block';
     }
-    else if(registerPassword === '' || registerPassword === ' ' || registerName === '' || registerName === ' '){
+    else if(registerPassword === '' || registerPassword === '' || registerName === '' || registerName === ' '){
 
-        registerError.textContent   = '請勿輸入空白符號';
+        registerError.textContent   = 'Please avoid entering blank spaces!';
         registerError.style.display = 'block';
     }
     else{
 
-        registerError.textContent   = '註冊中... ';
+        registerError.textContent   = 'Registering...';
   
         fetch(apiUrl,
             {
@@ -235,14 +241,14 @@ function getLoginStatus(){
         console.log("查詢登入狀態:", result);
         if (result.data != null) 
         {
-            waitingState.textContent  = '登出系統';
+            waitingState.textContent  = 'Sign Out';
             let onClickName  = `logout()`;
             waitingState.setAttribute('onclick', onClickName);
             console.log('[DBG]', waitingState);
         } 
         else if (result.data == null)
         {
-            waitingState.textContent  = '登入/註冊';
+            waitingState.textContent  = 'Sign In';
             let onClickName  = `change('login')`;
             waitingState.setAttribute('onclick', onClickName);
             console.log('[DBG]', waitingState);

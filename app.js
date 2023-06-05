@@ -143,7 +143,7 @@ app.post("/api/user", async (req, res, next) => {
     if(foundUser){
       res.status(400).json({
         "error": true,
-        "message": "此 Email 已有人使用，請試試其他 Email。"
+        "message": "Email already in use, try another one!"
       });
       // console.log("== foundUser ==", foundUser);
     }else{

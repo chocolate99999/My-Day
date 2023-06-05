@@ -65,7 +65,7 @@ section.login{
         }
         input::placeholder{
             font-size: 1rem;  
-            font-weight: 800;           
+            font-weight: 600;           
             color: #757575;
             // outline: 1px solid red;    
         }
@@ -84,7 +84,7 @@ section.login{
             margin: 5px 15px;
         }
         p#loginError{
-            width: 310px;
+            width: 315px;
             height: 47px;
             line-height: 47px;
             margin: 0 auto;
@@ -94,12 +94,23 @@ section.login{
             // outline: 1px solid blue;
         }
         p.registerWarning{
-            margin: 5px 15px 15px 15px;
+            margin: 10px 15px 15px 15px;
             text-align: center;
             // outline: 1px solid blue;
             a{
                 text-decoration: none;
                 cursor: pointer;
+                #subRegister{
+                    color: #448899;
+                    border: 2px #448899 solid;
+                    padding: 5px;
+                    border-radius: 25px; 
+                }
+                #subRegister:hover{
+                    display: inline-block;
+                    transform: scale(1);
+                    outline: gainsboro solid medium;
+                }
             }
         }
     }
@@ -165,7 +176,7 @@ section.register{
         }
         ::placeholder{
             font-size: 1rem;
-            font-weight: 800;            
+            font-weight: 600;            
             color: #757575;
             // outline: 1px solid red;     
         }
@@ -181,22 +192,41 @@ section.register{
             margin: 5px 15px;
         }     
         p#registerError, p#registerSuccess{
-            width: 310px;
+            width: 315px;
             height: 47px;
             line-height: 47px;
             margin: 0 auto;
+            margin-top: -10px;
             text-align: center;
             color: #ff0000;
             display: none;
-            // outline: 1px solid blue;
+            // outline: 1px solid red;
+            #subRegisterSuccess{
+                display: inline-block;
+                width: 315px;
+                height: 47px;
+                position: relative;
+                top: -30px;
+            }
         }
         p.loginWarning{
-            margin: 5px 15px 15px 15px;
+            margin: 10px 15px 15px 15px;
             text-align: center;
             // outline: 1px solid blue;
             a{
                 text-decoration: none;
                 cursor: pointer;
+                #subSignIn{
+                    color: #448899;
+                    border: 2px #448899 solid;
+                    padding: 5px;
+                    border-radius: 25px; 
+                }
+                #subSignIn:hover{
+                    display: inline-block;
+                    transform: scale(1);
+                    outline: gainsboro solid medium;
+                }
             }
         }
     }
@@ -247,7 +277,6 @@ section.schedule{
                 // outline: 1px solid blue;
             }
         }
-
         .scheduleDetailData{
             input{
                 width: 310px;
@@ -260,7 +289,12 @@ section.schedule{
                 border-radius: 5px;
                 // outline: 1px solid green;    
             }
-    
+            .schedule-todoItem::placeholder{
+                font-size: 1rem;  
+                font-weight: 600;           
+                color: #757575;
+                // outline: 1px solid red;    
+            }
             .scheduleBtn{
                 width: 310px;
                 height: 47px;
@@ -273,8 +307,7 @@ section.schedule{
                 margin: 5px 15px; 
                 // outline: 1px solid fuchsia;   
             } 
-        }                 
-                 
+        }                          
         p#scheduleError, p#scheduleSuccess{
             width: 310px;
             height: 47px;
@@ -306,13 +339,15 @@ header {
     z-index: 1000;
 
     nav{
-        width: 68.4rem;
+        width: 95%;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        outline: 1px solid red;
 
         h2{
             flex: 1 1 100px;
+            // outline: 1px solid green;
             a{
                 text-decoration: none;
                 color: #448899;
@@ -325,19 +360,104 @@ header {
             flex: 3 1 100px;
             list-style-type: none;
             width: 70%;
+            outline: 1px solid blue;
 
             li{
-                width: 12%;
+                width: 10%;
                 display: flex;
                 justify-content: flex-end;
                 cursor: pointer;
-                // outline: 1px solid red;
+                // outline: 2px solid palegreen;
                 a{
+                    text-align: right;
                     text-decoration: none;
                     font-size: 1rem;
                     color: #666666;
+                    // outline: 5px solid green;
                 }
             }
         }
     } 
+}
+
+@media screen and (max-width: 1200px){
+    header{
+        nav{
+            // width: 95%;                
+        }
+    }
+}
+@media screen and (max-width: 980px){
+    header{
+        nav{
+            ul{
+                li{
+                    width: 12%;
+                }
+            }                          
+        }
+    }
+}
+@media screen and (max-width: 820px){
+    header{
+        nav{
+            ul{
+                li{
+                    width: 14%;
+                }
+            }                          
+        }
+    }
+}
+@media screen and (max-width: 768px){
+    header{
+        nav{
+            ul{
+                li{
+                    width: 20%; 
+                }
+            }                               
+        }
+    }
+}
+@media screen and (max-width: 600px){
+    header{
+        nav{
+            width: 90%;
+            ul{
+                li{
+                    width: 30%; 
+                }
+            }                          
+        }
+    }
+}
+@media screen and (max-width: 414px){
+    header{
+        nav{
+            h2{
+                width: 40%;                
+            }
+            ul{
+                justify-content: flex-start;
+                li{
+                    width: 50%; 
+                }                
+            }
+        }
+    }
+}
+@media screen and (max-width: 360px){
+    header{
+        nav{
+            width: 95%;
+            justify-content: space-around;
+            h2{
+                flex: 1 1 50px;
+            }
+            ul{
+                flex: 2 1 50px; 
+            }
+        }
+    }
 }

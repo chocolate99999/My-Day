@@ -6,19 +6,19 @@
 
   <div class="loginData">
     <div class="loginDataTitle">
-      <h2>登入會員帳號</h2>
+      <h2>Come on in</h2>
       <img src="../../img/icon/login/icon_close.png" onclick="change('close')" alt="刪除登入會員帳號對話方塊">
     </div>
 
-    <input type="email" id="loginEmail" placeholder="輸入電子信箱">
+    <input type="email" id="loginEmail" placeholder="Enter your email address">
 
-    <input type="password" id="loginPwd" placeholder="輸入密碼">
+    <input type="password" id="loginPwd" placeholder="Enter your password">
 
-    <button type="button" onclick="login()" class="loginBtn">登入帳戶</button>
+    <button type="button" onclick="login()" class="loginBtn">Sign in</button>
 
     <p id="loginError">失敗訊息</p>
 
-    <p class="registerWarning"><a onclick="change('register')">還沒有帳戶？點此註冊</a></p>
+    <p class="registerWarning"><a onclick="change('register')">Don't have an account?&nbsp;&nbsp;<span id="subRegister">Register</span></a></p>
   </div>
 </section>
 
@@ -28,23 +28,23 @@
 
   <div class="registerData">
     <div class="registerDataTitle">
-      <h2>註冊會員帳號</h2>
+      <h2>Create an account</h2>
       <img src="../../img/icon/login/icon_close.png" onclick="change('close')" alt="刪除註冊會員帳號對話方塊">
     </div>
     
-    <input type="text" id="registerName" placeholder="輸入姓名">
+    <input type="text" id="registerName" placeholder="Enter your name">
 
-    <input type="email" id="registerEmail" placeholder="輸入電子信箱">
+    <input type="email" id="registerEmail" placeholder="Enter your email address">
 
-    <input type="password" id="registerPwd" placeholder="輸入密碼">
+    <input type="password" id="registerPwd" placeholder="Enter your password">
 
-    <button type="button" class="registerBtn" onclick="register()">註冊新帳戶</button>
+    <button type="button" class="registerBtn" onclick="register()">Register</button>
                 
     <p id="registerError">失敗訊息</p>
 
-    <p id="registerSuccess">註冊成功，請登入系統</p>
+    <p id="registerSuccess">Registration successful.<span id="subRegisterSuccess">Please log in to the system!</span></p>
 
-    <p class="loginWarning"><a onclick="change('login')">已經有帳戶了？點此登入</a></p>
+    <p class="loginWarning"><a onclick="change('login')">Already have an account?&nbsp;&nbsp;<span id="subSignIn">Sign in</span></a></p>
   </div>
 </section>
 
@@ -61,7 +61,7 @@
     <form class="scheduleDetailData">
       <input type="date" class="schedule-date" name="date">
       <input type="time" class="schedule-time" name="time">
-      <input type="text" class="schedule-todoItem" name="todoItem">
+      <input type="text" class="schedule-todoItem" name="todoItem" placeholder="Enter a to-do item">
       <button type="button" class="scheduleBtn" onclick="schedule()">Schedule</button>
     </form>       
                 
@@ -78,7 +78,7 @@
 
     <ul>
       <li><a onclick="change('schedule')">Schedule</a></li>  
-      <li><a class="stateSwitch" onclick="change('login')">登入/註冊</a></li>
+      <li><a class="stateSwitch" onclick="change('login')">Sign In</a></li>
     </ul>
   </nav>    
 </header>
