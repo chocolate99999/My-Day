@@ -2762,7 +2762,6 @@ body main .todayPlan .planBox form .todoBox div.todo {
   -webkit-animation: scaleUp 0.3s forwards;
           animation: scaleUp 0.3s forwards;
   transition: all 0.1s ease;
-  outline: 1px solid #cfe4e5;
   outline: 1px solid pink;
 }
 body main .todayPlan .planBox form .todoBox div.todo .todo-time {

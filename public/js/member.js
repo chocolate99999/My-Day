@@ -294,7 +294,7 @@ async function schedule(){
 
     // input 無輸入值 就 離開函式
     if(scheduleDate === "" || scheduleTime === "" || todoItem === ""){
-        // swal('請輸入時間及事項'); // https://sweetalert.js.org/guides/ [待處理]
+        swal('Please enter the time and task.'); // https://sweetalert.js.org/guides/ 
         return;
     }
 

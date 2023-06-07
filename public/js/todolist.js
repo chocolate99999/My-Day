@@ -167,6 +167,19 @@ function switchToC() {
     signF.classList.remove("active");   
 }
 
+// 在 每次 新增、刪除待辦清單後顯示 訊息
+function showAndHideMessage() {
+
+    // [DOM]新增待辦事項成功與否的訊息
+    let warning = document.querySelector(".warning");
+
+    warning.style.display = 'block';
+
+    setTimeout(() => {
+    warning.style.display = 'none';
+    }, 5000);
+};
+
 // 產生 1 筆待辦事項
 async function createTodoItemCallBack(){
 
@@ -188,8 +201,6 @@ async function createTodoItemCallBack(){
     let Result = await getApiData('/api/user');
     console.log('[DBG] /api/user', Result.data);
     if(Result.data == null){
-        // warning.textContent = '請先登入，才能新增待辦事項!';
-        // warning.textContent = 'Please log in first before adding a to-do item!';
         swal('Please log in first before adding a to-do item!'); 
         return; 
     }
@@ -210,10 +221,12 @@ async function createTodoItemCallBack(){
     console.log('[DBG] AddOneTodoItem 結果', addResult);
 
     if(addResult.error){
-        warning.textContent = addResult.message; 
+        warning.textContent = addResult.message;
+        showAndHideMessage(); 
         return;  
     }else{
-        warning.textContent = addResult.message;  
+        warning.textContent = addResult.message;
+        showAndHideMessage(); 
     }
        
     // 建立 todo 事項
@@ -223,7 +236,7 @@ async function createTodoItemCallBack(){
     let inputTime = document.getElementById('todoTime');
     let inputText = document.getElementById('todoItem');
     inputTime.value = "";
-    inputText.value = "";  
+    inputText.value = "";
 }
 
 /* 在 待辦清單 中 新增 待辦事項 */
@@ -257,7 +270,7 @@ async function AddOneTodoItem(year, month, day, hours, minutes, todoItem){
 
 function createTodoItem(todoTime, todoText){
 
-    // 時間 的 十位數 都要 自動補零，否則 UI 會顯示 12:1(正確值是 12:01) 或 1:1(正確值是 01:01)
+    // 時間 十位數 都要 "自動補零"，否則 UI 會顯示 12:1(正確值是 12:01) 或 1:1(正確值是 01:01)
     todoTime    = todoTime.split(':');
     let hours   = todoTime[0];
     let minutes = todoTime[1];
@@ -369,15 +382,13 @@ async function GetTimeTodoList(){
 
     let dateStringArray = window.location.pathname.split('/');
         dateStringArray = dateStringArray[2];
-    console.log('[DBG] dateStringArray 結果', dateStringArray);
+    console.log('dateStringArray 結果', dateStringArray);
     
     let result = await GetDateTodoList(dateStringArray);
     console.log("GetTimeTodoList 結果: ", result);
 
-    let warning = document.querySelector(".todoBox .warning");
-
     if(result.error){
-        warning.textContent = result.message;
+        swal(result.message);
         return; 
     }
 
@@ -425,15 +436,17 @@ async function DeleteTodoItemCallBack(year, month, day, hours, minutes){
 
     let deleteResult = await DeleteOneTodoItem(year, month, day, hours, minutes);
 
-    let warning = document.querySelector(".todoBox .warning");
+    let warning = document.querySelector(".warning");
 
     if(deleteResult.ok){
-        // console.log("[DBG 425] 已有登入，具有刪除功能! ", deleteResult);
-        warning.textContent = deleteResult.message; //[暫時]
+        // console.log("[DBG 444] 已有登入，具有刪除功能! ", deleteResult);
+        warning.textContent = deleteResult.message;
+        showAndHideMessage();
     }else{
         // 如使用者未登入，就不給刪除待辦事項
-        // console.log("[DBG 429] 尚未登入，無法操作! ", deleteResult);
+        // console.log("[DBG 449] 尚未登入，無法操作! ", deleteResult);
         warning.textContent = deleteResult.message;
+        showAndHideMessage();
         return; 
     }   
 }

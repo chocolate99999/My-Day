@@ -68,13 +68,13 @@ app.get("/api/user", (req, res, next) => {
           "email": req.session.user.email
         }
       });
-      console.log("已驗證 SessionID", req.sessionID);  
+      // console.log("已驗證 SessionID", req.sessionID);  
     }else{
       res.json({
         "data": null  
       }); 
-      console.log("未驗證 SessionID", req.sessionID);
-      console.log("未驗證 Session", req.session);
+      // console.log("未驗證 SessionID", req.sessionID);
+      // console.log("未驗證 Session", req.session);
     }
   }catch(err){
     next(err);
@@ -84,14 +84,14 @@ app.get("/api/user", (req, res, next) => {
 /* 登入 */
 app.patch("/api/user", async (req, res, next) => {
   console.log('===== [DBG][Sign_In] =====');
-  let {name, email, password} = req.body;
+  let {email, password} = req.body;
 
   try{
     let foundUser = await User.findOne({ email });
     // console.log("登入", foundUser);
 
     if(foundUser){
-      bcrypt.compare(password, encrypted(password), (err, result) => {
+      bcrypt.compare(password, foundUser.password, (err, result) => {
         if(err){
           next(err);
         }
@@ -100,21 +100,21 @@ app.patch("/api/user", async (req, res, next) => {
           res.status(200).json({
             "ok": true
           });
-          console.log("已登入 Session", req.session);
-          console.log("已登入 SessionID", req.sessionID);
+          // console.log("已登入 Session", req.session);
+          // console.log("已登入 SessionID", req.sessionID);
         }else{
           res.status(400).json({
             "error": true,
-            "message": "Email 或 密碼，輸入錯誤"
+            "message": "Wrong email or password entered"
           });
-          console.log("未登入 Session", req.session);
-          console.log("未登入 SessionID", req.sessionID);
+          // console.log("未登入 Session", req.session);
+          // console.log("未登入 SessionID", req.sessionID);
         }
       });
     }else{
       res.status(400).json({
         "error": true,
-        "message": "Email 或 密碼，輸入錯誤"
+        "message": "Wrong email or password entered"
       });
     }
   }catch(err){
@@ -172,8 +172,8 @@ app.delete("/api/user", (req, res, next) => {
     res.status(200).json({
       "ok": true
     });
-    console.log("登出 Session", req.session);
-    console.log("登出 SessionID", req.sessionID);
+    // console.log("登出 Session", req.session);
+    // console.log("登出 SessionID", req.sessionID);
   }catch(err){
     next(err);
   }
@@ -222,10 +222,10 @@ app.get("/api/dayPlan/:time", async(req, res, next) => {
       }); 
     }
     else{  
-      console.log("== 沒有登入就無法讀取內容，內容呈現空值 ==");
+      // console.log("== 沒有登入就無法讀取內容，內容呈現空值 ==");
       res.status(403).json({
         "error": true,
-        "message": "未登入系統，拒絕存取!"
+        "message": "Not logged in, access denied!"
       });
     }
   }catch(err){
@@ -276,7 +276,7 @@ app.post("/api/dayPlan", async (req, res, next) => {
       if(foundSameTimeTodoItem){
         res.status(409).json({
           "error": true,
-          "message": "已有相同時間的待辦事項，請重新輸入!"
+          "message": "There is already a task scheduled for the same time, please re-enter!"
         });
         return;
       }
@@ -284,10 +284,10 @@ app.post("/api/dayPlan", async (req, res, next) => {
       newUserList
       .save()
       .then(() => {
-        console.log("== 建立成功 ==", newUserList);  
+        // console.log("== 建立成功 ==", newUserList);  
         res.status(200).json({
           "ok": true,
-          "message": "建立成功!"
+          "message": "Creation successful!"
         });
       })
       .catch((e) => {
@@ -295,13 +295,13 @@ app.post("/api/dayPlan", async (req, res, next) => {
         console.log(e);
         res.status(400).json({
           "error": true,
-          "message": "建立失敗，請注意輸入是否正確或完整!"
+          "message": "Creation failed, please ensure that your input is correct or complete."
         });
       })  
     }else{
       res.status(403).json({
         "error": true,
-        "message": "請先登入，才能新增待辦事項!"
+        "message": "Please log in first before adding a to-do item!"
       });
     }   
   }catch(err){
@@ -345,16 +345,16 @@ app.delete("/api/dayPlan", async (req, res, next) => {
           console.log("[DBG 340]deletedTodoItem", deletedTodoItem);
           res.status(200).json({
             "ok": true,
-            "message": "刪除成功!"
+            "message": "Deletion successful!"
           });
         })
         .catch((e) => {
-          console.log("[DBG 347]刪除失敗: ", e);
+          console.log("刪除失敗: ", e);
         });
     }else{
       res.status(403).json({
         "error": true,
-        "message": "請先登入，才能刪除待辦事項!"
+        "message": "Please log in first to delete the task."
       });
     }
   }catch(err){
@@ -382,7 +382,6 @@ app.get("/api/monthPlan/:time", async(req, res, next) => {
   console.log("路由: /api/monthPlan/:time");
   console.log("req.params:", req.params);
   let { time } = req.params;
-  console.log("[380 DBG time: ]", time);
   let timeArray = time.split('-');
   
   try{
@@ -391,24 +390,24 @@ app.get("/api/monthPlan/:time", async(req, res, next) => {
       const year   = timeArray[1];
       const month  = timeArray[0];
       let searchDbResult = await searchDatabaseByMonth(userId, year, month);
-      console.log('[DBG 389]searchDbResult: ', searchDbResult);
+      // console.log('[DBG 389]searchDbResult: ', searchDbResult);
       if(searchDbResult.length === 0){
-        console.log("== [沒有值] 可讀取 ==", searchDbResult);
+        // console.log("== [沒有值] 可讀取 ==", searchDbResult);
         res.json({
           "data": searchDbResult
         });
         return;
       }
-      console.log("== [有值] 可讀取 ==", searchDbResult);
+      // console.log("== [有值] 可讀取 ==", searchDbResult);
       res.status(200).json({
         "data": searchDbResult
       }); 
     }
     else{  
-      console.log("== 沒有登入就無法讀取內容，內容呈現空值 ==");
+      // console.log("== 沒有登入就無法讀取內容，內容呈現空值 ==");
       res.status(403).json({
         "error": true,
-        "message": "未登入系統，拒絕存取!"
+        "message": "Not logged in, access denied!"
       });
     }
   }catch(err){
@@ -424,13 +423,10 @@ app.use((err, req, res, next) => {
   console.log(err);
   res.status(500).json({
     "error": true,
-    "message": "伺服器內部錯誤。"
+    "message": "Internal server error."
   });
 });
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000.");
 });
-
-
-
