@@ -361,6 +361,11 @@ template {
 html{
   font-size: 1rem;
   font-family: 'Noto Sans TC', sans-serif;
+  height: 100%;
+}
+
+body{
+  height: 100%;
 }
 
 h2, h4, p, input, label{   

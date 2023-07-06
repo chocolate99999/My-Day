@@ -11,26 +11,32 @@
 }
 
 body{
+    // overflow: hidden;//---------------------------------------[working]
     main {
         display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
+        // position: fixed; //可以解決但是月曆上下位置跑掉--------------------------------
         width: 100%;
-        height: 45.5vw;   // [step 1]解決右側出現捲軸問題
-        overflow: hidden; // [step 2]解決右側出現捲軸問題        
+        // height: 45.5vw;   // [step 1]解決右側出現捲軸問題
+        height: 100%; 
+        overflow: hidden; // [step 1]解決右側出現捲軸問題        
         // outline: 3px solid green;
         .background-box{
             position: absolute;
             width: 100%;
-            height: 45.5vw;                     
+            // height: 45.5vw;
+            height: 100%;          
             // outline: 3px solid red;
         }
         .dayBox{
             .daytime{
                 position: absolute;   
+                position: fixed;   
                 width: 100%; 
-                height: 45.5vw;                            
+                height: 45.5vw;                                                 
+                height: 100%;                                           
                 background: linear-gradient(180deg, #55b4f6, #b2ebfe, #b2ebfe);
                 z-index: -3;
                 // outline: 3px solid red;  
@@ -101,6 +107,7 @@ body{
                     left: 14%;
                     top: 65%;                
                     transform: translate(-50%, -50%);
+                    z-index: 1;
                     
                     .trunk {
                         width: 154px;
@@ -158,7 +165,7 @@ body{
                             left: 50px;
                             z-index: 999;
                             position: absolute;
-                            animation: medal 2.2s infinite 0.5s cubic-bezier(0.4, 0.34, 0.16, 0.79);
+                            animation: medal 1.2s infinite 0.5s cubic-bezier(0.4, 0.34, 0.16, 0.79);
                         }
                     }
                     
@@ -392,7 +399,7 @@ body{
                         border-radius: 90%;
                         animation: shadow 0.4s infinite 0.4s cubic-bezier(0.4, 0.34, 0.16, 0.79);
                         background: rgba(0, 0, 0, 0.24);
-                        z-index: -2;
+                        z-index: -1;
                         transform: rotate(-5deg);
                         top: 102px;
                         left: -10px;
@@ -481,7 +488,7 @@ body{
                     height: 10vh;
                     background: #92c3a9;
                     border-radius: 50%;
-                    z-index: 2;
+                    z-index: 1;
                     transform: translate(-30px, 30px);
                     animation: moveBall 2s infinite alternate;
                     animation: rotateBall 2s infinite alternate;                
@@ -495,7 +502,7 @@ body{
                         left: 13%;
                         background: #fef9e6;
                         border-radius: 50%;
-                        z-index: 2;
+                        z-index: 1;
                     }
     
                     &:after {
@@ -512,7 +519,7 @@ body{
     
                         //[NEW]
                         transform: rotate(-5deg);
-                        animation: ballShadow 0.4s infinite 0.4s cubic-bezier(0.4, 0.34, 2.16, 0.79);
+                        animation: ballShadow 0.4s infinite 0.4s cubic-bezier(0.4, 0.34, 1.16, 0.79);
                     }     
                 }
                 @keyframes moveBall{
@@ -546,7 +553,7 @@ body{
                         bottom: 0.4vh;
                         left: 8.5%;
                         right: 8.5%;
-                        height: 2.5vh;
+                        height: 1.5vh;
                         background: #EE786E;
                         border-radius: 50%;
                         z-index: 1;
@@ -561,7 +568,7 @@ body{
                         transform: rotateX(-25deg);
                         transform-origin: 0% 0%;
                         perspective-origin: 50% 50%;
-                        z-index: 2;
+                        z-index: 1;
                     }
                     .rim {
                         position: absolute;
@@ -747,7 +754,7 @@ body{
                 
                 #boat {
                     position: absolute;
-                    bottom: 300px;
+                    bottom: 340px;
                     z-index: 1;
                     transform: translateX(-100px);
                     animation: boatMove 30s linear infinite;
@@ -859,20 +866,24 @@ body{
                         transform: translateX(1200px);
                     }
                     50%{
-                        bottom: 280px;
+                        bottom: 345px;
                     }
                     100%{
-                        bottom: 308px;
+                        bottom: 340px;
                     }
                 }  
             }
         }
         .nightBox{
+            outline: 3px solid palegreen; 
             .night{  
-                position: absolute;            
+                position: absolute;
+                // position: fixed; //設定此屬性貓咪位置會跑掉!!!        
                 width: 100%;
-                height: 45.5vw; // <== 注意:處理多一周，背景調整高度(減少出現側邊卷軸出現，改調整切換月曆大小)                                        
-                background: linear-gradient(180deg, #000000, #000033);                  
+                // height: 45.5vw; // <== 注意:處理多一周，背景調整高度(減少出現側邊卷軸出現，改調整切換月曆大小) 
+                height: 100%;                                        
+                background: linear-gradient(180deg, #000000, #000033);
+                outline: 3px solid yellow;                 
                 
                 #moon{
                     position: absolute;
@@ -931,7 +942,12 @@ body{
                 #star div:nth-child(23){left:16%;top:37%;animation-delay: 2.1s;}
                 #star div:nth-child(24){left:18%;top:26%;animation-delay: 1s;}
                 #star div:nth-child(25){left:80%;top:40%;animation-delay: 1s;}
-                #star div:nth-child(26){left:92%;top:37%;animation-delay: 1.5s;}
+                #star div:nth-child(26){left:42%;top:16%;animation-delay: 1.2s;}
+                #star div:nth-child(27){left:43%;top:6%;animation-delay: 1.8s;}
+                #star div:nth-child(28){left:49%;top:8%;animation-delay: 2.1s;}
+                #star div:nth-child(29){left:31%;top:18%;animation-delay: 1s;}
+                #star div:nth-child(30){left:38%;top:20%;animation-delay: 1.8s;}
+                #star div:nth-child(31){left:32%;top:13%;animation-delay: 1.5s;}
                 @keyframes starShine {
                     0% {
                         transform: scale(0.3) rotate(0deg);
@@ -952,7 +968,9 @@ body{
                 }
             
                 #forest{
-                    position: relative; 
+                    position: relative;
+                    z-index: 5;
+                    // outline: 1px solid pink;
                     .spruce {
                         width: 0;
                         height: 0;
@@ -1010,7 +1028,7 @@ body{
                 
                         &--2 {
                             left: -15px;
-                            bottom: -570px; 
+                            bottom: -585px; 
                             animation: 1s linear 0s infinite alternate spruce2;
                             z-index: 2;
                         }
@@ -1025,7 +1043,7 @@ body{
                 
                         &--4 {
                             left: 38px;
-                            bottom: -550px; 
+                            bottom: -568px; 
                             transform: scale(1.2) rotateY(35deg);
                             filter: brightness(1.3);
                             animation: 1s linear 0s infinite alternate spruce4;
@@ -1286,15 +1304,18 @@ body{
                 }
     
                 #cat{
-                    width: 50%;
-                    height: 32vw;
                     position: absolute;
-                    right: 0;
-                    top: -400px; 
-                    z-index: 11;
-                    overflow: visible;                    
+                    width: 100%;
+                    height: 100%;
+                    z-index: 12;
+                    top: -310px; 
+                    left: 1400px;
+                    overflow: visible;
+                    // outline: 3px solid yellow;                     
                     .cat{
-                        .cat-position{                                                  
+                        transform: translate(22%, 3%); 
+                        // outline: 3px solid red;       
+                        .cat-position{      
                             #tail{
                                 transform-origin: 0 0;
                                 animation: tailSwing 4s infinite alternate;
@@ -1318,8 +1339,9 @@ body{
             } 
         }
         
-        section.calendar {
-            transform: scale(0.85, 0.85); // [白天: 5週適用，6週要調整成 0.75]
+        .calendar {
+            position: relative;
+            transform: scale(0.75, 0.75); // [暫不用-白天: 5週適用，6週要調整成 0.75]
             z-index: 10; 
             // outline: 3px solid yellow;
 
@@ -1409,4 +1431,943 @@ body{
             }
         }
     }
+}
+
+@media screen and (device-width: 1920px){ //白天 晚上 版面OK!
+    body{
+        main {
+            .dayBox{
+                .daytime{
+                    #sandcastle{
+                        transform: scale(1.3, 1.3);
+                        right: 15%;
+                    }
+                    #bucket{
+                        top: 82%;
+                        right: 15%;
+                    }
+                    #ball{
+                        top: 73%;
+                        left: 8%;
+                    }
+                    #boat {
+                        bottom: 340px;
+                        @keyframes boatMove {
+                            0% {
+                                transform: translateX(2000px);
+                            }
+                            50%{
+                                bottom: 345px;
+                            }
+                            100%{
+                                bottom: 340px;
+                            }
+                        }
+                    }  
+                }   
+            }
+            .nightBox{
+                .night{
+                    #forest{
+                        transform: scale(1.3, 1.3);
+                        left: 16%; 
+                        bottom: 1%; 
+                    }
+                    #tent {
+                        right: 36%;
+                        bottom: 18%;
+                        transform: scale(1.3, 1.3); 
+                    }
+                    #cat{
+                        .cat{
+                            transform: translate(18%, 10%); 
+                        }
+                    }
+                }
+            }
+        }
+    } 
+}
+@media screen and (device-width: 1280px){ // 白天 晚上 版面OK!
+    body{
+        main {
+            .dayBox{
+                .daytime{
+                    #ball{
+                        top: 73%;
+                        left: 5%;
+                    }
+                }   
+            }
+            .nightBox{
+                .night{
+                    #forest{
+                        bottom: -27%; 
+                    }
+                    #cat{
+                        .cat{
+                            transform: translate(25%, 13%);  
+                        }
+                    }
+                }
+            }
+        }
+    } 
+}
+@media screen and (max-width: 1024px){ //白天 晚上版面OK!
+    body{
+        main { 
+            .dayBox{
+                .daytime{
+                    #bucket {
+                        right: 13vw; 
+                    }
+                    #sandcastle{
+                        right: -20vw;                       
+                    }
+                    #ball{
+                        top: 76%;
+                        left: 5%;
+                    }
+                    #boat {
+                        bottom: 300px;
+                        @keyframes boatMove {
+                            0% {
+                                transform: translateX(1100px);
+                            }
+                            50%{
+                                bottom: 305px;
+                            }
+                            100%{
+                                bottom: 300px;
+                            }
+                        }
+                    }  
+                }   
+            }
+            .nightBox{
+                .night{
+                    #forest{
+                        bottom: -3%; 
+                    }
+                    #cat{
+                        .cat{
+                            transform: translate(20%, 3%); 
+                        }
+                    }
+                } 
+            }
+            .calendar {
+                margin-top: 3%;
+                transform: scale(0.8, 0.8);
+            }
+        }
+    } 
+}
+@media screen and (max-width: 980px){ //白天 晚上 版面OK!
+    body{
+        main {
+            .dayBox{
+                .daytime{
+                    #ball{
+                        top: 72%;
+                        left: 3%;
+                    }
+                    #boat {
+                        bottom: 355px;
+                        transform: translateX(-300px);
+                    }
+                    @keyframes boatMove {
+                        0% {
+                            transform: translateX(1000px);
+                        }
+                        50%{
+                            bottom: 350px;
+                        }
+                        100%{
+                            bottom: 355px;
+                        }
+                    }  
+                }
+            }
+            .nightBox{
+                .night{
+                    #forest{ 
+                        bottom: -20%;
+                    }
+                    #cat{
+                        .cat{
+                            transform: translate(20%, 5%); 
+                        }
+                    }
+                } 
+            }
+            .calendar {
+                transform: scale(0.9, 0.9);
+                opacity: 0.9;
+            }
+        }
+    } 
+}
+@media screen and (max-width: 912px){ //白天 晚上 版面OK!
+    body{
+        main {
+            .dayBox{
+                .daytime{
+                    #sun {
+                        top: 3%;
+                        right: 6%;
+                    }
+                    #sea {
+                        height: 60%;
+                    }
+                    #sand {
+                        height: 45%;
+                    } 
+                    #dog {
+                        left: 25%;
+                        top: 75%;
+                        transform: scale(1.5, 1.5);
+                        .tail {
+                            .helix{          
+                                background-color: #8dd2f4;                           
+                            }             
+                        }  
+                    }
+                    #ball {
+                        top: 86%;
+                        left: 13%;
+                    }
+                    #bucket {
+                        right: 10vw; 
+                    }
+                    #sandcastle{
+                        transform: scale(1.5, 1.5);
+                        bottom: 8vh; 
+                        right: 15vw;
+                    }
+                    #boat {
+                        bottom: 740px;
+                    }
+                    @keyframes boatMove {
+                        0% {
+                            transform: translateX(1200px);
+                        }
+                        50%{
+                            bottom: 710px;
+                        }
+                        100%{
+                            bottom: 740px;
+                        }
+                    }  
+                }   
+            }
+            .nightBox{
+                .night{
+                    #moon{
+                        top: 4%;
+                        transform: scale(1.3, 1.3); 
+                    }
+                    #forest{ 
+                        bottom: -36%;
+                        left: 26%;
+                        transform: scale(1.5, 1.5); 
+                    }
+                    #cat{
+                        .cat{
+                            transform: translate(20%, 13.5%); 
+                        }
+                    }
+                    #tent{ 
+                        right: 750px;
+                        transform: scale(1.5, 1.5);             
+                    }
+                } 
+            }
+            .calendar {
+                transform: scale(1, 1);
+                margin-top: -30%;
+            }
+        }
+    } 
+}
+@media screen and (max-width: 820px){ //白天 晚上 版面OK!
+    body{
+        main {
+            .dayBox{
+                .daytime{
+                    #sun {
+                        top: 2%;
+                    }
+                    #dog {
+                        top: 70%;
+                        left: 16.5%;
+                        transform: scale(1.3, 1.3);
+                    }
+                    #ball {
+                        top: 82%;
+                        left: 9%;
+                    }
+                    #bucket {
+                        right: 8vw; 
+                    }
+                    #sandcastle{
+                        transform: scale(1.3, 1.3);
+                    }
+                    #boat { 
+                        bottom: 640px;
+                    }
+                    @keyframes boatMove {
+                        0% {
+                            transform: translateX(1200px);
+                        }
+                        50%{
+                            bottom: 610px;
+                        }
+                        100%{
+                            bottom: 640px;
+                        }
+                    } 
+                }   
+            }
+            .nightBox{
+                .night{
+                    #moon{
+                        top: 2%;
+                        left: 4%;
+                        transform: scale(1, 1); 
+                    }
+                    #forest{ 
+                        bottom: -26%;
+                    }
+                    #cat{
+                        .cat{
+                            transform: translate(20%, 9%);
+                        }
+                    }
+                } 
+            }
+            .calendar {
+                opacity: 0.9;
+            }
+        }
+    } 
+}
+@media screen and (max-width: 768px){ //白天 晚上 版面OK!
+    body{
+        main {
+            .dayBox{
+                .daytime{
+                    #sand {
+                        height: 40%;
+                    }
+                    #dog, #bucket{
+                        transform: scale(1, 1);
+                    }
+                    #sandcastle{
+                        top: 72%;
+                    }
+                    #ball{
+                        width: 8vh;
+                        height: 8vh;
+                        left: 12%;
+                    }
+                    #boat { 
+                        bottom: 500px;
+                    }
+                    @keyframes boatMove {
+                        0% {
+                            transform: translateX(1200px);
+                        }
+                        50%{
+                            bottom: 510px;
+                        }
+                        100%{
+                            bottom: 500px;
+                        }
+                    } 
+                }   
+            }
+            .nightBox{
+                .night{
+                    #moon{
+                        top: 4%;
+                        transform: scale(1, 1); 
+                    }
+                    #forest{ 
+                        bottom: -18%;
+                    }
+                    #cat{
+                        .cat{
+                            transform: translate(12%, 10.5%); 
+                        }
+                    }
+                } 
+            }
+            .calendar {
+                transform: scale(0.8, 0.8);
+                margin-top: -25%;
+            }
+        }
+    } 
+}
+@media screen and (max-width: 680px){ //白天 晚上 版面OK!
+    body{
+        main {
+            .dayBox{
+                .daytime{
+                    // #sand {
+                    //     height: 40%;
+                    // }
+                    #dog, #sandcastle, #bucket{
+                        transform: scale(0.9, 0.9);
+                    }
+                    #sandcastle{
+                        top: 62%;
+                        right: 3%;
+                    }
+                    #bucket{
+                        top: 82%; 
+                    }
+                    #ball{
+                        width: 8vh;
+                        height: 8vh;
+                        top: 85%;
+                        left: 14%;
+                    }
+                    #boat { 
+                        bottom: 300px;
+                    }
+                    @keyframes boatMove {
+                        0% {
+                            transform: translateX(700px);
+                        }
+                        50%{
+                            bottom: 310px;
+                        }
+                        100%{
+                            bottom: 300px;
+                        }
+                    } 
+                }   
+            }
+            .nightBox{
+                .night{
+                    #forest{ 
+                        transform: scale(1.2, 1.2);      
+                        bottom: -5%;
+                        left: 10%;
+                    }
+                    #cat{
+                        top: -219px;
+                        left: 890px;
+                        .cat{
+                            transform: translate(77%, -5%); 
+                        }
+                    }   
+                    #tent {
+                        transform: scale(1.1, 1.1);       
+                        right: 80%;
+                        top: 90%;
+                    }
+                } 
+            }
+            .calendar {
+                transform: scale(0.75, 0.75); // 白天適用尺寸
+                top: 10%;
+            }
+        }
+    } 
+}
+@media screen and (max-width: 540px){ //白天 晚上 版面OK!
+    body{
+        main {
+            .dayBox{
+                .daytime{
+                    #sun, #dog{
+                        transform: scale(0.7, 0.7);
+                    }
+                    #sun{
+                        top: -0.5%;
+                        right: 1%;
+                    }
+                    #ball{
+                        left: 17%;
+                        top: 85%;
+                    }
+                    #sandcastle, #bucket{
+                        transform: scale(0.8, 0.8);
+                    }
+                    #sandcastle{
+                        top: 65%;
+                        right: -3vw;
+                    }
+                    #bucket{
+                        top: 82%;
+                        right: 35vw;
+                    }
+                    #boat { 
+                        bottom: 370px;
+                    }
+                    @keyframes boatMove {
+                        0% {
+                            transform: translateX(1200px);
+                        }
+                        50%{
+                            bottom: 375px;
+                        }
+                        100%{
+                            bottom: 370px;
+                        }
+                    } 
+                }   
+            }
+            .nightBox{
+                .night{
+                    #moon{
+                        top: 0.5%;
+                        transform: scale(0.8, 0.8);
+                    }
+                    #forest{
+                        transform: scale(0.8, 0.8);      
+                        left: -10%;      
+                        bottom: -37%;
+                    }
+                    #cat{
+                        height: 100%;
+                        transform: scale(0.85); 
+                        .cat{
+                            transform: translate(55%, 4.5%); 
+                            // transform: scale(0.86, 0.86);// ok    
+                        }
+                    }      
+                    #tent {
+                        transform: scale(0.9, 0.9);       
+                        right: 425px;
+                        bottom: 65px; 
+                    }
+                } 
+            }
+            .calendar {
+                transform: scale(0.6, 0.6);
+            }
+        }
+    } 
+}
+@media screen and (device-width : 414px){ //白天 晚上 版面OK!
+    body{
+        main {
+            .dayBox{
+                .daytime{
+                    #sun, #dog, #bucket, #sandcastle{
+                        transform: scale(0.8, 0.8);
+                    }
+                    #sun{
+                        top: 1%;
+                        right: 4%;
+                    }
+                    #dog{
+                        top: 68%;
+                        .tail {
+                            .helix{          
+                                background-color: #75d8fd;
+                            }
+                        }   
+                    }
+                    #ball{
+                        top: 81%;
+                        left: 14%;
+                    }
+                    #sandcastle{
+                        top: 62%;
+                        right: -9vw; 
+                    }
+                    #boat { 
+                        bottom: 340px;
+                    }
+                    @keyframes boatMove {
+                        0% {
+                            transform: translateX(1200px);
+                        }
+                        50%{
+                            bottom: 335px;
+                        }
+                        100%{
+                            bottom: 340px;
+                        }
+                    } 
+                }   
+            }
+            .nightBox{
+                .night{
+                    #moon{
+                        top: 1%;    
+                        transform: scale(0.9, 0.9);
+                    }
+                    #forest{ 
+                        left: 1%;      
+                        bottom: -35%;
+                    }
+                    #forest, #tent{ 
+                        transform: scale(1, 1);
+                    }
+                    #cat{
+                        width: 130%;
+                        height: 80%;
+                        transform: scale(0.75); // 縮小的重點!
+                        top: -216px;
+                        left: 890px;
+                        .cat{
+                            transform: translate(7%, 8%); 
+                        }
+                    }      
+                    #tent {
+                        right: 440px;
+                        bottom: 100px; 
+                    }
+                } 
+            }
+            .calendar {
+                transform: scale(0.5, 0.5);
+                top: -5%; // 白天適用
+            }
+        }
+    } 
+}
+@media screen and (max-width: 412px){ //白天 晚上 版面OK!
+    body{
+        main {
+            .dayBox{
+                .daytime{
+                    #sun, #dog, #bucket, #sandcastle{
+                        transform: scale(0.8, 0.8);
+                    }
+                    #sun{
+                        top: 3%;
+                        right: 7%;
+                    }
+                    #dog{
+                        top: 65%; 
+                    }
+                    #ball{
+                        top: 77%;
+                        left: 14%;
+                    }
+                    #sandcastle{
+                        top: 62%;
+                        right: -9vw;
+                    }
+                    #boat { 
+                        bottom: 340px;
+                    }
+                    @keyframes boatMove {
+                        0% {
+                            transform: translateX(1200px);
+                        }
+                        50%{
+                            bottom: 335px;
+                        }
+                        100%{
+                            bottom: 340px;
+                        }
+                    } 
+                }   
+            }
+            .nightBox{
+                .night{
+                    #moon{
+                        top: 1%;   
+                        transform: scale(0.9, 0.9);
+                    }
+                    #forest{ 
+                        left: 1%;      
+                        bottom: -37%;
+                        transform: scale(1, 1);
+                    }
+                    #forest, #tent{ 
+                        transform: scale(1, 1);             
+                    }
+                    #cat{
+                        width: 130%;
+                        height: 80%;
+                        transform: scale(0.75); 
+                        top: -216px;
+                        left: 890px;
+                        .cat{
+                            transform: translate(7%, 12.5%); 
+                        }
+                    }   
+                    #tent {
+                        right: 445px;
+                        bottom: 120px; 
+                    }
+                } 
+            }
+            .calendar {
+                transform: scale(0.5, 0.5);
+                top: -3%; // 白天適用
+            }
+        }
+    } 
+}
+@media screen and (device-width : 393px){ //白天 晚上 版面OK!
+    body{
+        main {
+            .dayBox{
+                .daytime{
+                    #sandcastle{
+                        right: -12vw; 
+                    }
+                    #bucket{
+                        right: 2vw; 
+                    }
+                    #ball{
+                        top: 78%;
+                        left: 14%;
+                    }
+                }   
+            }
+            .nightBox{
+                .night{
+                    #moon{
+                        top: 1%;   
+                        transform: scale(0.9, 0.9);
+                    }
+                    #forest{ 
+                        left: 1%;      
+                        bottom: -33%;
+                        transform: scale(1, 1);
+                    }
+                    #tent, #forest{
+                        transform: scale(1, 1);
+                    }
+                    #cat{
+                        width: 140%;
+                        height: 80%;
+                        transform: scale(0.7); 
+                        top: -219px;
+                        left: 890px;
+                        .cat{
+                            transform: translate(-10%, 11%); 
+                        }
+                    }   
+                    #tent {
+                        right: 445px;
+                        bottom: 120px; 
+                    }
+                } 
+            }
+        }
+    } 
+}
+@media screen and (device-width: 390px){ //白天 晚上 版面OK!
+    body{
+        main {
+            .dayBox{
+                .daytime{
+                    #sandcastle{
+                        right: -14vw; 
+                    }
+                    #bucket{
+                        right: 4vw; 
+                    }
+                    #ball{
+                        top: 79%;
+                    }
+                }   
+            }
+            .nightBox{
+                .night{
+                    #forest{ 
+                        left: 1%;      
+                        bottom: -33%;
+                        transform: scale(1, 1);
+                    }
+                    #cat{
+                        position: absolute;
+                        width: 140%;
+                        height: 80%;
+                        transform: scale(0.7); 
+                        top: -219px;
+                        left: 890px;
+                        .cat{
+                            transform: translate(-10%, 11%); 
+                        }
+                    }  
+                    #tent {
+                        right: 420px;
+                        bottom: 120px; 
+                    }
+                } 
+            }
+        }
+    } 
+}
+@media screen and (device-width: 375px){ //白天 晚上 版面OK!
+    body{
+        main {
+            .dayBox{
+                .daytime{
+                    #sandcastle{
+                        right: -16vw; 
+                    }
+                    #dog{
+                        top: 63%;
+                        .tail {
+                            .helix{          
+                                background-color: #84dbf3;
+                            }
+                        }   
+                    }
+                    #ball{
+                        top: 80%;
+                    }
+                    #bucket{
+                        right: 1%;
+                        top: 83%;
+                    }
+                }   
+            }
+            .nightBox{
+                .night{
+                    #moon{
+                        top: 1%;   
+                        transform: scale(0.8, 0.8);
+                    }
+                    #forest{ 
+                        left: -10%;      
+                        bottom: -30%;
+                        transform: scale(0.8, 0.8);
+                    }
+                    #cat{
+                        width: 150%;
+                        height: 80%;
+                        transform: scale(0.7); 
+                        top: -219px;
+                        left: 890px;
+                        .cat{
+                            transform: translate(-10%, -2%); 
+                        }
+                    }  
+                    #tent {
+                        transform: scale(0.9, 0.9);
+                        right: 400px;
+                        bottom: 80px; 
+                    }
+                } 
+            }
+        }
+    } 
+}
+@media screen and (device-width: 360px){ //白天 晚上 版面OK!
+    body{
+        main {
+            .dayBox{
+                .daytime{
+                    #ball{
+                        top: 80%;
+                    }
+                    #dog{
+                        top: 65%;
+                        .tail {
+                            .helix{          
+                                background-color: #84dbf3;
+                            }
+                        }   
+                    }
+                    #sandcastle{
+                        right: -20vw; 
+                    }
+                    #bucket{
+                        right: 2vw;
+                    }
+                }   
+            }
+            .nightBox{
+                .night{
+                    #forest{ 
+                        left: -5%;      
+                        bottom: -30%;
+                        transform: scale(0.9, 0.9);
+                    }
+                    #cat{
+                        width: 150%;
+                        height: 80%;
+                        transform: scale(0.65); 
+                        top: -219px;
+                        left: 890px;
+                        .cat{
+                            transform: translate(-33%, 23%); 
+                        }
+                    }  
+                    #tent {
+                        right: 420px;
+                        bottom: 120px; 
+                    }
+                } 
+            }
+            .calendar {
+                transform: scale(0.45, 0.45);
+                top: 4%; // 白天適用
+            }
+        }
+    } 
+}
+@media screen and (max-width: 280px){ //白天 晚上 版面OK!
+    body{
+        main {
+            .dayBox{
+                .daytime{
+                    #sandcastle{
+                        transform: scale(0.65, 0.65);
+                        right: -38vw; 
+                    }
+                    #ball{
+                        top: 78%;
+                        left: 20%;
+                    }
+                    #bucket{
+                        top: 83%;
+                        right: 20vw;
+                    }
+                    #dog{
+                        top: 62%;
+                        transform: scale(0.65, 0.65);
+                        .tail {
+                            .helix{          
+                                background-color: #84dbf3;
+                            }
+                        }   
+                    }
+                }   
+            }
+            .nightBox{
+                .night{
+                    #forest{ 
+                        left: -10%;      
+                        bottom: -32%;
+                        transform: scale(0.8, 0.8);
+                    }
+                    #cat{
+                        width: 190%;
+                        transform: scale(0.58); 
+                        top: -219px;
+                        left: 700px;
+                        .cat{
+                            transform: translate(-22%, 28.5%); 
+                        }
+                    }  
+                    #tent {
+                        transform: scale(0.8, 0.8);
+                        right: 350px;
+                        bottom: 120px; 
+                    }
+                } 
+            }
+            .calendar {
+                transform: scale(0.38, 0.38);
+                top: 3%; // 白天適用
+            }
+        }
+    } 
 }

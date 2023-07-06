@@ -343,7 +343,7 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        outline: 1px solid red;
+        // outline: 1px solid red;
 
         h2{
             flex: 1 1 100px;
@@ -360,7 +360,7 @@ header {
             flex: 3 1 100px;
             list-style-type: none;
             width: 70%;
-            outline: 1px solid blue;
+            // outline: 1px solid blue;
 
             li{
                 width: 10%;

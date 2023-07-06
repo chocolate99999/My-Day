@@ -16,7 +16,7 @@ function switchBackground() {
     
     let backgroundBox = document.querySelector(".background-box");
     backgroundBox.classList.remove('nightBox');
-    backgroundBox.classList.add('dayBox'); 
+    backgroundBox.classList.add('dayBox');
     
   }else{
 
@@ -143,23 +143,24 @@ let calendar = {
     if(extraTrFirstA === ''){  
       extraTr.remove();
 
-      // 1 個月有 5 週
-      let calendarBox = document.querySelector(".calendar");
-      calendarBox.style.transform = 'scale(0.85, 0.85)'; // [old:0.9]      
+      // 1 個月有 5 週 [暫時不需要該屬性]
+      // let calendarBox = document.querySelector(".calendar");
+      // calendarBox.style.transform = 'scale(0.85, 0.85)'; 
 
       /* 黑夜: 貓的位置 old-> y="78" 第二版 y="90" 第三版 y="138" */
       let catAbove = document.querySelector(".cat-position");
-      catAbove.setAttribute('y', '140');
+      catAbove.setAttribute('y', '80');
     }
     else{
 
-      // 1 個月有 6 週
-      let calendarBox = document.querySelector(".calendar");
-      calendarBox.style.transform = 'scale(0.75, 0.75)'; // [old:0.8]
+      // 1 個月有 6 週 [暫時不需要該屬性]
+      // let calendarBox = document.querySelector(".calendar");
+      // calendarBox.style.transform = 'scale(0.75, 0.75)'; 
 
       /* 黑夜: 貓的位置 old-> y="562", 第二版 y="623" */
       let catBelow = document.querySelector(".cat-position");
-      catBelow.setAttribute('y', '590');
+      // catBelow.setAttribute('y', '548'); //old: 590 [暫時不需要該屬性]
+      catBelow.setAttribute('y', '40'); //old: 590
     }
 
     // 處理 無日期(空字串) 的格子，使其點擊無法連結(移除它的 a 標籤)
@@ -239,17 +240,17 @@ let calendar = {
 // 取得當月的待辦事項
 async function Api_GetMonthTodoList(time){
       
-    let apiUrl   = '/api/monthPlan/'+ time;
-    
-    let response = await fetch(apiUrl, 
-        {
-            method  : 'GET', 
-            headers : {'Content-Type': 'application/json'}
-        }
-    ); 
+  let apiUrl   = '/api/monthPlan/'+ time;
+  
+  let response = await fetch(apiUrl, 
+      {
+          method  : 'GET', 
+          headers : {'Content-Type': 'application/json'}
+      }
+  ); 
 
-    let result = await response.json();
-    return result;      
+  let result = await response.json();
+  return result;      
 }
 
 // 取得當月全部的待辦事項
