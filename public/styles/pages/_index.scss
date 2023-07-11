@@ -399,7 +399,7 @@ body{
                         border-radius: 90%;
                         animation: shadow 0.4s infinite 0.4s cubic-bezier(0.4, 0.34, 0.16, 0.79);
                         background: rgba(0, 0, 0, 0.24);
-                        z-index: -1;
+                        z-index: -2;
                         transform: rotate(-5deg);
                         top: 102px;
                         left: -10px;
@@ -1497,6 +1497,20 @@ body{
                         top: 73%;
                         left: 5%;
                     }
+                    #boat {
+                        bottom: 380px;
+                        @keyframes boatMove {
+                            0% {
+                                transform: translateX(1300px);
+                            }
+                            50%{
+                                bottom: 375px;
+                            }
+                            100%{
+                                bottom: 380px;
+                            }
+                        }
+                    }  
                 }   
             }
             .nightBox{
@@ -1530,16 +1544,16 @@ body{
                         left: 5%;
                     }
                     #boat {
-                        bottom: 300px;
+                        bottom: 315px;
                         @keyframes boatMove {
                             0% {
                                 transform: translateX(1100px);
                             }
                             50%{
-                                bottom: 305px;
+                                bottom: 310px;
                             }
                             100%{
-                                bottom: 300px;
+                                bottom: 315px;
                             }
                         }
                     }  
@@ -2058,17 +2072,17 @@ body{
                         right: -9vw;
                     }
                     #boat { 
-                        bottom: 340px;
+                        bottom: 350px;
                     }
                     @keyframes boatMove {
                         0% {
                             transform: translateX(1200px);
                         }
                         50%{
-                            bottom: 335px;
+                            bottom: 355px;
                         }
                         100%{
-                            bottom: 340px;
+                            bottom: 350px;
                         }
                     } 
                 }   
@@ -2174,6 +2188,20 @@ body{
                     #ball{
                         top: 79%;
                     }
+                    #boat {
+                        bottom: 320px;
+                        @keyframes boatMove {
+                            0% {
+                                transform: translateX(400px);
+                            }
+                            50%{
+                                bottom: 315px;
+                            }
+                            100%{
+                                bottom: 320px;
+                            }
+                        }
+                    }  
                 }   
             }
             .nightBox{
