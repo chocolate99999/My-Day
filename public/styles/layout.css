@@ -987,6 +987,109 @@ aside .hot-air-balloon .cloud div:nth-child(2) .temp-max, aside .hot-air-balloon
   }
 }
 
+@media screen and (max-width: 912px) {
+  body aside {
+    margin-top: -90%;
+  }
+  body aside .hot-air-balloon .cloud div:nth-child(1) {
+    top: 3.5rem;
+    right: -1rem;
+  }
+}
+@media screen and (max-width: 820px) {
+  body aside {
+    margin-top: -75%;
+  }
+}
+@media screen and (max-width: 768px) {
+  body aside {
+    margin-top: -62%;
+  }
+}
+@media screen and (max-width: 680px) {
+  body aside {
+    margin-top: -2%;
+    transform: scale(0.85, 0.85);
+  }
+}
+@media screen and (max-width: 540px) {
+  body aside {
+    margin-top: -55%;
+    transform: scale(0.75, 0.75);
+  }
+  body aside .hot-air-balloon .balloon section.weather .weatherIcon {
+    width: 10vw;
+    height: 10vw;
+    margin-top: -3%;
+  }
+}
+@media screen and (device-width: 414px) {
+  body main {
+    display: flex;
+    flex-direction: column;
+  }
+  body main aside {
+    margin-top: 28%;
+    margin-bottom: 20%;
+    transform: scale(1, 1);
+  }
+  body main aside .hot-air-balloon .balloon section.weather .weatherIcon {
+    width: 10vw;
+    height: 10vw;
+    margin-top: -3%;
+  }
+}
+@media screen and (max-width: 412px) {
+  body main {
+    display: flex;
+    flex-direction: column;
+  }
+  body main aside {
+    margin-top: 28%;
+    margin-bottom: 20%;
+    transform: scale(1, 1);
+  }
+}
+@media screen and (max-width: 393px) {
+  body main aside {
+    margin-top: 28%;
+    margin-bottom: 20%;
+  }
+}
+@media screen and (device-width: 390px) {
+  body main aside {
+    margin-top: 30%;
+    margin-bottom: 21%;
+  }
+}
+@media screen and (device-width: 375px) {
+  body main aside {
+    margin-top: 31%;
+    margin-bottom: 21%;
+  }
+}
+@media screen and (max-width: 360px) {
+  body main aside {
+    margin-top: 32%;
+    margin-bottom: 22%;
+  }
+}
+@media screen and (max-width: 280px) {
+  body main aside {
+    margin-top: 24%;
+    margin-bottom: 28%;
+    transform: scale(0.9, 0.9);
+  }
+  body main aside .hot-air-balloon {
+    width: 17rem;
+    height: 17rem;
+  }
+  body main aside .hot-air-balloon .balloon section.weather .weatherIcon {
+    width: 15vw;
+    height: 15vw;
+    margin-top: -3%;
+  }
+}
 :root {
   --sand-color: #EBC69F;
   --sand-accent: #EABB8C;
@@ -2827,6 +2930,9 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   body main .nightBox .night #cat .cat {
     transform: translate(25%, 13%);
   }
+  body main .calendar {
+    transform: scale(1, 1);
+  }
 }
 @media screen and (max-width: 1024px) {
   body main .dayBox .daytime #bucket {
@@ -2872,7 +2978,7 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   }
   body main .calendar {
     margin-top: 3%;
-    transform: scale(0.8, 0.8);
+    transform: scale(0.75, 0.75);
   }
 }
 @media screen and (max-width: 980px) {
@@ -2930,14 +3036,14 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   }
   body main .dayBox .daytime #dog {
     left: 25%;
-    top: 75%;
+    top: 68%;
     transform: scale(1.5, 1.5);
   }
   body main .dayBox .daytime #dog .tail .helix {
     background-color: #8dd2f4;
   }
   body main .dayBox .daytime #ball {
-    top: 86%;
+    top: 79%;
     left: 13%;
   }
   body main .dayBox .daytime #bucket {
@@ -2999,12 +3105,15 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     top: 2%;
   }
   body main .dayBox .daytime #dog {
-    top: 70%;
+    top: 67%;
     left: 16.5%;
     transform: scale(1.3, 1.3);
   }
+  body main .dayBox .daytime #dog .tail .helix {
+    background-color: #83cbde;
+  }
   body main .dayBox .daytime #ball {
-    top: 82%;
+    top: 80%;
     left: 9%;
   }
   body main .dayBox .daytime #bucket {
@@ -3180,9 +3289,12 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     top: -0.5%;
     right: 1%;
   }
+  body main .dayBox .daytime #dog .tail .helix {
+    background-color: #97d5e7;
+  }
   body main .dayBox .daytime #ball {
+    top: 82%;
     left: 17%;
-    top: 85%;
   }
   body main .dayBox .daytime #sandcastle, body main .dayBox .daytime #bucket {
     transform: scale(0.8, 0.8);
@@ -3243,6 +3355,7 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   }
   body main .calendar {
     transform: scale(0.6, 0.6);
+    margin-top: -40%;
   }
 }
 @media screen and (device-width: 414px) {
@@ -3257,7 +3370,7 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     top: 68%;
   }
   body main .dayBox .daytime #dog .tail .helix {
-    background-color: #75d8fd;
+    background-color: #91dffb;
   }
   body main .dayBox .daytime #ball {
     top: 81%;
@@ -3318,8 +3431,8 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     bottom: 100px;
   }
   body main .calendar {
-    transform: scale(0.5, 0.5);
-    top: -5%;
+    transform: scale(0.55, 0.55);
+    margin-top: 5%;
   }
 }
 @media screen and (max-width: 412px) {
@@ -3331,10 +3444,13 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     right: 7%;
   }
   body main .dayBox .daytime #dog {
-    top: 65%;
+    top: 68%;
+  }
+  body main .dayBox .daytime #dog .tail .helix {
+    background-color: #91dffb;
   }
   body main .dayBox .daytime #ball {
-    top: 77%;
+    top: 81%;
     left: 14%;
   }
   body main .dayBox .daytime #sandcastle {
@@ -3394,7 +3510,7 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   }
   body main .calendar {
     transform: scale(0.5, 0.5);
-    top: -3%;
+    margin-top: 5%;
   }
 }
 @media screen and (device-width: 393px) {
@@ -3405,8 +3521,33 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     right: 2vw;
   }
   body main .dayBox .daytime #ball {
-    top: 78%;
+    top: 81%;
     left: 14%;
+  }
+  body main .dayBox .daytime #boat {
+    bottom: 320px;
+  }
+  @-webkit-keyframes boatMove {
+    0% {
+      transform: translateX(1200px);
+    }
+    50% {
+      bottom: 325px;
+    }
+    100% {
+      bottom: 320px;
+    }
+  }
+  @keyframes boatMove {
+    0% {
+      transform: translateX(1200px);
+    }
+    50% {
+      bottom: 325px;
+    }
+    100% {
+      bottom: 320px;
+    }
   }
   body main .nightBox .night #moon {
     top: 1%;
@@ -3443,7 +3584,7 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     right: 4vw;
   }
   body main .dayBox .daytime #ball {
-    top: 79%;
+    top: 81%;
   }
   body main .dayBox .daytime #boat {
     bottom: 320px;
@@ -3532,6 +3673,9 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     right: 400px;
     bottom: 80px;
   }
+  body main .calendar {
+    margin-top: -5%;
+  }
 }
 @media screen and (device-width: 360px) {
   body main .dayBox .daytime #ball {
@@ -3579,7 +3723,7 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     right: -38vw;
   }
   body main .dayBox .daytime #ball {
-    top: 78%;
+    top: 84%;
     left: 20%;
   }
   body main .dayBox .daytime #bucket {
@@ -3587,11 +3731,36 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     right: 20vw;
   }
   body main .dayBox .daytime #dog {
-    top: 62%;
+    top: 68%;
     transform: scale(0.65, 0.65);
   }
   body main .dayBox .daytime #dog .tail .helix {
     background-color: #84dbf3;
+  }
+  body main .dayBox .daytime #boat {
+    bottom: 220px;
+  }
+  @-webkit-keyframes boatMove {
+    0% {
+      transform: translateX(1200px);
+    }
+    50% {
+      bottom: 225px;
+    }
+    100% {
+      bottom: 220px;
+    }
+  }
+  @keyframes boatMove {
+    0% {
+      transform: translateX(1200px);
+    }
+    50% {
+      bottom: 225px;
+    }
+    100% {
+      bottom: 220px;
+    }
   }
   body main .nightBox .night #forest {
     left: -10%;
@@ -3614,7 +3783,7 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   }
   body main .calendar {
     transform: scale(0.38, 0.38);
-    top: 3%;
+    margin-top: -10%;
   }
 }
 body {
@@ -3715,7 +3884,6 @@ body main .todayPlan .planBox form .todoBox div.todo button img {
 }
 body main .todayPlan .planBox form .todoBox div.todo button.complete {
   display: none;
-  background-color: rgb(50, 255, 50);
 }
 body main .todayPlan .planBox form .todoBox div.todo button.remove {
   background-color: #fff;
@@ -3756,5 +3924,255 @@ body main .todayPlan .planBox .sort button {
 @keyframes scaleDown {
   to {
     transform: scale(0);
+  }
+}
+@media screen and (max-width: 1024px) {
+  body main .todayPlan .planBox form {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 912px) {
+  body main .todayPlan .planBox form {
+    margin-top: -25px;
+  }
+  body main .todayPlan .planBox form .inputBox input[type=text] {
+    width: 360px;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button {
+    width: 4.5vw;
+    height: 4.5vw;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button img {
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+}
+@media screen and (max-width: 820px) {
+  body main .todayPlan .planBox form .inputBox input[type=text] {
+    width: 280px;
+  }
+}
+@media screen and (max-width: 768px) {
+  body main .todayPlan .planBox form {
+    margin-top: -13px;
+  }
+  body main .todayPlan .planBox form .inputBox {
+    display: flex;
+  }
+  body main .todayPlan .planBox form .inputBox input[type=text] {
+    width: 280px;
+  }
+  body main .todayPlan .planBox form .inputBox #addBtn {
+    top: -2.5px;
+    left: -15px;
+    z-index: 2;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo .todo-time {
+    margin-right: 5px;
+  }
+}
+@media screen and (max-width: 680px) {
+  body main .todayPlan .planBox form .inputBox input[type=text] {
+    width: 200px;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo .todo-time {
+    padding: 10px 2px;
+    width: 18%;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo .todo-text {
+    padding: 5px 1px;
+    width: 80%;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button {
+    width: 6.5vw;
+    height: 6.5vw;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button img {
+    width: 3.5vw;
+    height: 3.5vw;
+  }
+}
+@media screen and (max-width: 540px) {
+  body main .todayPlan .planBox form .inputBox {
+    text-align: start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  body main .todayPlan .planBox form .inputBox input[type=time], body main .todayPlan .planBox form .inputBox input[type=text] {
+    width: 100%;
+  }
+  body main .todayPlan .planBox form .inputBox input[type=text] {
+    border-radius: 5px 20px 20px 5px;
+  }
+  body main .todayPlan .planBox form .inputBox #addBtn {
+    top: -48px;
+    left: 118px;
+  }
+  body main .todayPlan .planBox form .todoBox {
+    width: 51vw;
+    margin-top: -10%;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo .todo-time {
+    font-size: 20px;
+    padding: 12px 3px;
+    margin-right: 5px;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo .todo-text {
+    font-size: 22px;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button {
+    padding: 2px 2px;
+    width: 4.2vw;
+    height: 4.2vw;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button img {
+    width: 3.5vw;
+    height: 3.5vw;
+  }
+}
+@media screen and (device-width: 414px) {
+  body main {
+    height: auto;
+  }
+  body main .todayPlan {
+    width: 100%;
+  }
+  body main .todayPlan .planBox form {
+    height: 100%;
+  }
+  body main .todayPlan .planBox form .inputBox input[type=time], body main .todayPlan .planBox form .inputBox input[type=text] {
+    width: 95%;
+  }
+  body main .todayPlan .planBox form .inputBox #addBtn {
+    left: 168px;
+  }
+  body main .todayPlan .planBox form .todoBox {
+    width: 82vw;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button {
+    width: 7vw;
+    height: 7vw;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button img {
+    width: 5vw;
+    height: 5vw;
+  }
+}
+@media screen and (max-width: 412px) {
+  body main {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  body main .todayPlan {
+    width: 100%;
+  }
+  body main .todayPlan .planBox form {
+    height: 100%;
+  }
+  body main .todayPlan .planBox form .inputBox input[type=time], body main .todayPlan .planBox form .inputBox input[type=text] {
+    width: 95%;
+  }
+  body main .todayPlan .planBox form .inputBox #addBtn {
+    left: 168px;
+  }
+  body main .todayPlan .planBox form .todoBox {
+    width: 82vw;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button {
+    width: 7vw;
+    height: 7vw;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button img {
+    width: 5vw;
+    height: 5vw;
+  }
+}
+@media screen and (device-width: 393px) {
+  body main .todayPlan .planBox form .inputBox #addBtn {
+    left: 158px;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button {
+    width: 8vw;
+    height: 8vw;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button img {
+    width: 6vw;
+    height: 6vw;
+  }
+}
+@media screen and (device-width: 390px) {
+  body main .todayPlan .planBox form .inputBox input[type=time], body main .todayPlan .planBox form .inputBox input[type=text] {
+    width: 100%;
+  }
+  body main .todayPlan .planBox form .inputBox #addBtn {
+    left: 162px;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button {
+    width: 8vw;
+    height: 8vw;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button img {
+    width: 6vw;
+    height: 6vw;
+  }
+}
+@media screen and (device-width: 375px) {
+  body main .todayPlan .planBox form .inputBox #addBtn {
+    left: 154px;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button {
+    width: 8vw;
+    height: 8vw;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button img {
+    width: 6vw;
+    height: 6vw;
+  }
+}
+@media screen and (max-width: 360px) {
+  body main .todayPlan .planBox form .inputBox input[type=time], body main .todayPlan .planBox form .inputBox input[type=text] {
+    width: 98%;
+  }
+  body main .todayPlan .planBox form .inputBox #addBtn {
+    left: 148px;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button {
+    width: 8vw;
+    height: 8vw;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button img {
+    width: 6vw;
+    height: 6vw;
+  }
+}
+@media screen and (max-width: 280px) {
+  body main .todayPlan .planBox form .inputBox input[type=time], body main .todayPlan .planBox form .inputBox input[type=text] {
+    width: 100%;
+  }
+  body main .todayPlan .planBox form .inputBox #addBtn {
+    width: 47px;
+    height: 47px;
+    left: 112px;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo .todo-time {
+    width: 22%;
+    font-size: 16px;
+    padding: 11px 1px;
+    margin-right: 0px;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo .todo-text {
+    padding: 1.5px;
+    font-size: 18px;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button {
+    padding: 1.5px;
+    width: 9vw;
+    height: 9vw;
+  }
+  body main .todayPlan .planBox form .todoBox div.todo button img {
+    width: 7vw;
+    height: 7vw;
   }
 }/*# sourceMappingURL=layout.css.map */

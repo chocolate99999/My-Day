@@ -3,14 +3,15 @@ aside {
     width: 20rem;
     height: 20rem;
     position: relative;
-    // outline: 1px solid red;
+    // outline: 1px solid black;
     .hot-air-balloon {
         width: 20rem;
         height: 20rem;
         position: absolute;
         top: 15%;
         left: 50%;
-        transform: translate(-50%, -50%);        
+        transform: translate(-50%, -50%); 
+        // outline: 1px solid rgb(2, 254, 52);       
         .balloon {
             width: 15rem;
             height: 15rem;
@@ -159,7 +160,7 @@ aside {
             top: 6.25rem;
             right: -5rem;
             text-align: center;
-
+            // outline: 1px solid red;
             #temp{                        
                 position: relative;
                 z-index: 3;
@@ -222,5 +223,161 @@ aside {
         50% { 
             transform: translateX(-7%);
         }
+    }
+}
+
+@media screen and (max-width: 912px){ 
+    body{
+        aside{
+            margin-top: -90%;
+            .hot-air-balloon {
+                .cloud div:nth-child(1){
+                    top: 3.5rem;
+                    right: -1rem;
+                }
+            }  
+        }
+    }
+}
+@media screen and (max-width: 820px){ 
+    body{
+        aside{
+            margin-top: -75%;
+        }
+    }
+}
+@media screen and (max-width: 768px){ 
+    body{
+        aside{
+            margin-top: -62%;
+        }
+    }
+}
+@media screen and (max-width: 680px){
+    body{
+        aside{
+            margin-top: -2%;
+            transform: scale(0.85, 0.85);
+        }
+    }
+}
+@media screen and (max-width: 540px){
+    body{
+        aside{
+            margin-top: -55%;
+            transform: scale(0.75, 0.75);
+            .hot-air-balloon { 
+                .balloon {
+                    section.weather{
+                        .weatherIcon{
+                            width: 10vw;
+                            height: 10vw;
+                            margin-top: -3%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (device-width: 414px){
+    body{
+        main{
+            display: flex;
+            flex-direction: column;
+            aside{
+                margin-top: 28%;
+                margin-bottom: 20%;
+                transform: scale(1, 1);
+                .hot-air-balloon { 
+                    .balloon {
+                        section.weather{
+                            .weatherIcon{
+                                width: 10vw;
+                                height: 10vw;
+                                margin-top: -3%;
+                            }
+                        }
+                    }
+                }
+            }
+        }       
+    }
+}
+@media screen and (max-width: 412px){
+    body{
+        main{
+            display: flex;
+            flex-direction: column;
+            aside{
+                margin-top: 28%;
+                margin-bottom: 20%;
+                transform: scale(1, 1);
+            }
+        }       
+    }
+}
+@media screen and (max-width: 393px){
+    body{
+        main{
+            aside{
+                margin-top: 28%;
+                margin-bottom: 20%;
+            }
+        }       
+    }
+}
+@media screen and (device-width: 390px){
+    body{
+        main{
+            aside{
+                margin-top: 30%;
+                margin-bottom: 21%;
+            }
+        }       
+    }
+}
+@media screen and (device-width: 375px){
+    body{
+        main{
+            aside{
+                margin-top: 31%;
+                margin-bottom: 21%;
+            }
+        }       
+    }
+}
+@media screen and (max-width: 360px){
+    body{
+        main{
+            aside{
+                margin-top: 32%;
+                margin-bottom: 22%;
+            }
+        }       
+    }
+}
+@media screen and (max-width: 280px){
+    body{
+        main{
+            aside{
+                margin-top: 24%;
+                margin-bottom: 28%;
+                transform: scale(0.9, 0.9);
+                .hot-air-balloon {
+                    width: 17rem;
+                    height: 17rem;
+                    .balloon {
+                        section.weather{
+                            .weatherIcon{
+                                width: 15vw;
+                                height: 15vw;
+                                margin-top: -3%;
+                            }
+                        }
+                    }
+                }
+            }
+        }       
     }
 }
