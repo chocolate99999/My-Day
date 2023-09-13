@@ -1783,8 +1783,13 @@ body{
                     #sand {
                         height: 40%;
                     }
-                    #dog, #bucket{
+                    #dog{
+                        transform: scale(1.2, 1.2);
+                    }
+                    #bucket{
                         transform: scale(1, 1);
+                        top: 85%;
+                        right: 12vw;
                     }
                     #sandcastle{
                         top: 72%;
@@ -1792,7 +1797,8 @@ body{
                     #ball{
                         width: 8vh;
                         height: 8vh;
-                        left: 12%;
+                        top: 80%;
+                        left: 10%;
                     }
                     #boat { 
                         bottom: 500px;
@@ -1838,9 +1844,6 @@ body{
         main {
             .dayBox{
                 .daytime{
-                    // #sand {
-                    //     height: 40%;
-                    // }
                     #dog, #sandcastle, #bucket{
                         transform: scale(0.9, 0.9);
                     }
@@ -1989,7 +1992,7 @@ body{
         main {
             .dayBox{
                 .daytime{
-                    #sun, #dog, #bucket, #sandcastle{
+                    #sun, #bucket{
                         transform: scale(0.8, 0.8);
                     }
                     #sun{
@@ -1997,6 +2000,7 @@ body{
                         right: 4%;
                     }
                     #dog{
+                        transform: scale(0.9, 0.9);
                         top: 68%;
                         .tail {
                             .helix{          
@@ -2005,12 +2009,17 @@ body{
                         }   
                     }
                     #ball{
-                        top: 81%;
-                        left: 14%;
+                        top: 82%;
+                        left: 12%;
                     }
                     #sandcastle{
-                        top: 62%;
+                        transform: scale(1, 1);
+                        top: 68%;
                         right: -9vw; 
+                    }
+                    #bucket{
+                        top: 84%;
+                        right: 2.5vw; 
                     }
                     #boat { 
                         bottom: 340px;
@@ -2059,7 +2068,7 @@ body{
             }
             .calendar {
                 transform: scale(0.55, 0.55);
-                margin-top: 5%; // 白天適用
+                margin-top: 15%; // 白天適用
             }
         }
     } 
@@ -2069,28 +2078,34 @@ body{
         main {
             .dayBox{
                 .daytime{
-                    #sun, #dog, #bucket, #sandcastle{
+                    #sun, #bucket{
                         transform: scale(0.8, 0.8);
                     }
                     #sun{
-                        top: 3%;
-                        right: 7%;
+                        top: 1%;
+                        right: 4%;
                     }
                     #dog{
-                        top: 68%; 
+                        transform: scale(0.9, 0.9);
+                        top: 68%;
                         .tail {
                             .helix{          
                                 background-color: #91dffb;
                             }
-                        }  
+                        }   
                     }
                     #ball{
                         top: 81%;
-                        left: 14%;
+                        left: 12%;
                     }
                     #sandcastle{
-                        top: 62%;
-                        right: -9vw;
+                        transform: scale(1, 1);
+                        top: 68%;
+                        right: -9vw; 
+                    }
+                    #bucket{
+                        top: 84%;
+                        right: 2.5vw; 
                     }
                     #boat { 
                         bottom: 350px;
@@ -2139,8 +2154,8 @@ body{
                 } 
             }
             .calendar {
-                transform: scale(0.5, 0.5);
-                margin-top: 5%; // 白天適用
+                transform: scale(0.55, 0.55);
+                margin-top: 15%;// 白天適用
             }
         }
     } 
@@ -2154,10 +2169,11 @@ body{
                         right: -12vw; 
                     }
                     #bucket{
+                        top: 85%;
                         right: 2vw; 
                     }
                     #ball{
-                        top: 81%;
+                        top: 82%;
                         left: 14%;
                     }
                     #boat { 
@@ -2206,6 +2222,10 @@ body{
                     }
                 } 
             }
+            .calendar {
+                transform: scale(0.52, 0.52);
+                margin-top: 5%;// 白天適用
+            }
         }
     } 
 }
@@ -2215,13 +2235,16 @@ body{
             .dayBox{
                 .daytime{
                     #sandcastle{
-                        right: -14vw; 
+                        right: -8vw;
+                        z-index: 1; 
                     }
                     #bucket{
-                        right: 4vw; 
+                        top: 85%;
+                        right: 2vw; 
+                        z-index: 2;
                     }
                     #ball{
-                        top: 81%;
+                        top: 82%;
                     }
                     #boat {
                         bottom: 320px;
@@ -2263,6 +2286,10 @@ body{
                     }
                 } 
             }
+            .calendar {
+                transform: scale(0.52, 0.52);
+                margin-top: 8%;// 白天適用
+            }
         }
     } 
 }
@@ -2271,7 +2298,11 @@ body{
         main {
             .dayBox{
                 .daytime{
+                    #dog, #sandcastle{
+                        transform: scale(0.8, 0.8);
+                    }
                     #sandcastle{
+                        top: 60%;
                         right: -16vw; 
                     }
                     #dog{
@@ -2284,10 +2315,11 @@ body{
                     }
                     #ball{
                         top: 80%;
+                        left: 15%;
                     }
                     #bucket{
-                        right: 1%;
                         top: 83%;
+                        right: 2%;
                     }
                 }   
             }
@@ -2320,7 +2352,8 @@ body{
                 } 
             }
             .calendar {
-                margin-top: -5%; // 白天適用
+                transform: scale(0.5, 0.5);
+                margin-top: -5%;// 白天適用
             }
         }
     } 
@@ -2330,6 +2363,9 @@ body{
         main {
             .dayBox{
                 .daytime{
+                    #dog, #sandcastle{
+                        transform: scale(0.8, 0.8);
+                    }
                     #ball{
                         top: 80%;
                     }
@@ -2342,9 +2378,11 @@ body{
                         }   
                     }
                     #sandcastle{
+                        top: 62%;
                         right: -20vw; 
                     }
                     #bucket{
+                        top: 83%;
                         right: 2vw;
                     }
                 }   
@@ -2373,8 +2411,132 @@ body{
                 } 
             }
             .calendar {
+                transform: scale(0.48, 0.48);
+                margin-top: -5%;// 白天適用
+            }
+        }
+    } 
+}
+@media screen and (device-width: 330px){ //白天 晚上 版面OK!
+    body{
+        main {
+            .dayBox{
+                .daytime{
+                    #dog, #sandcastle{
+                        transform: scale(0.7, 0.7);
+                    }
+                    #ball{
+                        top: 80%;
+                        left: 15%;
+                    }
+                    #dog{
+                        top: 65%;
+                        .tail {
+                            .helix{          
+                                background-color: #84dbf3;
+                            }
+                        }   
+                    }
+                    #sandcastle{
+                        top: 60%;
+                        right: -20vw; 
+                        z-index: 1;
+                    }
+                    #bucket{
+                        top: 82%;
+                        right: 2vw;
+                        z-index: 2;
+                    }
+                }   
+            }
+            .nightBox{
+                .night{
+                    #forest{ 
+                        left: -5%;      
+                        bottom: -30%;
+                        transform: scale(0.9, 0.9);
+                    }
+                    #cat{
+                        width: 150%;
+                        height: 80%;
+                        transform: scale(0.65); 
+                        top: -219px;
+                        left: 890px;
+                        .cat{
+                            transform: translate(-33%, 23%); 
+                        }
+                    }  
+                    #tent {
+                        right: 420px;
+                        bottom: 120px; 
+                    }
+                } 
+            }
+            .calendar {
                 transform: scale(0.45, 0.45);
-                top: 4%; // 白天適用
+                margin-top: -10%; // 白天適用
+            }
+        }
+    } 
+}
+@media screen and (device-width: 320px){ //白天 晚上 版面OK!
+    body{
+        main {
+            .dayBox{
+                .daytime{
+                    #dog, #sandcastle{
+                        transform: scale(0.7, 0.7);
+                    }
+                    #ball{
+                        top: 80%;
+                        left: 15%;
+                    }
+                    #dog{
+                        top: 65%;
+                        .tail {
+                            .helix{          
+                                background-color: #84dbf3;
+                            }
+                        }   
+                    }
+                    #sandcastle{
+                        top: 60%;
+                        right: -20vw; 
+                        z-index: 1;
+                    }
+                    #bucket{
+                        top: 82%;
+                        right: 2vw;
+                        z-index: 2;
+                    }
+                }   
+            }
+            .nightBox{
+                .night{
+                    #forest{ 
+                        left: -5%;      
+                        bottom: -30%;
+                        transform: scale(0.9, 0.9);
+                    }
+                    #cat{
+                        width: 150%;
+                        height: 80%;
+                        transform: scale(0.65); 
+                        top: -219px;
+                        left: 890px;
+                        .cat{
+                            transform: translate(-33%, 23%); 
+                        }
+                    }  
+                    #tent {
+                        right: 420px;
+                        bottom: 120px; 
+                    }
+                } 
+            }
+            .calendar {
+                transform: scale(0.43, 0.43);
+                margin-top: -10%; // 白天適用
             }
         }
     } 
@@ -2386,15 +2548,18 @@ body{
                 .daytime{
                     #sandcastle{
                         transform: scale(0.65, 0.65);
-                        right: -38vw; 
+                        top: 62%;
+                        right: -30vw;
+                        z-index: 1;  
                     }
                     #ball{
                         top: 84%;
-                        left: 20%;
+                        left: 18%;
                     }
                     #bucket{
                         top: 83%;
-                        right: 20vw;
+                        right: 1vw;
+                        z-index: 2; 
                     }
                     #dog{
                         top: 68%;
@@ -2446,7 +2611,7 @@ body{
             }
             .calendar {
                 transform: scale(0.38, 0.38);
-                margin-top: -10%; // 白天適用
+                margin-top: -18%; // 白天適用
             }
         }
     } 

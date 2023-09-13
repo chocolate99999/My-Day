@@ -3166,8 +3166,13 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   body main .dayBox .daytime #sand {
     height: 40%;
   }
-  body main .dayBox .daytime #dog, body main .dayBox .daytime #bucket {
+  body main .dayBox .daytime #dog {
+    transform: scale(1.2, 1.2);
+  }
+  body main .dayBox .daytime #bucket {
     transform: scale(1, 1);
+    top: 85%;
+    right: 12vw;
   }
   body main .dayBox .daytime #sandcastle {
     top: 72%;
@@ -3175,7 +3180,8 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   body main .dayBox .daytime #ball {
     width: 8vh;
     height: 8vh;
-    left: 12%;
+    top: 80%;
+    left: 10%;
   }
   body main .dayBox .daytime #boat {
     bottom: 500px;
@@ -3359,7 +3365,7 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   }
 }
 @media screen and (device-width: 414px) {
-  body main .dayBox .daytime #sun, body main .dayBox .daytime #dog, body main .dayBox .daytime #bucket, body main .dayBox .daytime #sandcastle {
+  body main .dayBox .daytime #sun, body main .dayBox .daytime #bucket {
     transform: scale(0.8, 0.8);
   }
   body main .dayBox .daytime #sun {
@@ -3367,18 +3373,24 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     right: 4%;
   }
   body main .dayBox .daytime #dog {
+    transform: scale(0.9, 0.9);
     top: 68%;
   }
   body main .dayBox .daytime #dog .tail .helix {
     background-color: #91dffb;
   }
   body main .dayBox .daytime #ball {
-    top: 81%;
-    left: 14%;
+    top: 82%;
+    left: 12%;
   }
   body main .dayBox .daytime #sandcastle {
-    top: 62%;
+    transform: scale(1, 1);
+    top: 68%;
     right: -9vw;
+  }
+  body main .dayBox .daytime #bucket {
+    top: 84%;
+    right: 2.5vw;
   }
   body main .dayBox .daytime #boat {
     bottom: 340px;
@@ -3432,18 +3444,19 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   }
   body main .calendar {
     transform: scale(0.55, 0.55);
-    margin-top: 5%;
+    margin-top: 15%;
   }
 }
 @media screen and (max-width: 412px) {
-  body main .dayBox .daytime #sun, body main .dayBox .daytime #dog, body main .dayBox .daytime #bucket, body main .dayBox .daytime #sandcastle {
+  body main .dayBox .daytime #sun, body main .dayBox .daytime #bucket {
     transform: scale(0.8, 0.8);
   }
   body main .dayBox .daytime #sun {
-    top: 3%;
-    right: 7%;
+    top: 1%;
+    right: 4%;
   }
   body main .dayBox .daytime #dog {
+    transform: scale(0.9, 0.9);
     top: 68%;
   }
   body main .dayBox .daytime #dog .tail .helix {
@@ -3451,11 +3464,16 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   }
   body main .dayBox .daytime #ball {
     top: 81%;
-    left: 14%;
+    left: 12%;
   }
   body main .dayBox .daytime #sandcastle {
-    top: 62%;
+    transform: scale(1, 1);
+    top: 68%;
     right: -9vw;
+  }
+  body main .dayBox .daytime #bucket {
+    top: 84%;
+    right: 2.5vw;
   }
   body main .dayBox .daytime #boat {
     bottom: 350px;
@@ -3509,8 +3527,8 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     bottom: 120px;
   }
   body main .calendar {
-    transform: scale(0.5, 0.5);
-    margin-top: 5%;
+    transform: scale(0.55, 0.55);
+    margin-top: 15%;
   }
 }
 @media screen and (device-width: 393px) {
@@ -3518,10 +3536,11 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     right: -12vw;
   }
   body main .dayBox .daytime #bucket {
+    top: 85%;
     right: 2vw;
   }
   body main .dayBox .daytime #ball {
-    top: 81%;
+    top: 82%;
     left: 14%;
   }
   body main .dayBox .daytime #boat {
@@ -3575,16 +3594,23 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     right: 445px;
     bottom: 120px;
   }
+  body main .calendar {
+    transform: scale(0.52, 0.52);
+    margin-top: 5%;
+  }
 }
 @media screen and (device-width: 390px) {
   body main .dayBox .daytime #sandcastle {
-    right: -14vw;
+    right: -8vw;
+    z-index: 1;
   }
   body main .dayBox .daytime #bucket {
-    right: 4vw;
+    top: 85%;
+    right: 2vw;
+    z-index: 2;
   }
   body main .dayBox .daytime #ball {
-    top: 81%;
+    top: 82%;
   }
   body main .dayBox .daytime #boat {
     bottom: 320px;
@@ -3631,9 +3657,17 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     right: 420px;
     bottom: 120px;
   }
+  body main .calendar {
+    transform: scale(0.52, 0.52);
+    margin-top: 8%;
+  }
 }
 @media screen and (device-width: 375px) {
+  body main .dayBox .daytime #dog, body main .dayBox .daytime #sandcastle {
+    transform: scale(0.8, 0.8);
+  }
   body main .dayBox .daytime #sandcastle {
+    top: 60%;
     right: -16vw;
   }
   body main .dayBox .daytime #dog {
@@ -3644,10 +3678,11 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   }
   body main .dayBox .daytime #ball {
     top: 80%;
+    left: 15%;
   }
   body main .dayBox .daytime #bucket {
-    right: 1%;
     top: 83%;
+    right: 2%;
   }
   body main .nightBox .night #moon {
     top: 1%;
@@ -3674,10 +3709,14 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     bottom: 80px;
   }
   body main .calendar {
+    transform: scale(0.5, 0.5);
     margin-top: -5%;
   }
 }
 @media screen and (device-width: 360px) {
+  body main .dayBox .daytime #dog, body main .dayBox .daytime #sandcastle {
+    transform: scale(0.8, 0.8);
+  }
   body main .dayBox .daytime #ball {
     top: 80%;
   }
@@ -3688,9 +3727,11 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     background-color: #84dbf3;
   }
   body main .dayBox .daytime #sandcastle {
+    top: 62%;
     right: -20vw;
   }
   body main .dayBox .daytime #bucket {
+    top: 83%;
     right: 2vw;
   }
   body main .nightBox .night #forest {
@@ -3713,22 +3754,121 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     bottom: 120px;
   }
   body main .calendar {
+    transform: scale(0.48, 0.48);
+    margin-top: -5%;
+  }
+}
+@media screen and (device-width: 330px) {
+  body main .dayBox .daytime #dog, body main .dayBox .daytime #sandcastle {
+    transform: scale(0.7, 0.7);
+  }
+  body main .dayBox .daytime #ball {
+    top: 80%;
+    left: 15%;
+  }
+  body main .dayBox .daytime #dog {
+    top: 65%;
+  }
+  body main .dayBox .daytime #dog .tail .helix {
+    background-color: #84dbf3;
+  }
+  body main .dayBox .daytime #sandcastle {
+    top: 60%;
+    right: -20vw;
+    z-index: 1;
+  }
+  body main .dayBox .daytime #bucket {
+    top: 82%;
+    right: 2vw;
+    z-index: 2;
+  }
+  body main .nightBox .night #forest {
+    left: -5%;
+    bottom: -30%;
+    transform: scale(0.9, 0.9);
+  }
+  body main .nightBox .night #cat {
+    width: 150%;
+    height: 80%;
+    transform: scale(0.65);
+    top: -219px;
+    left: 890px;
+  }
+  body main .nightBox .night #cat .cat {
+    transform: translate(-33%, 23%);
+  }
+  body main .nightBox .night #tent {
+    right: 420px;
+    bottom: 120px;
+  }
+  body main .calendar {
     transform: scale(0.45, 0.45);
-    top: 4%;
+    margin-top: -10%;
+  }
+}
+@media screen and (device-width: 320px) {
+  body main .dayBox .daytime #dog, body main .dayBox .daytime #sandcastle {
+    transform: scale(0.7, 0.7);
+  }
+  body main .dayBox .daytime #ball {
+    top: 80%;
+    left: 15%;
+  }
+  body main .dayBox .daytime #dog {
+    top: 65%;
+  }
+  body main .dayBox .daytime #dog .tail .helix {
+    background-color: #84dbf3;
+  }
+  body main .dayBox .daytime #sandcastle {
+    top: 60%;
+    right: -20vw;
+    z-index: 1;
+  }
+  body main .dayBox .daytime #bucket {
+    top: 82%;
+    right: 2vw;
+    z-index: 2;
+  }
+  body main .nightBox .night #forest {
+    left: -5%;
+    bottom: -30%;
+    transform: scale(0.9, 0.9);
+  }
+  body main .nightBox .night #cat {
+    width: 150%;
+    height: 80%;
+    transform: scale(0.65);
+    top: -219px;
+    left: 890px;
+  }
+  body main .nightBox .night #cat .cat {
+    transform: translate(-33%, 23%);
+  }
+  body main .nightBox .night #tent {
+    right: 420px;
+    bottom: 120px;
+  }
+  body main .calendar {
+    transform: scale(0.43, 0.43);
+    margin-top: -10%;
   }
 }
 @media screen and (max-width: 280px) {
   body main .dayBox .daytime #sandcastle {
     transform: scale(0.65, 0.65);
-    right: -38vw;
+    top: 62%;
+    right: -30vw;
+    z-index: 1;
   }
   body main .dayBox .daytime #ball {
     top: 84%;
-    left: 20%;
+    left: 18%;
   }
   body main .dayBox .daytime #bucket {
     top: 83%;
-    right: 20vw;
+    right: 1vw;
+    z-index: 2;
   }
   body main .dayBox .daytime #dog {
     top: 68%;
@@ -3783,7 +3923,7 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   }
   body main .calendar {
     transform: scale(0.38, 0.38);
-    margin-top: -10%;
+    margin-top: -18%;
   }
 }
 body {
