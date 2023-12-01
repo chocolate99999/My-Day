@@ -410,11 +410,6 @@ section.login div.loginData input::-moz-placeholder {
   font-weight: 600;
   color: #757575;
 }
-section.login div.loginData input:-ms-input-placeholder {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #757575;
-}
 section.login div.loginData input::placeholder {
   font-size: 1rem;
   font-weight: 600;
@@ -517,11 +512,6 @@ section.register div.registerData input#registerPwd {
   margin-top: 5px;
 }
 section.register div.registerData ::-moz-placeholder {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #757575;
-}
-section.register div.registerData :-ms-input-placeholder {
   font-size: 1rem;
   font-weight: 600;
   color: #757575;
@@ -635,11 +625,6 @@ section.schedule div.scheduleData .scheduleDetailData .schedule-todoItem::-moz-p
   font-weight: 600;
   color: #757575;
 }
-section.schedule div.scheduleData .scheduleDetailData .schedule-todoItem:-ms-input-placeholder {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #757575;
-}
 section.schedule div.scheduleData .scheduleDetailData .schedule-todoItem::placeholder {
   font-size: 1rem;
   font-weight: 600;
@@ -676,7 +661,6 @@ header {
   background-color: #FFFFFF;
   box-shadow: 0 0 5px 0.5px rgb(107, 107, 107);
   /*step 1 整個 header 移動時固定在上方 => Sticky Header*/
-  position: -webkit-sticky;
   position: sticky;
   /*step 2*/
   top: 0;
@@ -786,8 +770,7 @@ aside .hot-air-balloon .balloon {
   left: 50%;
   top: 52px;
   transform: translate(-50%);
-  -webkit-animation: moving-balloon 3s ease infinite;
-          animation: moving-balloon 3s ease infinite;
+  animation: moving-balloon 3s ease infinite;
   z-index: 1;
 }
 aside .hot-air-balloon .balloon section.weather {
@@ -845,8 +828,7 @@ aside .hot-air-balloon .basket {
   left: 50%;
   transform: translate(-50%);
   top: 24.5rem;
-  -webkit-animation: moving-basket 3s ease infinite;
-          animation: moving-basket 3s ease infinite;
+  animation: moving-basket 3s ease infinite;
 }
 aside .hot-air-balloon .basket:before {
   width: 5.5rem;
@@ -874,8 +856,7 @@ aside .hot-air-balloon .cloud div {
   background: white;
   border-radius: 3.15rem;
   position: absolute;
-  -webkit-animation: moving-cloud 3s ease infinite;
-          animation: moving-cloud 3s ease infinite;
+  animation: moving-cloud 3s ease infinite;
   z-index: 2;
 }
 aside .hot-air-balloon .cloud div::before {
@@ -938,14 +919,6 @@ aside .hot-air-balloon .cloud div:nth-child(2) .body-temp {
 aside .hot-air-balloon .cloud div:nth-child(2) .temp-max, aside .hot-air-balloon .cloud div:nth-child(2) .temp-min {
   color: #7d7abc;
 }
-@-webkit-keyframes moving-balloon {
-  0% {
-    transform: translate(-50%);
-  }
-  50% {
-    transform: translate(-50%, -10%);
-  }
-}
 @keyframes moving-balloon {
   0% {
     transform: translate(-50%);
@@ -954,28 +927,12 @@ aside .hot-air-balloon .cloud div:nth-child(2) .temp-max, aside .hot-air-balloon
     transform: translate(-50%, -10%);
   }
 }
-@-webkit-keyframes moving-basket {
-  0% {
-    transform: translate(-50%);
-  }
-  50% {
-    transform: translate(-50%, -40%);
-  }
-}
 @keyframes moving-basket {
   0% {
     transform: translate(-50%);
   }
   50% {
     transform: translate(-50%, -40%);
-  }
-}
-@-webkit-keyframes moving-cloud {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-7%);
   }
 }
 @keyframes moving-cloud {
@@ -1131,16 +1088,7 @@ body main .dayBox .daytime #sun {
   border-radius: 50%;
   background: radial-gradient(circle, #ffaa5a, #ffd79b);
   box-shadow: inset 0 0 50px 2px #fef376, 0 0 100px 20px #ffd07e, 0 0 150px 50px #fff877;
-  -webkit-animation: brightSun 4s infinite alternate;
-          animation: brightSun 4s infinite alternate;
-}
-@-webkit-keyframes brightSun {
-  0% {
-    box-shadow: inset 0 0 50px 2px #fef376, 0 0 100px 20px #ffd07e, 0 0 150px 50px #fff877;
-  }
-  50% {
-    box-shadow: inset 0 0 50px 2px #fef376, 0 0 100px 20px #ffd07e, 0 0 200px 100px #fff877;
-  }
+  animation: brightSun 4s infinite alternate;
 }
 @keyframes brightSun {
   0% {
@@ -1183,8 +1131,7 @@ body main .dayBox .daytime #dog .trunk {
   background: #fef9e8;
   transform: rotate(-15deg);
   z-index: 5;
-  -webkit-animation: run 0.4s infinite 0.2s cubic-bezier(0.4, 0.34, 0.16, 0.79);
-          animation: run 0.4s infinite 0.2s cubic-bezier(0.4, 0.34, 0.16, 0.79);
+  animation: run 0.4s infinite 0.2s cubic-bezier(0.4, 0.34, 0.16, 0.79);
 }
 body main .dayBox .daytime #dog .tail {
   position: absolute;
@@ -1230,8 +1177,7 @@ body main .dayBox .daytime #dog .collar .medal {
   left: 50px;
   z-index: 999;
   position: absolute;
-  -webkit-animation: medal 1.2s infinite 0.5s cubic-bezier(0.4, 0.34, 0.16, 0.79);
-          animation: medal 1.2s infinite 0.5s cubic-bezier(0.4, 0.34, 0.16, 0.79);
+  animation: medal 1.2s infinite 0.5s cubic-bezier(0.4, 0.34, 0.16, 0.79);
 }
 body main .dayBox .daytime #dog .head {
   border-radius: 47%;
@@ -1243,8 +1189,7 @@ body main .dayBox .daytime #dog .head {
   top: -32px;
   left: -30px;
   z-index: 13;
-  -webkit-animation: dog-head 3.8s infinite 1s cubic-bezier(0.4, 0.34, 0.16, 0.79);
-          animation: dog-head 3.8s infinite 1s cubic-bezier(0.4, 0.34, 0.16, 0.79);
+  animation: dog-head 3.8s infinite 1s cubic-bezier(0.4, 0.34, 0.16, 0.79);
 }
 body main .dayBox .daytime #dog .head .left-ear {
   position: absolute;
@@ -1284,8 +1229,7 @@ body main .dayBox .daytime #dog .head .left-eye::before {
   z-index: 99999;
   top: 4px;
   left: 6px;
-  -webkit-animation: eye 10s infinite 0.18s linear;
-          animation: eye 10s infinite 0.18s linear;
+  animation: eye 10s infinite 0.18s linear;
 }
 body main .dayBox .daytime #dog .head .right-eye {
   position: absolute;
@@ -1307,8 +1251,7 @@ body main .dayBox .daytime #dog .head .right-eye::before {
   z-index: 99999;
   top: 4px;
   left: 6px;
-  -webkit-animation: eye 10s infinite 0.18s linear;
-          animation: eye 10s infinite 0.18s linear;
+  animation: eye 10s infinite 0.18s linear;
 }
 body main .dayBox .daytime #dog .head .mouth {
   position: absolute;
@@ -1381,19 +1324,7 @@ body main .dayBox .daytime #dog .head .tongue {
   left: 80%;
   transform: rotate(180deg);
   z-index: -3;
-  -webkit-animation: pant 0.3s infinite;
-          animation: pant 0.3s infinite;
-}
-@-webkit-keyframes pant {
-  0% {
-    width: 28%;
-  }
-  50% {
-    width: 20%;
-  }
-  100% {
-    width: 28%;
-  }
+  animation: pant 0.3s infinite;
 }
 @keyframes pant {
   0% {
@@ -1414,8 +1345,7 @@ body main .dayBox .daytime #dog .front-left-paw {
   bottom: -29px;
   left: 19px;
   background: #fef9e8;
-  -webkit-animation: paw 0.8s infinite 0.18s cubic-bezier(0.4, 0.34, 0.16, 0.79);
-          animation: paw 0.8s infinite 0.18s cubic-bezier(0.4, 0.34, 0.16, 0.79);
+  animation: paw 0.8s infinite 0.18s cubic-bezier(0.4, 0.34, 0.16, 0.79);
   transform-origin: 50% 0%;
 }
 body main .dayBox .daytime #dog .front-right-paw {
@@ -1426,8 +1356,7 @@ body main .dayBox .daytime #dog .front-right-paw {
   bottom: -34px;
   left: 75px;
   background: #fef9e8;
-  -webkit-animation: paw 0.8s infinite 0s cubic-bezier(0.4, 0.34, 0.16, 0.79);
-          animation: paw 0.8s infinite 0s cubic-bezier(0.4, 0.34, 0.16, 0.79);
+  animation: paw 0.8s infinite 0s cubic-bezier(0.4, 0.34, 0.16, 0.79);
   transform-origin: 50% 0%;
 }
 body main .dayBox .daytime #dog .back-left-paw {
@@ -1439,8 +1368,7 @@ body main .dayBox .daytime #dog .back-left-paw {
   left: 117px;
   background: #f1e9d3;
   z-index: -1;
-  -webkit-animation: paw 0.8s infinite 0.3s cubic-bezier(0.4, 0.34, 0.16, 0.79);
-          animation: paw 0.8s infinite 0.3s cubic-bezier(0.4, 0.34, 0.16, 0.79);
+  animation: paw 0.8s infinite 0.3s cubic-bezier(0.4, 0.34, 0.16, 0.79);
   transform-origin: 50% 0%;
 }
 body main .dayBox .daytime #dog .back-right-paw {
@@ -1452,8 +1380,7 @@ body main .dayBox .daytime #dog .back-right-paw {
   left: 52px;
   background: #f1e9d3;
   z-index: -1;
-  -webkit-animation: paw 0.9s infinite 0.2s cubic-bezier(0.4, 0.34, 0.16, 0.79);
-          animation: paw 0.9s infinite 0.2s cubic-bezier(0.4, 0.34, 0.16, 0.79);
+  animation: paw 0.9s infinite 0.2s cubic-bezier(0.4, 0.34, 0.16, 0.79);
   transform-origin: 50% 0%;
 }
 body main .dayBox .daytime #dog::after {
@@ -1463,27 +1390,12 @@ body main .dayBox .daytime #dog::after {
   width: 190px;
   height: 60px;
   border-radius: 90%;
-  -webkit-animation: shadow 0.4s infinite 0.4s cubic-bezier(0.4, 0.34, 0.16, 0.79);
-          animation: shadow 0.4s infinite 0.4s cubic-bezier(0.4, 0.34, 0.16, 0.79);
+  animation: shadow 0.4s infinite 0.4s cubic-bezier(0.4, 0.34, 0.16, 0.79);
   background: rgba(0, 0, 0, 0.24);
   z-index: -2;
   transform: rotate(-5deg);
   top: 102px;
   left: -10px;
-}
-@-webkit-keyframes dog-head {
-  0% {
-    transform: rotate(80deg);
-  }
-  20% {
-    transform: rotate(80deg);
-  }
-  60% {
-    transform: rotate(90deg);
-  }
-  100% {
-    transform: rotate(80deg);
-  }
 }
 @keyframes dog-head {
   0% {
@@ -1499,17 +1411,6 @@ body main .dayBox .daytime #dog::after {
     transform: rotate(80deg);
   }
 }
-@-webkit-keyframes paw {
-  0% {
-    transform: rotate(-10deg) translate(0, -10px);
-  }
-  20% {
-    transform: rotate(20deg) translate(0, 0);
-  }
-  100% {
-    transform: rotate(-10deg) translate(0, -10px);
-  }
-}
 @keyframes paw {
   0% {
     transform: rotate(-10deg) translate(0, -10px);
@@ -1521,17 +1422,6 @@ body main .dayBox .daytime #dog::after {
     transform: rotate(-10deg) translate(0, -10px);
   }
 }
-@-webkit-keyframes shadow {
-  0% {
-    transform: scale(1) rotate(-5deg);
-  }
-  50% {
-    transform: scale(1.04) rotate(-5deg);
-  }
-  100% {
-    transform: scale(1) rotate(-5deg);
-  }
-}
 @keyframes shadow {
   0% {
     transform: scale(1) rotate(-5deg);
@@ -1541,29 +1431,6 @@ body main .dayBox .daytime #dog::after {
   }
   100% {
     transform: scale(1) rotate(-5deg);
-  }
-}
-@-webkit-keyframes eye {
-  0% {
-    transform: translate(0, 0px);
-  }
-  38% {
-    transform: translate(0, 0px);
-  }
-  40% {
-    transform: translate(-3px, 5px);
-  }
-  45% {
-    transform: translate(6px, 9px);
-  }
-  92% {
-    transform: translate(6px, 9px);
-  }
-  95% {
-    transform: translate(-3px, 5px);
-  }
-  100% {
-    transform: translate(0, 0px);
   }
 }
 @keyframes eye {
@@ -1587,20 +1454,6 @@ body main .dayBox .daytime #dog::after {
   }
   100% {
     transform: translate(0, 0px);
-  }
-}
-@-webkit-keyframes medal {
-  0% {
-    bottom: 0px;
-    left: 50px;
-  }
-  60% {
-    bottom: 10px;
-    left: 55px;
-  }
-  100% {
-    bottom: 0px;
-    left: 50px;
   }
 }
 @keyframes medal {
@@ -1627,10 +1480,8 @@ body main .dayBox .daytime #ball {
   border-radius: 50%;
   z-index: 1;
   transform: translate(-30px, 30px);
-  -webkit-animation: moveBall 2s infinite alternate;
-          animation: moveBall 2s infinite alternate;
-  -webkit-animation: rotateBall 2s infinite alternate;
-          animation: rotateBall 2s infinite alternate;
+  animation: moveBall 2s infinite alternate;
+  animation: rotateBall 2s infinite alternate;
 }
 body main .dayBox .daytime #ball:before {
   display: block;
@@ -1656,16 +1507,7 @@ body main .dayBox .daytime #ball:after {
   border-radius: 50%;
   z-index: 3;
   transform: rotate(-5deg);
-  -webkit-animation: ballShadow 0.4s infinite 0.4s cubic-bezier(0.4, 0.34, 1.16, 0.79);
-          animation: ballShadow 0.4s infinite 0.4s cubic-bezier(0.4, 0.34, 1.16, 0.79);
-}
-@-webkit-keyframes moveBall {
-  0% {
-    transform: translate(0px, 5px);
-  }
-  50% {
-    transform: translate(-2px, 10px);
-  }
+  animation: ballShadow 0.4s infinite 0.4s cubic-bezier(0.4, 0.34, 1.16, 0.79);
 }
 @keyframes moveBall {
   0% {
@@ -1673,14 +1515,6 @@ body main .dayBox .daytime #ball:after {
   }
   50% {
     transform: translate(-2px, 10px);
-  }
-}
-@-webkit-keyframes rotateBall {
-  0% {
-    transform: rotate(-35deg);
-  }
-  50% {
-    transform: rotate(60deg);
   }
 }
 @keyframes rotateBall {
@@ -1803,22 +1637,7 @@ body main .dayBox .daytime #sandcastle .flagpole .flag {
   border-bottom: 10px solid transparent;
   border-left: 20px solid red;
   transform-origin: 0 0;
-  -webkit-animation: flyFlag 3s infinite alternate;
-          animation: flyFlag 3s infinite alternate;
-}
-@-webkit-keyframes flyFlag {
-  0% {
-    transform: rotateY(0deg);
-  }
-  33% {
-    transform: rotateY(25deg);
-  }
-  66% {
-    transform: rotateY(30deg);
-  }
-  100% {
-    transform: rotateY(-125deg);
-  }
+  animation: flyFlag 3s infinite alternate;
 }
 @keyframes flyFlag {
   0% {
@@ -1902,10 +1721,9 @@ body main .dayBox .daytime #sandcastle .castle-bottom::after {
 body main .dayBox .daytime #boat {
   position: absolute;
   bottom: 340px;
-  z-index: 1;
+  z-index: 0;
   transform: translateX(-100px);
-  -webkit-animation: boatMove 30s linear infinite;
-          animation: boatMove 30s linear infinite;
+  animation: boatMove 30s linear infinite;
 }
 body main .dayBox .daytime #boat .no-bullet .fume {
   margin: 0px;
@@ -1916,8 +1734,7 @@ body main .dayBox .daytime #boat .no-bullet .fume .fume1 {
   width: 7px;
   height: 7px;
   margin-left: 48px;
-  -webkit-animation: smokeup 2s linear infinite;
-          animation: smokeup 2s linear infinite;
+  animation: smokeup 2s linear infinite;
 }
 body main .dayBox .daytime #boat .no-bullet .fume .fume2 {
   background-color: white;
@@ -1925,8 +1742,7 @@ body main .dayBox .daytime #boat .no-bullet .fume .fume2 {
   width: 9px;
   height: 9px;
   margin-left: 38px;
-  -webkit-animation: smokeup 2.1s linear infinite;
-          animation: smokeup 2.1s linear infinite;
+  animation: smokeup 2.1s linear infinite;
 }
 body main .dayBox .daytime #boat .no-bullet .fume .fume3 {
   background-color: white;
@@ -1934,8 +1750,7 @@ body main .dayBox .daytime #boat .no-bullet .fume .fume3 {
   width: 12px;
   height: 12px;
   margin-left: 48px;
-  -webkit-animation: smokeup 2.2s linear infinite;
-          animation: smokeup 2.2s linear infinite;
+  animation: smokeup 2.2s linear infinite;
 }
 body main .dayBox .daytime #boat .no-bullet .fume .fume4 {
   background-color: white;
@@ -1943,22 +1758,7 @@ body main .dayBox .daytime #boat .no-bullet .fume .fume4 {
   width: 15px;
   height: 15px;
   margin-left: 38px;
-  -webkit-animation: smokeup 2.3s linear infinite;
-          animation: smokeup 2.3s linear infinite;
-}
-@-webkit-keyframes smokeup {
-  0% {
-    margin-bottom: -3px;
-    opacity: 1;
-  }
-  80% {
-    margin-bottom: 7px;
-    opacity: 0;
-  }
-  100% {
-    margin-bottom: 7px;
-    opacity: 0;
-  }
+  animation: smokeup 2.3s linear infinite;
 }
 @keyframes smokeup {
   0% {
@@ -2016,23 +1816,8 @@ body main .dayBox .daytime #boat .no-bullet .boat-body::after {
   bottom: -5px;
   border-radius: 50%;
   background: linear-gradient(to bottom, #ffffff, #a1e7fd, #6cd2fe);
-  -webkit-animation: waveMove 4s linear infinite;
-          animation: waveMove 4s linear infinite;
+  animation: waveMove 4s linear infinite;
   z-index: 2;
-}
-@-webkit-keyframes waveMove {
-  0% {
-    height: 5px;
-    bottom: -5px;
-  }
-  50% {
-    height: 2px;
-    bottom: -2px;
-  }
-  100% {
-    height: 5px;
-    bottom: -5px;
-  }
 }
 @keyframes waveMove {
   0% {
@@ -2046,17 +1831,6 @@ body main .dayBox .daytime #boat .no-bullet .boat-body::after {
   100% {
     height: 5px;
     bottom: -5px;
-  }
-}
-@-webkit-keyframes boatMove {
-  0% {
-    transform: translateX(1200px);
-  }
-  50% {
-    bottom: 345px;
-  }
-  100% {
-    bottom: 340px;
   }
 }
 @keyframes boatMove {
@@ -2089,16 +1863,7 @@ body main .nightBox .night #moon {
   background-color: #ffff80;
   border-radius: 50%;
   box-shadow: inset 0 0 2px 2px #f7f772, 0 0 10px 5px #FFFF37;
-  -webkit-animation: brightMoon 4s infinite alternate;
-          animation: brightMoon 4s infinite alternate;
-}
-@-webkit-keyframes brightMoon {
-  0% {
-    box-shadow: inset 0 0 2px 2px #f7f772, 0 0 10px 5px #FFFF37;
-  }
-  50% {
-    box-shadow: inset 0 0 2px 2px #fdfd7a, 0 0 15px 10px #FFFF37;
-  }
+  animation: brightMoon 4s infinite alternate;
 }
 @keyframes brightMoon {
   0% {
@@ -2115,213 +1880,163 @@ body main .nightBox .night #star div {
   height: 15px;
   width: 15px;
   opacity: 0.4;
-  -webkit-animation: starShine 3.5s linear infinite;
-          animation: starShine 3.5s linear infinite;
+  animation: starShine 3.5s linear infinite;
   transition: all 1200ms linear;
 }
 body main .nightBox .night #star div:nth-child(1) {
   left: 78%;
   top: 5%;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  animation-delay: 1s;
 }
 body main .nightBox .night #star div:nth-child(2) {
   left: 88%;
   top: 22%;
-  -webkit-animation-delay: 2.7s;
-          animation-delay: 2.7s;
+  animation-delay: 2.7s;
 }
 body main .nightBox .night #star div:nth-child(3) {
   left: 18%;
   top: 7%;
-  -webkit-animation-delay: 1.8s;
-          animation-delay: 1.8s;
+  animation-delay: 1.8s;
 }
 body main .nightBox .night #star div:nth-child(4) {
   left: 87%;
   top: 8%;
-  -webkit-animation-delay: 2.2s;
-          animation-delay: 2.2s;
+  animation-delay: 2.2s;
 }
 body main .nightBox .night #star div:nth-child(5) {
   left: 92%;
   top: 15%;
-  -webkit-animation-delay: 1.2s;
-          animation-delay: 1.2s;
+  animation-delay: 1.2s;
 }
 body main .nightBox .night #star div:nth-child(6) {
   left: 60%;
   top: 4%;
-  -webkit-animation-delay: 2.3s;
-          animation-delay: 2.3s;
+  animation-delay: 2.3s;
 }
 body main .nightBox .night #star div:nth-child(7) {
   left: 70%;
   top: 12%;
-  -webkit-animation-delay: 1.7s;
-          animation-delay: 1.7s;
+  animation-delay: 1.7s;
 }
 body main .nightBox .night #star div:nth-child(8) {
   left: 5%;
   top: 25%;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  animation-delay: 1s;
 }
 body main .nightBox .night #star div:nth-child(9) {
   left: 28%;
   top: 25%;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  animation-delay: 1s;
 }
 body main .nightBox .night #star div:nth-child(10) {
   left: 95%;
   top: 27%;
-  -webkit-animation-delay: 2.7s;
-          animation-delay: 2.7s;
+  animation-delay: 2.7s;
 }
 body main .nightBox .night #star div:nth-child(11) {
   left: 8%;
   top: 32%;
-  -webkit-animation-delay: 1.8s;
-          animation-delay: 1.8s;
+  animation-delay: 1.8s;
 }
 body main .nightBox .night #star div:nth-child(12) {
   left: 91%;
   top: 3%;
-  -webkit-animation-delay: 2.2s;
-          animation-delay: 2.2s;
+  animation-delay: 2.2s;
 }
 body main .nightBox .night #star div:nth-child(13) {
   left: 82%;
   top: 24%;
-  -webkit-animation-delay: 1.2s;
-          animation-delay: 1.2s;
+  animation-delay: 1.2s;
 }
 body main .nightBox .night #star div:nth-child(14) {
   left: 11%;
   top: 27%;
-  -webkit-animation-delay: 2.3s;
-          animation-delay: 2.3s;
+  animation-delay: 2.3s;
 }
 body main .nightBox .night #star div:nth-child(15) {
   left: 87%;
   top: 32%;
-  -webkit-animation-delay: 1.7s;
-          animation-delay: 1.7s;
+  animation-delay: 1.7s;
 }
 body main .nightBox .night #star div:nth-child(16) {
   left: 22%;
   top: 38%;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  animation-delay: 1s;
 }
 body main .nightBox .night #star div:nth-child(17) {
   left: 8%;
   top: 11%;
-  -webkit-animation-delay: 2.2s;
-          animation-delay: 2.2s;
+  animation-delay: 2.2s;
 }
 body main .nightBox .night #star div:nth-child(18) {
   left: 10%;
   top: 6%;
-  -webkit-animation-delay: 1.2s;
-          animation-delay: 1.2s;
+  animation-delay: 1.2s;
 }
 body main .nightBox .night #star div:nth-child(19) {
   left: 3%;
   top: 4%;
-  -webkit-animation-delay: 2.3s;
-          animation-delay: 2.3s;
+  animation-delay: 2.3s;
 }
 body main .nightBox .night #star div:nth-child(20) {
   left: 31%;
   top: 44%;
-  -webkit-animation-delay: 1.7s;
-          animation-delay: 1.7s;
+  animation-delay: 1.7s;
 }
 body main .nightBox .night #star div:nth-child(21) {
   left: 4%;
   top: 45%;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  animation-delay: 1s;
 }
 body main .nightBox .night #star div:nth-child(22) {
   left: 13%;
   top: 48%;
-  -webkit-animation-delay: 1.2s;
-          animation-delay: 1.2s;
+  animation-delay: 1.2s;
 }
 body main .nightBox .night #star div:nth-child(23) {
   left: 16%;
   top: 37%;
-  -webkit-animation-delay: 2.1s;
-          animation-delay: 2.1s;
+  animation-delay: 2.1s;
 }
 body main .nightBox .night #star div:nth-child(24) {
   left: 18%;
   top: 26%;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  animation-delay: 1s;
 }
 body main .nightBox .night #star div:nth-child(25) {
   left: 80%;
   top: 40%;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  animation-delay: 1s;
 }
 body main .nightBox .night #star div:nth-child(26) {
   left: 42%;
   top: 16%;
-  -webkit-animation-delay: 1.2s;
-          animation-delay: 1.2s;
+  animation-delay: 1.2s;
 }
 body main .nightBox .night #star div:nth-child(27) {
   left: 43%;
   top: 6%;
-  -webkit-animation-delay: 1.8s;
-          animation-delay: 1.8s;
+  animation-delay: 1.8s;
 }
 body main .nightBox .night #star div:nth-child(28) {
   left: 49%;
   top: 8%;
-  -webkit-animation-delay: 2.1s;
-          animation-delay: 2.1s;
+  animation-delay: 2.1s;
 }
 body main .nightBox .night #star div:nth-child(29) {
   left: 31%;
   top: 18%;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  animation-delay: 1s;
 }
 body main .nightBox .night #star div:nth-child(30) {
   left: 38%;
   top: 20%;
-  -webkit-animation-delay: 1.8s;
-          animation-delay: 1.8s;
+  animation-delay: 1.8s;
 }
 body main .nightBox .night #star div:nth-child(31) {
   left: 32%;
   top: 13%;
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
-}
-@-webkit-keyframes starShine {
-  0% {
-    transform: scale(0.3) rotate(0deg);
-    opacity: 0.4;
-  }
-  25% {
-    transform: scale(1) rotate(360deg);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(0.3) rotate(720deg);
-    opacity: 0.4;
-  }
-  100% {
-    transform: scale(0.3) rotate(0deg);
-    opacity: 0.4;
-  }
+  animation-delay: 1.5s;
 }
 @keyframes starShine {
   0% {
@@ -2388,14 +2103,12 @@ body main .nightBox .night #forest .spruce--1 {
   bottom: -560px;
   transform: scale(0.9);
   filter: brightness(0.7);
-  -webkit-animation: 0.9s linear 0s infinite alternate spruce1;
-          animation: 0.9s linear 0s infinite alternate spruce1;
+  animation: 0.9s linear 0s infinite alternate spruce1;
 }
 body main .nightBox .night #forest .spruce--2 {
   left: -15px;
   bottom: -585px;
-  -webkit-animation: 1s linear 0s infinite alternate spruce2;
-          animation: 1s linear 0s infinite alternate spruce2;
+  animation: 1s linear 0s infinite alternate spruce2;
   z-index: 2;
 }
 body main .nightBox .night #forest .spruce--3 {
@@ -2403,16 +2116,14 @@ body main .nightBox .night #forest .spruce--3 {
   bottom: -575px;
   transform: scale(0.8);
   filter: brightness(0.75);
-  -webkit-animation: 0.9s linear 0s infinite alternate spruce3;
-          animation: 0.9s linear 0s infinite alternate spruce3;
+  animation: 0.9s linear 0s infinite alternate spruce3;
 }
 body main .nightBox .night #forest .spruce--4 {
   left: 38px;
   bottom: -568px;
   transform: scale(1.2) rotateY(35deg);
   filter: brightness(1.3);
-  -webkit-animation: 1s linear 0s infinite alternate spruce4;
-          animation: 1s linear 0s infinite alternate spruce4;
+  animation: 1s linear 0s infinite alternate spruce4;
   z-index: 4;
 }
 body main .nightBox .night #forest .spruce--5 {
@@ -2421,8 +2132,7 @@ body main .nightBox .night #forest .spruce--5 {
   transform: scale(0.85) rotateY(30deg);
   filter: brightness(0.7);
   z-index: -2;
-  -webkit-animation: 1s linear 0s infinite alternate spruce5;
-          animation: 1s linear 0s infinite alternate spruce5;
+  animation: 1s linear 0s infinite alternate spruce5;
 }
 body main .nightBox .night #forest .spruce--6 {
   left: 65px;
@@ -2430,8 +2140,7 @@ body main .nightBox .night #forest .spruce--6 {
   transform: scale(0.95);
   filter: brightness(0.95);
   z-index: 3;
-  -webkit-animation: 1s linear 0s infinite alternate spruce6;
-          animation: 1s linear 0s infinite alternate spruce6;
+  animation: 1s linear 0s infinite alternate spruce6;
 }
 body main .nightBox .night #forest .spruce--7 {
   left: 125px;
@@ -2439,16 +2148,7 @@ body main .nightBox .night #forest .spruce--7 {
   transform: scale(1.2) rotateY(50deg);
   filter: brightness(0.98);
   z-index: 3;
-  -webkit-animation: 1s linear 0s infinite alternate spruce7;
-          animation: 1s linear 0s infinite alternate spruce7;
-}
-@-webkit-keyframes spruce1 {
-  0% {
-    transform: scale(0.9) rotate(-1deg);
-  }
-  100% {
-    transform: scale(0.9) rotate(0.5deg);
-  }
+  animation: 1s linear 0s infinite alternate spruce7;
 }
 @keyframes spruce1 {
   0% {
@@ -2456,14 +2156,6 @@ body main .nightBox .night #forest .spruce--7 {
   }
   100% {
     transform: scale(0.9) rotate(0.5deg);
-  }
-}
-@-webkit-keyframes spruce2 {
-  0% {
-    transform: rotate(0.5deg);
-  }
-  100% {
-    transform: rotate(-1deg);
   }
 }
 @keyframes spruce2 {
@@ -2474,28 +2166,12 @@ body main .nightBox .night #forest .spruce--7 {
     transform: rotate(-1deg);
   }
 }
-@-webkit-keyframes spruce3 {
-  0% {
-    transform: scale(0.8) rotate(1deg);
-  }
-  100% {
-    transform: scale(0.8) rotate(-1deg);
-  }
-}
 @keyframes spruce3 {
   0% {
     transform: scale(0.8) rotate(1deg);
   }
   100% {
     transform: scale(0.8) rotate(-1deg);
-  }
-}
-@-webkit-keyframes spruce4 {
-  0% {
-    transform: scale(1.2) rotateY(35deg) rotate(-1deg);
-  }
-  100% {
-    transform: scale(1.2) rotateY(35deg) rotate(1deg);
   }
 }
 @keyframes spruce4 {
@@ -2506,14 +2182,6 @@ body main .nightBox .night #forest .spruce--7 {
     transform: scale(1.2) rotateY(35deg) rotate(1deg);
   }
 }
-@-webkit-keyframes spruce5 {
-  0% {
-    transform: scale(0.85) rotateY(30deg) rotate(-1deg);
-  }
-  100% {
-    transform: scale(0.85) rotateY(30deg) rotate(1deg);
-  }
-}
 @keyframes spruce5 {
   0% {
     transform: scale(0.85) rotateY(30deg) rotate(-1deg);
@@ -2522,28 +2190,12 @@ body main .nightBox .night #forest .spruce--7 {
     transform: scale(0.85) rotateY(30deg) rotate(1deg);
   }
 }
-@-webkit-keyframes spruce6 {
-  0% {
-    transform: scale(0.95) rotate(0.5deg);
-  }
-  100% {
-    transform: scale(0.95) rotate(-1deg);
-  }
-}
 @keyframes spruce6 {
   0% {
     transform: scale(0.95) rotate(0.5deg);
   }
   100% {
     transform: scale(0.95) rotate(-1deg);
-  }
-}
-@-webkit-keyframes spruce7 {
-  0% {
-    transform: scale(1.2) rotateY(50deg) rotate(1deg);
-  }
-  100% {
-    transform: scale(1.2) rotateY(50deg) rotate(-1deg);
   }
 }
 @keyframes spruce7 {
@@ -2613,8 +2265,7 @@ body main .nightBox .night #tent .tent-front::before {
   left: -65px;
   background: radial-gradient(circle, #ffae80, #b3794a);
   box-shadow: 0px 0px 206px 34px #fa6c00;
-  -webkit-animation: brightTent 8s infinite alternate;
-          animation: brightTent 8s infinite alternate;
+  animation: brightTent 8s infinite alternate;
   transition: all 2000ms linear;
 }
 body main .nightBox .night #tent .tent-front::after {
@@ -2715,14 +2366,6 @@ body main .nightBox .night #tent .tent-pole::after {
   bottom: -16px;
   left: 195px;
 }
-@-webkit-keyframes brightTent {
-  0% {
-    box-shadow: 0px 0px 206px 34px #fa6c00;
-  }
-  50% {
-    box-shadow: 0px 0px 206px 34px #b66e37;
-  }
-}
 @keyframes brightTent {
   0% {
     box-shadow: 0px 0px 206px 34px #fa6c00;
@@ -2745,20 +2388,8 @@ body main .nightBox .night #cat .cat {
 }
 body main .nightBox .night #cat .cat .cat-position #tail {
   transform-origin: 0 0;
-  -webkit-animation: tailSwing 4s infinite alternate;
-          animation: tailSwing 4s infinite alternate;
+  animation: tailSwing 4s infinite alternate;
   transition: all 2000ms linear;
-}
-@-webkit-keyframes tailSwing {
-  0% {
-    transform: translateY(5px);
-  }
-  50% {
-    transform: translateY(1px);
-  }
-  100% {
-    transform: translateY(5px);
-  }
 }
 @keyframes tailSwing {
   0% {
@@ -2858,17 +2489,6 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   body main .dayBox .daytime #boat {
     bottom: 340px;
   }
-  @-webkit-keyframes boatMove {
-    0% {
-      transform: translateX(2000px);
-    }
-    50% {
-      bottom: 345px;
-    }
-    100% {
-      bottom: 340px;
-    }
-  }
   @keyframes boatMove {
     0% {
       transform: translateX(2000px);
@@ -2894,34 +2514,133 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     transform: translate(18%, 10%);
   }
 }
+@media screen and (device-width: 1368px) {
+  body main .dayBox .daytime #ball {
+    top: 71%;
+    left: 5%;
+  }
+  body main .dayBox .daytime #boat {
+    bottom: 530px;
+  }
+  @keyframes boatMove {
+    0% {
+      transform: translateX(1300px);
+      bottom: 530px;
+    }
+    50% {
+      bottom: 500px;
+    }
+    100% {
+      bottom: 530px;
+    }
+  }
+  body main .nightBox .night #forest {
+    bottom: -43%;
+  }
+  body main .nightBox .night #cat {
+    top: -300px;
+    left: 1020px;
+  }
+  body main .nightBox .night #cat .cat {
+    transform: translate(25%, 13%);
+  }
+  body main .calendar {
+    transform: scale(1, 1);
+  }
+}
+@media screen and (device-width: 1366px) {
+  body main .dayBox .daytime #ball {
+    top: 71%;
+    left: 5%;
+  }
+  body main .dayBox .daytime #boat {
+    bottom: 530px;
+  }
+  @keyframes boatMove {
+    0% {
+      transform: translateX(1300px);
+      bottom: 530px;
+    }
+    50% {
+      bottom: 500px;
+    }
+    100% {
+      bottom: 530px;
+    }
+  }
+  body main .nightBox .night #forest {
+    bottom: -43%;
+  }
+  body main .nightBox .night #cat {
+    top: -300px;
+    left: 1020px;
+  }
+  body main .nightBox .night #cat .cat {
+    transform: translate(25%, 13%);
+  }
+  body main .calendar {
+    transform: scale(1, 1);
+  }
+}
 @media screen and (device-width: 1280px) {
   body main .dayBox .daytime #ball {
     top: 73%;
     left: 5%;
   }
   body main .dayBox .daytime #boat {
-    bottom: 380px;
-  }
-  @-webkit-keyframes boatMove {
-    0% {
-      transform: translateX(1300px);
-    }
-    50% {
-      bottom: 375px;
-    }
-    100% {
-      bottom: 380px;
-    }
+    bottom: 385px;
   }
   @keyframes boatMove {
     0% {
       transform: translateX(1300px);
+      bottom: 385px;
     }
     50% {
-      bottom: 375px;
+      bottom: 380px;
     }
     100% {
-      bottom: 380px;
+      bottom: 385px;
+    }
+  }
+  body main .nightBox .night #forest {
+    bottom: -27%;
+  }
+  body main .nightBox .night #cat {
+    top: -382px;
+    left: 1020px;
+  }
+  body main .nightBox .night #cat .cat {
+    transform: translate(25%, 13%);
+  }
+  body main .calendar {
+    transform: scale(1, 1);
+  }
+}
+@media screen and (device-width: 1180px) {
+  body main .dayBox .daytime #bucket {
+    bottom: 12%;
+    right: 12vw;
+  }
+  body main .dayBox .daytime #sandcastle {
+    right: -19vw;
+  }
+  body main .dayBox .daytime #ball {
+    top: 73%;
+    left: 5%;
+  }
+  body main .dayBox .daytime #boat {
+    bottom: 400px;
+  }
+  @keyframes boatMove {
+    0% {
+      transform: translateX(1100px);
+      bottom: 400px;
+    }
+    50% {
+      bottom: 390px;
+    }
+    100% {
+      bottom: 400px;
     }
   }
   body main .nightBox .night #forest {
@@ -2934,9 +2653,46 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     transform: scale(1, 1);
   }
 }
+@media screen and (device-width: 1114px) {
+  body main .dayBox .daytime #bucket {
+    bottom: 12%;
+    right: 14vw;
+  }
+  body main .dayBox .daytime #sandcastle {
+    right: -19vw;
+  }
+  body main .dayBox .daytime #ball {
+    top: 74%;
+    left: 5%;
+  }
+  body main .dayBox .daytime #boat {
+    bottom: 400px;
+  }
+  @keyframes boatMove {
+    0% {
+      transform: translateX(1100px);
+      bottom: 400px;
+    }
+    50% {
+      bottom: 390px;
+    }
+    100% {
+      bottom: 400px;
+    }
+  }
+  body main .nightBox .night #forest {
+    bottom: -27%;
+  }
+  body main .nightBox .night #cat .cat {
+    transform: translate(25%, 13%);
+  }
+  body main .calendar {
+    transform: scale(0.8, 0.8);
+  }
+}
 @media screen and (max-width: 1024px) {
   body main .dayBox .daytime #bucket {
-    right: 13vw;
+    right: 16vw;
   }
   body main .dayBox .daytime #sandcastle {
     right: -20vw;
@@ -2946,28 +2702,18 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     left: 5%;
   }
   body main .dayBox .daytime #boat {
-    bottom: 315px;
-  }
-  @-webkit-keyframes boatMove {
-    0% {
-      transform: translateX(1100px);
-    }
-    50% {
-      bottom: 310px;
-    }
-    100% {
-      bottom: 315px;
-    }
+    bottom: 355px;
   }
   @keyframes boatMove {
     0% {
       transform: translateX(1100px);
+      bottom: 355px;
     }
     50% {
-      bottom: 310px;
+      bottom: 350px;
     }
     100% {
-      bottom: 315px;
+      bottom: 355px;
     }
   }
   body main .nightBox .night #forest {
@@ -2989,17 +2735,6 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   body main .dayBox .daytime #boat {
     bottom: 355px;
     transform: translateX(-300px);
-  }
-  @-webkit-keyframes boatMove {
-    0% {
-      transform: translateX(1000px);
-    }
-    50% {
-      bottom: 350px;
-    }
-    100% {
-      bottom: 355px;
-    }
   }
   @keyframes boatMove {
     0% {
@@ -3055,28 +2790,17 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     right: 15vw;
   }
   body main .dayBox .daytime #boat {
-    bottom: 740px;
-  }
-  @-webkit-keyframes boatMove {
-    0% {
-      transform: translateX(1200px);
-    }
-    50% {
-      bottom: 710px;
-    }
-    100% {
-      bottom: 740px;
-    }
+    bottom: 640px;
   }
   @keyframes boatMove {
     0% {
       transform: translateX(1200px);
     }
     50% {
-      bottom: 710px;
+      bottom: 610px;
     }
     100% {
-      bottom: 740px;
+      bottom: 640px;
     }
   }
   body main .nightBox .night #moon {
@@ -3124,17 +2848,6 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   }
   body main .dayBox .daytime #boat {
     bottom: 640px;
-  }
-  @-webkit-keyframes boatMove {
-    0% {
-      transform: translateX(1200px);
-    }
-    50% {
-      bottom: 610px;
-    }
-    100% {
-      bottom: 640px;
-    }
   }
   @keyframes boatMove {
     0% {
@@ -3186,17 +2899,6 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   body main .dayBox .daytime #boat {
     bottom: 500px;
   }
-  @-webkit-keyframes boatMove {
-    0% {
-      transform: translateX(1200px);
-    }
-    50% {
-      bottom: 510px;
-    }
-    100% {
-      bottom: 500px;
-    }
-  }
   @keyframes boatMove {
     0% {
       transform: translateX(1200px);
@@ -3243,17 +2945,6 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   body main .dayBox .daytime #boat {
     bottom: 300px;
   }
-  @-webkit-keyframes boatMove {
-    0% {
-      transform: translateX(700px);
-    }
-    50% {
-      bottom: 310px;
-    }
-    100% {
-      bottom: 300px;
-    }
-  }
   @keyframes boatMove {
     0% {
       transform: translateX(700px);
@@ -3271,7 +2962,7 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     left: 10%;
   }
   body main .nightBox .night #cat {
-    top: -219px;
+    top: -265px;
     left: 890px;
   }
   body main .nightBox .night #cat .cat {
@@ -3316,17 +3007,6 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   body main .dayBox .daytime #boat {
     bottom: 370px;
   }
-  @-webkit-keyframes boatMove {
-    0% {
-      transform: translateX(1200px);
-    }
-    50% {
-      bottom: 375px;
-    }
-    100% {
-      bottom: 370px;
-    }
-  }
   @keyframes boatMove {
     0% {
       transform: translateX(1200px);
@@ -3350,6 +3030,8 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   body main .nightBox .night #cat {
     height: 100%;
     transform: scale(0.85);
+    top: -258px;
+    left: 885px;
   }
   body main .nightBox .night #cat .cat {
     transform: translate(55%, 4.5%);
@@ -3364,7 +3046,7 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     margin-top: -40%;
   }
 }
-@media screen and (device-width: 414px) {
+@media screen and (device-width: 430px) {
   body main .dayBox .daytime #sun, body main .dayBox .daytime #bucket {
     transform: scale(0.8, 0.8);
   }
@@ -3380,7 +3062,7 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     background-color: #91dffb;
   }
   body main .dayBox .daytime #ball {
-    top: 82%;
+    top: 81%;
     left: 12%;
   }
   body main .dayBox .daytime #sandcastle {
@@ -3395,17 +3077,6 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   body main .dayBox .daytime #boat {
     bottom: 340px;
   }
-  @-webkit-keyframes boatMove {
-    0% {
-      transform: translateX(1200px);
-    }
-    50% {
-      bottom: 335px;
-    }
-    100% {
-      bottom: 340px;
-    }
-  }
   @keyframes boatMove {
     0% {
       transform: translateX(1200px);
@@ -3418,22 +3089,23 @@ body main .calendar #calendar tbody .day td a .checkNight img {
     }
   }
   body main .nightBox .night #moon {
-    top: 1%;
+    top: 2%;
     transform: scale(0.9, 0.9);
   }
   body main .nightBox .night #forest {
-    left: 1%;
-    bottom: -35%;
+    right: 12%;
+    bottom: -50%;
   }
-  body main .nightBox .night #forest, body main .nightBox .night #tent {
-    transform: scale(1, 1);
+  body main .nightBox .night #forest {
+    transform: scale(0.8, 0.8);
   }
   body main .nightBox .night #cat {
+    position: absolute;
     width: 130%;
     height: 80%;
     transform: scale(0.75);
-    top: -216px;
-    left: 890px;
+    top: -190px;
+    left: 920px;
   }
   body main .nightBox .night #cat .cat {
     transform: translate(7%, 8%);
@@ -3441,13 +3113,98 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   body main .nightBox .night #tent {
     right: 440px;
     bottom: 100px;
+    transform: scale(0.9, 0.9);
+  }
+  body main .calendar {
+    transform: scale(0.55, 0.55);
+    margin-top: -75%;
+  }
+}
+@media screen and (device-width: 414px) {
+  body main {
+    overflow-y: auto;
+  }
+  body main .dayBox .daytime #sun, body main .dayBox .daytime #bucket {
+    transform: scale(0.8, 0.8);
+  }
+  body main .dayBox .daytime #sun {
+    top: 1%;
+    right: 4%;
+  }
+  body main .dayBox .daytime #dog {
+    transform: scale(0.9, 0.9);
+    top: 68%;
+  }
+  body main .dayBox .daytime #dog .tail .helix {
+    background-color: #91dffb;
+  }
+  body main .dayBox .daytime #ball {
+    top: 81%;
+    left: 12%;
+  }
+  body main .dayBox .daytime #sandcastle {
+    transform: scale(1, 1);
+    top: 68%;
+    right: -9vw;
+  }
+  body main .dayBox .daytime #bucket {
+    top: 84%;
+    right: 2.5vw;
+  }
+  body main .dayBox .daytime #boat {
+    bottom: 340px;
+  }
+  @keyframes boatMove {
+    0% {
+      transform: translateX(1200px);
+    }
+    50% {
+      bottom: 335px;
+    }
+    100% {
+      bottom: 340px;
+    }
+  }
+  body main .nightBox .night {
+    height: 100vh;
+  }
+  body main .nightBox .night #moon {
+    top: 1%;
+    transform: scale(0.9, 0.9);
+  }
+  body main .nightBox .night #forest {
+    right: 12%;
+    bottom: -50%;
+  }
+  body main .nightBox .night #forest {
+    transform: scale(0.8, 0.8);
+  }
+  body main .nightBox .night #cat {
+    position: absolute;
+    width: 130%;
+    height: 80%;
+    transform: scale(0.75);
+    top: -208px;
+    left: 920px;
+  }
+  body main .nightBox .night #cat .cat {
+    transform: translate(7%, 8%);
+  }
+  body main .nightBox .night #tent {
+    right: 440px;
+    bottom: 100px;
+    transform: scale(0.9, 0.9);
   }
   body main .calendar {
     transform: scale(0.55, 0.55);
     margin-top: 15%;
+    margin-top: 3%;
   }
 }
 @media screen and (max-width: 412px) {
+  body main {
+    overflow-y: auto;
+  }
   body main .dayBox .daytime #sun, body main .dayBox .daytime #bucket {
     transform: scale(0.8, 0.8);
   }
@@ -3478,23 +3235,12 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   body main .dayBox .daytime #boat {
     bottom: 350px;
   }
-  @-webkit-keyframes boatMove {
-    0% {
-      transform: translateX(1200px);
-    }
-    50% {
-      bottom: 355px;
-    }
-    100% {
-      bottom: 350px;
-    }
-  }
   @keyframes boatMove {
     0% {
       transform: translateX(1200px);
     }
     50% {
-      bottom: 355px;
+      bottom: 345px;
     }
     100% {
       bottom: 350px;
@@ -3545,17 +3291,6 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   }
   body main .dayBox .daytime #boat {
     bottom: 320px;
-  }
-  @-webkit-keyframes boatMove {
-    0% {
-      transform: translateX(1200px);
-    }
-    50% {
-      bottom: 325px;
-    }
-    100% {
-      bottom: 320px;
-    }
   }
   @keyframes boatMove {
     0% {
@@ -3615,17 +3350,6 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   body main .dayBox .daytime #boat {
     bottom: 320px;
   }
-  @-webkit-keyframes boatMove {
-    0% {
-      transform: translateX(400px);
-    }
-    50% {
-      bottom: 315px;
-    }
-    100% {
-      bottom: 320px;
-    }
-  }
   @keyframes boatMove {
     0% {
       transform: translateX(400px);
@@ -3663,21 +3387,20 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   }
 }
 @media screen and (device-width: 375px) {
-  body main .dayBox .daytime #dog, body main .dayBox .daytime #sandcastle {
+  body main .dayBox .daytime #sandcastle {
+    top: 62%;
+    right: -16vw;
     transform: scale(0.8, 0.8);
   }
-  body main .dayBox .daytime #sandcastle {
-    top: 60%;
-    right: -16vw;
-  }
   body main .dayBox .daytime #dog {
-    top: 63%;
+    top: 70%;
+    transform: scale(0.7, 0.7);
   }
   body main .dayBox .daytime #dog .tail .helix {
     background-color: #84dbf3;
   }
   body main .dayBox .daytime #ball {
-    top: 80%;
+    top: 85%;
     left: 15%;
   }
   body main .dayBox .daytime #bucket {
@@ -3714,14 +3437,13 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   }
 }
 @media screen and (device-width: 360px) {
-  body main .dayBox .daytime #dog, body main .dayBox .daytime #sandcastle {
-    transform: scale(0.8, 0.8);
-  }
   body main .dayBox .daytime #ball {
-    top: 80%;
+    top: 82%;
+    left: 16%;
   }
   body main .dayBox .daytime #dog {
-    top: 65%;
+    top: 68%;
+    transform: scale(0.7, 0.7);
   }
   body main .dayBox .daytime #dog .tail .helix {
     background-color: #84dbf3;
@@ -3729,10 +3451,26 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   body main .dayBox .daytime #sandcastle {
     top: 62%;
     right: -20vw;
+    transform: scale(0.8, 0.8);
   }
   body main .dayBox .daytime #bucket {
     top: 83%;
     right: 2vw;
+  }
+  body main .dayBox .daytime #boat {
+    bottom: 250px;
+  }
+  @keyframes boatMove {
+    0% {
+      transform: translateX(1300px);
+      bottom: 250px;
+    }
+    50% {
+      bottom: 245px;
+    }
+    100% {
+      bottom: 250px;
+    }
   }
   body main .nightBox .night #forest {
     left: -5%;
@@ -3880,17 +3618,6 @@ body main .calendar #calendar tbody .day td a .checkNight img {
   body main .dayBox .daytime #boat {
     bottom: 220px;
   }
-  @-webkit-keyframes boatMove {
-    0% {
-      transform: translateX(1200px);
-    }
-    50% {
-      bottom: 225px;
-    }
-    100% {
-      bottom: 220px;
-    }
-  }
   @keyframes boatMove {
     0% {
       transform: translateX(1200px);
@@ -3991,8 +3718,7 @@ body main .todayPlan .planBox form .todoBox div.todo {
   display: flex;
   justify-content: center;
   background-color: #fff;
-  -webkit-animation: scaleUp 0.3s forwards;
-          animation: scaleUp 0.3s forwards;
+  animation: scaleUp 0.3s forwards;
   transition: all 0.1s ease;
   outline: 1px solid pink;
 }
@@ -4045,20 +3771,9 @@ body main .todayPlan .planBox .sort button {
   color: #fff;
 }
 
-@-webkit-keyframes scaleUp {
-  to {
-    transform: scale(1);
-  }
-}
-
 @keyframes scaleUp {
   to {
     transform: scale(1);
-  }
-}
-@-webkit-keyframes scaleDown {
-  to {
-    transform: scale(0);
   }
 }
 @keyframes scaleDown {
