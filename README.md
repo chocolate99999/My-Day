@@ -18,7 +18,7 @@ The website link is as follows:
 
 ### **Test Account**
 
-| Account | mailto:test@test.com | mailto:test@test.com |
+| Account | dog@zoo.com | cat@zoo.com |
 | --- | --- | --- |
 | Password | 654321 | 123456 |
 
