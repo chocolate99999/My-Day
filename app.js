@@ -10,7 +10,6 @@ const User           = require("./models/user");
 const UserList       = require("./models/userList");
 const cookieParser   = require('cookie-parser'); 
 const session        = require('express-session');
-const flash          = require('connect-flash');
 const bcrypt         = require('bcrypt');
 const saltRounds     = 10;
 const methodOverride = require("method-override");
@@ -43,7 +42,8 @@ mongoose.connect("mongodb://0.0.0.0:27017/examples", {
 });
 
 app.get("/", (req, res) => {
-  // console.log('Cookies: ', req.cookies);
+  console.log('首頁 Cookies: ', req.cookies);
+  console.log('首頁 Session:', req.session); 
   console.log('首頁 SessionID:', req.sessionID); 
   res.render("pages/index", { title: "My Day" });
 });
@@ -169,6 +169,7 @@ app.delete("/api/user", (req, res, next) => {
   console.log('===== [DBG][Sign_Out] =====');
   try{
     req.session.destroy();
+    res.clearCookie('connect.sid', { path: '/' });
     res.status(200).json({
       "ok": true
     });
