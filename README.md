@@ -1,5 +1,3 @@
-# Readme
-
 # **My Day 我的一天**
 
 ---
@@ -14,13 +12,13 @@
 
 The website link is as follows:
 
-[**http://13.230.97.188:3000/**](http://13.230.97.188:3000/)
+[**[http://18.139.231.230:3000/]**](http://18.139.231.230:3000/)
 
 ### **Test Account**
 
 | Account | dog@zoo.com | cat@zoo.com |
 | --- | --- | --- |
-| Password | 654321 | 123456 |
+| Password | 123456 | 654321 |
 
 ## **Skills Structure**
 
